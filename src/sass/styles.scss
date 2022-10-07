@@ -1,0 +1,25 @@
+// Partials
+@import "partials/index";
+
+// Mixins
+@import "./mixins/index";
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Global
+.app {
+  width: 100%;
+  min-height: 100vh;
+  @include app-vertical-padding;
+  @include app-horizontal-padding;
+}
+
+body {
+  font-size: 1.6rem;
+  color: $text-color-dark;
+}
