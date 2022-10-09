@@ -1,6 +1,6 @@
 // Components
 import { Link } from "react-router-dom";
-import Navigation from "../../shared/Navigation";
+import Navigation from "../../shared/navigation/Navigation";
 import MobileIcon from "./mobile_icon/MobileIcon";
 
 // Data

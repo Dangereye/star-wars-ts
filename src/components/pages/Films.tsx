@@ -1,4 +1,8 @@
+// Hooks
 import useGetData from "../../hooks/useGetData";
+
+// Components
+import FilmCard from "../shared/cards/film_card/FilmCard";
 
 type dataType = {
   title: string;
@@ -22,10 +26,24 @@ export default function Films() {
   return (
     <main>
       <h1>Films</h1>
-      {isLoading && "Loading"}
-      {isError && "Oops! Something went wrong"}
-      {data.length > 0 &&
-        data.map((result) => <div key={result.title}>{result.title}</div>)}
+      {isLoading ? (
+        "Loading"
+      ) : isError ? (
+        "Oops! Something went wrong"
+      ) : (
+        <div className="cards">
+          {data
+            .sort((a, b) => +a.episode_id - +b.episode_id)
+            .map((result) => (
+              <FilmCard
+                image=""
+                episode={result.episode_id}
+                title={result.title}
+                year={result.release_date}
+              />
+            ))}
+        </div>
+      )}
     </main>
   );
 }
