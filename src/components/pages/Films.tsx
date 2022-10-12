@@ -1,10 +1,12 @@
 // Hooks
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import useGetData from "../../hooks/useGetData";
 
 // Components
 import FilmCard from "../shared/cards/film_card/FilmCard";
 
-type dataType = {
+export type filmType = {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -22,24 +24,26 @@ type dataType = {
 };
 
 export default function Films() {
-  const [isLoading, isError, data] = useGetData<dataType[]>("films", []);
+  const { data, setData } = useContext(AppContext);
+  const {} = useGetData("films");
+
   return (
     <main>
       <h1>Films</h1>
-      {isLoading ? (
+      {data.isLoading ? (
         "Loading"
-      ) : isError ? (
+      ) : data.isError ? (
         "Oops! Something went wrong"
       ) : (
         <div className="cards">
-          {data
+          {data.films
             .sort((a, b) => +a.episode_id - +b.episode_id)
             .map((result) => (
               <FilmCard
-                image=""
                 episode={result.episode_id}
                 title={result.title}
                 year={result.release_date}
+                url={result.url}
               />
             ))}
         </div>

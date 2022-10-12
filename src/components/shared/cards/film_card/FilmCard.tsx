@@ -1,18 +1,16 @@
+import { Link } from "react-router-dom";
+
 type FilmCardProps = {
-  image: string;
   episode: number;
   title: string;
   year: string;
+  url: string;
 };
 
-export default function FilmCard({
-  image,
-  episode,
-  title,
-  year,
-}: FilmCardProps) {
+export default function FilmCard({ episode, title, year, url }: FilmCardProps) {
+  const id = url.replace("https://swapi.dev/api/films/", "");
   return (
-    <div className=" film-card">
+    <Link to={`/films/${id}`} className=" film-card">
       <div className="film-card__image">
         <img
           src={`./images/films/ep${episode}@600.jpg`}
@@ -26,6 +24,6 @@ export default function FilmCard({
         <div className="film-card__title">{title}</div>
         <div className="film-card_year">{year}</div>
       </div>
-    </div>
+    </Link>
   );
 }
