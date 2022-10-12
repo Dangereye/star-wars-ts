@@ -24,22 +24,23 @@ export type filmType = {
 };
 
 export default function Films() {
-  const { data, setData } = useContext(AppContext);
+  const { appData, setAppData } = useContext(AppContext);
   const {} = useGetData("films");
 
   return (
     <main>
       <h1>Films</h1>
-      {data.isLoading ? (
-        "Loading"
-      ) : data.isError ? (
-        "Oops! Something went wrong"
+      {appData.isLoading ? (
+        "Loading films..."
+      ) : appData.isError ? (
+        "Oops! Something went wrong, unable to retrieve films."
       ) : (
         <div className="cards">
-          {data.films
+          {appData.films
             .sort((a, b) => +a.episode_id - +b.episode_id)
             .map((result) => (
               <FilmCard
+                key={result.title}
                 episode={result.episode_id}
                 title={result.title}
                 year={result.release_date}

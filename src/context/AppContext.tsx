@@ -5,8 +5,8 @@ type AppContextProviderProps = {
   children: ReactNode;
 };
 type AppType = {
-  data: AppDataType;
-  setData: React.Dispatch<React.SetStateAction<AppDataType>>;
+  appData: AppDataType;
+  setAppData: React.Dispatch<React.SetStateAction<AppDataType>>;
 };
 type AppDataType = {
   films: filmType[];
@@ -25,9 +25,9 @@ export const AppContext = createContext({} as AppType);
 export default function AppContextProvider({
   children,
 }: AppContextProviderProps) {
-  const [data, setData] = useState<AppDataType>(initialData);
+  const [appData, setAppData] = useState<AppDataType>(initialData);
   return (
-    <AppContext.Provider value={{ data, setData }}>
+    <AppContext.Provider value={{ appData, setAppData }}>
       {children}
     </AppContext.Provider>
   );
