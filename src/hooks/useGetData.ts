@@ -1,34 +1,35 @@
-import { useEffect, useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { useEffect, useState } from "react";
 
-export default function useGetData(endPoint: string): {} {
-  const { appData, setAppData } = useContext(AppContext);
-  const key = endPoint as keyof typeof appData;
+export default function useGetData<T>(
+  endPoint: string,
+  initialState: T
+): [T, boolean, boolean] {
+  const [data, setData] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        setAppData({ ...appData, isLoading: true });
+        setIsLoading(true);
         const res = await fetch(`https://swapi.dev/api/${endPoint}`);
         const data = await res.json();
         if (!res.ok) {
           console.log(res);
-          setAppData({ ...appData, isLoading: false, isError: false });
+          setIsLoading(false);
+          setIsError(false);
           return;
         } else {
-          setAppData({
-            ...appData,
-            [key]: data.results,
-            isLoading: false,
-            isError: false,
-          });
+          setData(data.results);
+          setIsLoading(false);
+          setIsError(false);
         }
       } catch {
-        setAppData({ ...appData, isLoading: false, isError: true });
+        setIsLoading(false);
+        setIsError(true);
       }
     };
-
     getData();
   }, []);
-  return {};
+  return [data, isLoading, isError];
 }
