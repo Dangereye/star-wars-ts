@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import MainHeader from "./components/layout/main_header/MainHeader";
-import Film from "./components/pages/Film";
-import Films from "./components/pages/Films";
-import Home from "./components/pages/Home";
-import NotFound from "./components/pages/NotFound";
-import People from "./components/pages/People";
-import Planets from "./components/pages/Planets";
-import Species from "./components/pages/Species";
-import Starships from "./components/pages/Starships";
-import Vehicles from "./components/pages/Vehicles";
+import Film from "./pages/Film";
+import Films from "./pages/Films";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import People from "./pages/People";
+import Planets from "./pages/Planets";
+import Species from "./pages/Species";
+import Starships from "./pages/Starships";
+import Vehicles from "./pages/Vehicles";
 
 function App() {
   return (

@@ -20,7 +20,7 @@ export default function useGetData<T>(
           setIsError(false);
           return;
         } else {
-          setData(data.results);
+          setData(data);
           setIsLoading(false);
           setIsError(false);
         }

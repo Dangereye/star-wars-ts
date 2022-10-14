@@ -1,39 +1,32 @@
 // Hooks
-import useGetData from "../../hooks/useGetData";
+import useGetData from "../hooks/useGetData";
 
 // Components
-import FilmCard from "../shared/cards/film_card/FilmCard";
+import FilmCard from "../components/shared/cards/film_card/FilmCard";
 
-export type filmType = {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  characters: string[];
-  planets: string[];
-  starships: string[];
-  vehicles: string[];
-  species: string[];
-  created: string;
-  edited: string;
-  url: string;
-};
+// Interfaces
+import { IPage } from "../interfaces/page";
+import { IFilm } from "../interfaces/film";
 
-export default function Films() {
-  const [data, isLoading, isError] = useGetData<filmType[]>("films", []);
+// Data
+import { initialState } from "../data/initialState";
+
+export default function FilmsPage() {
+  const [data, isLoading, isError] = useGetData<IPage<IFilm>>(
+    "films",
+    initialState
+  );
 
   return (
     <main>
-      <h1>Films</h1>
+      <h1>Films {data.count}</h1>
       {isLoading ? (
         "Loading films..."
       ) : isError ? (
         "Oops! Something went wrong, unable to retrieve films."
       ) : (
         <div className="cards">
-          {data
+          {data.results
             .sort((a, b) => +a.episode_id - +b.episode_id)
             .map((result) => (
               <FilmCard
