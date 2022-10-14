@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FormatDate from "../../../../utilities/FormatDate";
 
 type FilmCardProps = {
   episode: number;
@@ -22,7 +23,9 @@ export default function FilmCard({ episode, title, year, url }: FilmCardProps) {
       <div className="film-card__content">
         <div className="film-card__episode">Episode {episode}</div>
         <div className="film-card__title">{title}</div>
-        <div className="film-card_year">{year}</div>
+        <div className="film-card_year">
+          <FormatDate date={year} />
+        </div>
       </div>
     </Link>
   );
