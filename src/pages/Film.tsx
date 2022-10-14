@@ -1,22 +1,13 @@
 import { useParams } from "react-router-dom";
+
+// Hooks
 import useGetData from "../hooks/useGetData";
 
-interface IFilm {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: string;
-  species: [];
-  starships: [];
-  vehicles: [];
-  characters: [];
-  planets: [];
-  url: string;
-  created: string;
-  edited: string;
-}
+// Interfaces
+import { IFilm } from "../interfaces/film";
+
+// Components
+import FilmHeader from "../components/layout/film_header/FilmHeader";
 
 export default function Film() {
   const { filmId } = useParams();
@@ -28,11 +19,13 @@ export default function Film() {
   return (
     <main>
       {isLoading ? (
-        "Loading films..."
+        "Loading film..."
       ) : isError ? (
         "Oops! Something went wrong, unable to retrieve film."
       ) : (
-        <h1>{data.title}</h1>
+        <>
+          <FilmHeader data={data} />
+        </>
       )}
     </main>
   );

@@ -14,7 +14,7 @@ export default function FilmCard({ episode, title, year, url }: FilmCardProps) {
     <Link to={`/films/${id}`} className=" film-card">
       <div className="film-card__image">
         <img
-          src={`./images/films/ep${episode}@600.jpg`}
+          src={`/images/films/ep${episode}@600.jpg`}
           width="600px"
           height="900px"
           alt={title}
