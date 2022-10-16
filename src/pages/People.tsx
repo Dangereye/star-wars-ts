@@ -11,6 +11,7 @@ import { IPeople } from "../interfaces/people";
 
 // Data
 import { initialState } from "../data/initialState";
+import PersonCard from "../components/shared/cards/person_card/PersonCard";
 
 export default function People() {
   const [data, isLoading, isError] = useGetData<IPage<IPeople>>(
@@ -29,7 +30,13 @@ export default function People() {
             <h1>People {data.count}</h1>
             <div className="cards">
               {data.results.map((result) => (
-                <div>{result.name}</div>
+                <PersonCard
+                  key={result.name}
+                  name={result.name}
+                  species={result?.species}
+                  gender={result.gender}
+                  url={result.url}
+                />
               ))}
             </div>
           </div>
