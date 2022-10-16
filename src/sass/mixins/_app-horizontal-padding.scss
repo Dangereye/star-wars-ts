@@ -1,11 +1,7 @@
 @mixin app-horizontal-padding {
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 
-  @media (max-width: 800px) {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
   @media (max-width: 450px) {
     padding-left: 2rem;
     padding-right: 2rem;

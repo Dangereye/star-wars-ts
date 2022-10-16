@@ -1,19 +1,25 @@
 .statistics {
-  margin: 4rem 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 4rem;
 }
 
 .statistic {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
   gap: 5px;
+  &__value {
+    font-size: 3rem;
+  }
 
-  &__icon {
-    svg {
-      width: auto;
-      height: 3rem;
-    }
+  .heading {
+    margin: 0;
+  }
+  .body-text {
+    text-align: left;
+    text-transform: capitalize;
+    margin: 0;
   }
 }

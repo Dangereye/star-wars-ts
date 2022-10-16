@@ -1,7 +1,3 @@
-import { IoIosPeople, IoIosPlanet } from "react-icons/io";
-import { GiDna1, GiTank } from "react-icons/gi";
-import { RiSpaceShipFill } from "react-icons/ri";
-
 type StatisticsProps = {
   characters?: number;
   planets?: number;
@@ -20,25 +16,29 @@ export default function Statistics({
   return (
     <div className="statistics">
       <div className="statistic">
-        <div className="statistic__icon">{<IoIosPeople />}</div>
-        <div className="statistic__value">{characters}</div>
+        <div className="heading heading--h2">{characters}</div>
+        <div className="body-text">characters</div>
       </div>
       <div className="statistic">
-        <div className="statistic__icon">{<IoIosPlanet />}</div>
-        <div className="statistic__value">{planets}</div>
+        <div className="heading heading--h2">{planets}</div>
+        <div className="body-text">planets</div>
       </div>
       <div className="statistic">
-        <div className="statistic__icon">{<GiDna1 />}</div>
-        <div className="statistic__value">{species}</div>
+        <div className="heading heading--h2">{species}</div>
+        <div className="body-text">species</div>
       </div>
       <div className="statistic">
-        <div className="statistic__icon">{<RiSpaceShipFill />}</div>
-        <div className="statistic__value">{starships}</div>
+        <div className="heading heading--h2">{starships}</div>
+        <div className="body-text">starships</div>
       </div>
       <div className="statistic">
+        <div className="heading heading--h2">{vehicles}</div>
+        <div className="body-text">vehicles</div>
+      </div>
+      {/* <div className="statistic">
         <div className="statistic__icon">{<GiTank />}</div>
         <div className="statistic__value">{vehicles}</div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -15,9 +15,12 @@
 }
 
 // Global
+
 .app {
+  margin: 0 auto;
   width: 100%;
-  min-height: 100vh;
+  max-width: $app-max-width;
+  min-height: 100%;
 }
 
 body {
@@ -25,7 +28,7 @@ body {
   color: $text-color-dark;
 }
 
-main {
-  @include app-horizontal-padding;
-  @include app-vertical-padding;
+img {
+  width: 100%;
+  height: auto;
 }

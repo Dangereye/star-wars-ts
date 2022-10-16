@@ -1,5 +1,53 @@
 .film-header {
+  width: 100%;
+  max-width: $app-max-width;
+  min-height: 100vh;
+  @include app-vertical-padding;
+  @include app-horizontal-padding;
+
+  @media (min-width: 2561px) {
+    border: 1px solid red;
+    min-height: 120rem;
+    max-height: 200rem;
+  }
+
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 4rem;
+
+  @media (max-width: 836px) {
+    flex-direction: column;
+  }
+
+  &__image {
+    flex: 1 1 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 1500px) {
+      align-items: flex-start;
+    }
+
+    img {
+      max-width: 60rem;
+    }
+  }
+
+  &__content {
+    flex: 2 2 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: 1500px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .production {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+  }
 }
