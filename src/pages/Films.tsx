@@ -10,6 +10,8 @@ import { IFilm } from "../interfaces/film";
 
 // Data
 import { initialState } from "../data/initialState";
+import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
 
 export default function FilmsPage() {
   const [data, isLoading, isError] = useGetData<IPage<IFilm>>(
@@ -20,9 +22,9 @@ export default function FilmsPage() {
   return (
     <>
       {isLoading ? (
-        "Loading films..."
+        <IsLoading message="All films" />
       ) : isError ? (
-        "Oops! Something went wrong, unable to retrieve films."
+        <IsError message="Unable to retrieve films" />
       ) : (
         <main>
           <div className="container">

@@ -14,14 +14,14 @@ import IsError from "../components/shared/is_error/IsError";
 export default function Film() {
   const { filmId } = useParams();
   const [data, isLoading, isError] = useGetData<IFilm>(
-    `film/${filmId}`,
+    `films/${filmId}`,
     {} as IFilm
   );
 
   return (
     <>
       {isLoading ? (
-        <IsLoading message="film data" />
+        <IsLoading message="Film" />
       ) : isError ? (
         <IsError message="Unable to retrieve film data" />
       ) : (

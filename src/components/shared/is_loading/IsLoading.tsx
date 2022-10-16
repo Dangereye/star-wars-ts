@@ -6,7 +6,8 @@ export default function IsLoading({ message }: IsLoadingProps) {
   return (
     <main>
       <div className="container">
-        <div className="message">Loading {message}</div>
+        <h1 className="heading heading--h1">Loading </h1>
+        <p className="body-text">{message}...</p>
       </div>
     </main>
   );
