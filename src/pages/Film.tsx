@@ -8,20 +8,22 @@ import { IFilm } from "../interfaces/film";
 
 // Components
 import FilmHeader from "../components/layout/film_header/FilmHeader";
+import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
 
 export default function Film() {
   const { filmId } = useParams();
   const [data, isLoading, isError] = useGetData<IFilm>(
-    `films/${filmId}`,
+    `film/${filmId}`,
     {} as IFilm
   );
 
   return (
     <>
       {isLoading ? (
-        "Loading film..."
+        <IsLoading message="film data" />
       ) : isError ? (
-        "Oops! Something went wrong, unable to retrieve film."
+        <IsError message="Unable to retrieve film data" />
       ) : (
         <>
           <FilmHeader data={data} />
