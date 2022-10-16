@@ -1,5 +1,5 @@
 type H2Props = {
-  text: string;
+  text: string | number;
 };
 
 export default function H2({ text }: H2Props) {

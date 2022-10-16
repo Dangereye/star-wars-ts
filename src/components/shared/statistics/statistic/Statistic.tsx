@@ -1,3 +1,6 @@
+import BodyText from "../../text/BodyText";
+import H2 from "../../text/H2";
+
 type StatisticProps = {
   name: string;
   value: number | undefined;
@@ -8,8 +11,8 @@ export default function Statistic({ name, value }: StatisticProps) {
     <>
       {value && (
         <div className="statistic">
-          <div className="heading heading--h2">{value}</div>
-          <div className="body-text">{name}</div>
+          <H2 text={value} />
+          <BodyText text={name} />
         </div>
       )}
     </>

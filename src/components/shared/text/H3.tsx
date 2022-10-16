@@ -1,5 +1,5 @@
 type H3Props = {
-  text: string;
+  text: string | number;
 };
 
 export default function H3({ text }: H3Props) {

@@ -1,6 +1,10 @@
+// Components
+import H3 from "../../../shared/text/H3";
+import BodyText from "../../../shared/text/BodyText";
+
 type ProductionTeamProps = {
-  director: string;
-  producer: string;
+  director?: string;
+  producer?: string;
 };
 
 export default function ProductionTeam({
@@ -9,14 +13,18 @@ export default function ProductionTeam({
 }: ProductionTeamProps) {
   return (
     <div className="production-team">
-      <div>
-        <h3 className="heading heading--h3">Director</h3>
-        <p className="body-text">{director}</p>
-      </div>
-      <div>
-        <h3 className="heading heading--h3">Producer(s)</h3>
-        <p className="body-text">{producer}</p>
-      </div>
+      {director && (
+        <div>
+          <H3 text="director" />
+          <BodyText text={director} />
+        </div>
+      )}
+      {producer && (
+        <div>
+          <H3 text="producer(s)" />
+          <BodyText text={producer} />
+        </div>
+      )}
     </div>
   );
 }
