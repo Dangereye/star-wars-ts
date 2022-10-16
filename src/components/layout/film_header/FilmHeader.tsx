@@ -7,6 +7,10 @@ import Statistics from "../../shared/statistics/Statistics";
 // Utilities
 import FormatDate from "../../../utilities/FormatDate";
 import ProductionTeam from "./production_team/ProductionTeam";
+import BodyText from "../../shared/text/BodyText";
+import H3 from "../../shared/text/H3";
+import H2 from "../../shared/text/H2";
+import HDiv from "../../shared/text/HDiv";
 
 type FilmHeaderProps = {
   data: IFilm;
@@ -26,16 +30,12 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
         </div>
         <div className="film-header__content">
           <div>
-            <div className="heading heading--h3">
-              Episode: {data.episode_id}
-            </div>
-            <h1 className="heading heading--h2">{data.title}</h1>
-            <h2 className="heading heading--h3">Released</h2>
-            <p className="body-text">
-              <FormatDate date={data.release_date} />
-            </p>
-            <h3 className="heading heading--h3">Opening Crawl.</h3>
-            <p className="body-text">{data.opening_crawl}</p>
+            <HDiv variant="heading--h3" text={`Episode ${data.episode_id}`} />
+            <H2 text={data.title} />
+            <H3 text="released" />
+            <BodyText text={<FormatDate date={data.release_date} />} />
+            <H3 text="opening crawl." />
+            <BodyText text={data.opening_crawl} />
             <ProductionTeam director={data.director} producer={data.producer} />
           </div>
           <Statistics
