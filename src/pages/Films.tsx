@@ -3,6 +3,8 @@ import useGetData from "../hooks/useGetData";
 
 // Components
 import FilmCard from "../components/shared/cards/film_card/FilmCard";
+import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
@@ -10,8 +12,6 @@ import { IFilm } from "../interfaces/film";
 
 // Data
 import { initialState } from "../data/initialState";
-import IsLoading from "../components/shared/is_loading/IsLoading";
-import IsError from "../components/shared/is_error/IsError";
 
 export default function FilmsPage() {
   const [data, isLoading, isError] = useGetData<IPage<IFilm>>(
