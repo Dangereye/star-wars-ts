@@ -1,0 +1,16 @@
+.statistic {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 5px;
+
+  .heading {
+    margin: 0;
+  }
+
+  .body-text {
+    text-align: left;
+    text-transform: capitalize;
+    margin: 0;
+  }
+}
