@@ -7,7 +7,7 @@ import useGetData from "../hooks/useGetData";
 import { IFilm } from "../interfaces/film";
 
 // Components
-import FilmHeader from "../components/layout/film_header/FilmHeader";
+import FilmHeader from "../components/layout/header/film_header/FilmHeader";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 

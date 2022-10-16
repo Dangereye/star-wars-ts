@@ -6,9 +6,9 @@ import MobileIcon from "./mobile_icon/MobileIcon";
 // Data
 import { pages } from "../../../data/pages";
 
-export default function MainHeader() {
+export default function Navbar() {
   return (
-    <header className="main-header">
+    <div className="navbar">
       <div className="container">
         <Link to="/" className="logo">
           Star Wars
@@ -16,6 +16,6 @@ export default function MainHeader() {
         <Navigation items={pages} variant="list--horizontal" />
         <MobileIcon />
       </div>
-    </header>
+    </div>
   );
 }

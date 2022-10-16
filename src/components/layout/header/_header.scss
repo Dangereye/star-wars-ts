@@ -1,4 +1,4 @@
-.film-header {
+.header {
   width: 100%;
   min-height: 100vh;
 
@@ -24,7 +24,7 @@
     }
   }
 
-  &__image {
+  .image {
     flex: 1 1 35rem;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@
     }
   }
 
-  &__content {
+  .content {
     flex: 2 2 35rem;
     padding: 4rem 0;
     display: flex;

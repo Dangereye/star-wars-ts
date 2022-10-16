@@ -1,6 +1,6 @@
 // Components
-import H3 from "../../../shared/text/H3";
-import BodyText from "../../../shared/text/BodyText";
+import H3 from "../../../../shared/text/H3";
+import BodyText from "../../../../shared/text/BodyText";
 
 type ProductionTeamProps = {
   director?: string;

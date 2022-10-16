@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import MainHeader from "./components/layout/main_header/MainHeader";
+// Components
+import Navbar from "./components/layout/navbar/Navbar";
+
+// Pages
 import Film from "./pages/Film";
 import Films from "./pages/Films";
 import Home from "./pages/Home";
@@ -13,7 +16,7 @@ import Vehicles from "./pages/Vehicles";
 function App() {
   return (
     <div className="app">
-      <MainHeader />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/films" element={<Films />} />
