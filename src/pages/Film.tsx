@@ -17,7 +17,7 @@ export default function Film() {
   );
 
   return (
-    <main>
+    <>
       {isLoading ? (
         "Loading film..."
       ) : isError ? (
@@ -27,6 +27,6 @@ export default function Film() {
           <FilmHeader data={data} />
         </>
       )}
-    </main>
+    </>
   );
 }

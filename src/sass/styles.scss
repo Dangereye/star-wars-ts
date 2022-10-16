@@ -17,15 +17,25 @@
 // Global
 
 .app {
-  margin: 0 auto;
   width: 100%;
-  max-width: $app-max-width;
-  min-height: 100%;
 }
 
 body {
   font-size: 1.6rem;
   color: $text-color-dark;
+  background-color: hsl(0, 0%, 99%);
+}
+main {
+  @include app-horizontal-padding;
+  @include app-vertical-padding;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
 }
 
 img {

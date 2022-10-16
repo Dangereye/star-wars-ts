@@ -18,27 +18,31 @@ export default function FilmsPage() {
   );
 
   return (
-    <main>
-      <h1>Films {data.count}</h1>
+    <>
       {isLoading ? (
         "Loading films..."
       ) : isError ? (
         "Oops! Something went wrong, unable to retrieve films."
       ) : (
-        <div className="cards">
-          {data.results
-            .sort((a, b) => +a.episode_id - +b.episode_id)
-            .map((result) => (
-              <FilmCard
-                key={result.title}
-                episode={result.episode_id}
-                title={result.title}
-                year={result.release_date}
-                url={result.url}
-              />
-            ))}
-        </div>
+        <main>
+          <div className="container">
+            <h1>Films {data.count}</h1>
+            <div className="cards">
+              {data.results
+                .sort((a, b) => +a.episode_id - +b.episode_id)
+                .map((result) => (
+                  <FilmCard
+                    key={result.title}
+                    episode={result.episode_id}
+                    title={result.title}
+                    year={result.release_date}
+                    url={result.url}
+                  />
+                ))}
+            </div>
+          </div>
+        </main>
       )}
-    </main>
+    </>
   );
 }

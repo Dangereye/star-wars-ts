@@ -9,11 +9,13 @@ import { pages } from "../../../data/pages";
 export default function MainHeader() {
   return (
     <header className="main-header">
-      <Link to="/" className="logo">
-        Star Wars
-      </Link>
-      <Navigation items={pages} variant="list--horizontal" />
-      <MobileIcon />
+      <div className="container">
+        <Link to="/" className="logo">
+          Star Wars
+        </Link>
+        <Navigation items={pages} variant="list--horizontal" />
+        <MobileIcon />
+      </div>
     </header>
   );
 }

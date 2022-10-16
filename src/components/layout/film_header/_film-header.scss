@@ -1,22 +1,27 @@
 .film-header {
   width: 100%;
-  max-width: $app-max-width;
   min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @include app-vertical-padding;
   @include app-horizontal-padding;
 
   @media (min-width: 2561px) {
-    border: 1px solid red;
     min-height: 120rem;
     max-height: 200rem;
   }
 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4rem;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
 
-  @media (max-width: 836px) {
-    flex-direction: column;
+    @media (max-width: 836px) {
+      flex-direction: column;
+    }
   }
 
   &__image {
