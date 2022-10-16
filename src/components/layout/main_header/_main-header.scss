@@ -1,9 +1,11 @@
 .main-header {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
   width: 100%;
+  max-width: $app-max-width;
   height: 8rem;
   @include app-horizontal-padding;
 
