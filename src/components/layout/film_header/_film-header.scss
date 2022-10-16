@@ -41,18 +41,15 @@
 
   &__content {
     flex: 2 2 35rem;
+    padding: 4rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: space-evenly;
 
     @media (max-width: 1500px) {
+      padding: 0;
       justify-content: flex-start;
     }
-  }
-
-  .production {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
   }
 }

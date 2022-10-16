@@ -10,13 +10,11 @@
   flex-direction: column;
   align-items: left;
   gap: 5px;
-  &__value {
-    font-size: 3rem;
-  }
 
   .heading {
     margin: 0;
   }
+
   .body-text {
     text-align: left;
     text-transform: capitalize;

@@ -2,8 +2,11 @@
 import { IFilm } from "../../../interfaces/film";
 
 // Components
-import FormatDate from "../../../utilities/FormatDate";
 import Statistics from "../../shared/statistics/Statistics";
+
+// Utilities
+import FormatDate from "../../../utilities/FormatDate";
+import ProductionTeam from "./production_team/ProductionTeam";
 
 type FilmHeaderProps = {
   data: IFilm;
@@ -27,22 +30,13 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
               Episode: {data.episode_id}
             </div>
             <h1 className="heading heading--h2">{data.title}</h1>
-            <h3 className="heading heading--h3">Released</h3>
+            <h2 className="heading heading--h3">Released</h2>
             <p className="body-text">
               <FormatDate date={data.release_date} />
             </p>
-            <h2 className="heading heading--h3">Opening Crawl.</h2>
+            <h3 className="heading heading--h3">Opening Crawl.</h3>
             <p className="body-text">{data.opening_crawl}</p>
-            <div className="production">
-              <div>
-                <h3 className="heading heading--h3">Director</h3>
-                <p className="body-text">{data.director}</p>
-              </div>
-              <div>
-                <h3 className="heading heading--h3">Producer(s)</h3>
-                <p className="body-text">{data.producer}</p>
-              </div>
-            </div>
+            <ProductionTeam director={data.director} producer={data.producer} />
           </div>
           <Statistics
             characters={data.characters?.length}
