@@ -29,9 +29,9 @@ export default function Species({ url }: SpeciesProps) {
   return (
     <>
       {isLoading ? (
-        "loading"
+        <BodyText text="Loading..." />
       ) : isError ? (
-        "Error"
+        <BodyText text="Unavailable." />
       ) : (
         <BodyText text={data?.name} />
       )}
