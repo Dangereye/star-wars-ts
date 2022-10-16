@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 // Hooks
 import useGetData from "../../hooks/useGetData";
 
@@ -13,15 +12,20 @@ type SpeciesProps = {
 };
 
 export default function Species({ url }: SpeciesProps) {
-  let id = "species/1";
-
-  useEffect(() => {
+  const checkId = () => {
+    let id = "species/1";
     if (url[0]) {
       id = url[0].replace("https://swapi.dev/api/", "");
+      return id;
+    } else {
+      return id;
     }
-  }, [url]);
+  };
 
-  const [data, isLoading, isError] = useGetData<ISpecies>(id, {} as ISpecies);
+  const [data, isLoading, isError] = useGetData<ISpecies>(
+    checkId(),
+    {} as ISpecies
+  );
   return (
     <>
       {isLoading ? (
