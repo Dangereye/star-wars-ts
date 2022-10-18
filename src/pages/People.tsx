@@ -11,7 +11,7 @@ import { IPeople } from "../interfaces/people";
 
 // Data
 import { initialState } from "../data/initialState";
-import PersonCard from "../components/shared/cards/person_card/PersonCard";
+import PersonCard from "../components/shared/cards/PersonCard";
 
 export default function People() {
   const [data, isLoading, isError] = useGetData<IPage<IPeople>>(

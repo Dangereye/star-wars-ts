@@ -2,7 +2,7 @@
 import useGetData from "../hooks/useGetData";
 
 // Components
-import FilmCard from "../components/shared/cards/film_card/FilmCard";
+import FilmCard from "../components/shared/cards/FilmCard";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 

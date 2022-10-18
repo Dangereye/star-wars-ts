@@ -1,0 +1,52 @@
+.card {
+  display: block;
+  background-color: hsl(0, 0%, 95%);
+  transition: transform $time;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+
+    .heading--h3,
+    .heading--h4,
+    .body-text {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .body-text {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 40rem;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+    svg {
+      width: 8rem;
+      height: auto;
+      stroke: $text-color-dark;
+    }
+  }
+}
