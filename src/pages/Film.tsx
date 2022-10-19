@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 // Hooks
-import useGetData from "../hooks/useGetData";
+import useFetchData from "../hooks/useFetchData";
 
 // Interfaces
 import { IFilm } from "../interfaces/film";
@@ -13,22 +13,18 @@ import IsError from "../components/shared/is_error/IsError";
 
 export default function Film() {
   const { filmId } = useParams();
-  const [data, isLoading, isError] = useGetData<IFilm>(
-    `films/${filmId}`,
-    {} as IFilm
-  );
+  const { data, isLoading, isError } = useFetchData<IFilm>(`films/${filmId}`);
+
+  if (isLoading) {
+    return <IsLoading message="Film" />;
+  }
+  if (isError) {
+    return <IsError message="Unable to retrieve film" />;
+  }
 
   return (
     <>
-      {isLoading ? (
-        <IsLoading message="Film" />
-      ) : isError ? (
-        <IsError message="Unable to retrieve film data" />
-      ) : (
-        <>
-          <FilmHeader data={data} />
-        </>
-      )}
+      <FilmHeader data={data} />
     </>
   );
 }

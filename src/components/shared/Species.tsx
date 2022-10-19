@@ -1,5 +1,5 @@
 // Hooks
-import useGetData from "../../hooks/useGetData";
+import useFetchData from "../../hooks/useFetchData";
 
 // Components
 import BodyText from "./text/BodyText";
@@ -22,10 +22,11 @@ export default function Species({ url }: SpeciesProps) {
     }
   };
 
-  const [data, isLoading, isError] = useGetData<ISpecies>(
-    checkId(),
-    {} as ISpecies
-  );
+  const {
+    data: species,
+    isLoading,
+    isError,
+  } = useFetchData<ISpecies>(checkId());
   return (
     <>
       {isLoading ? (
@@ -33,7 +34,7 @@ export default function Species({ url }: SpeciesProps) {
       ) : isError ? (
         <BodyText text="Unavailable" />
       ) : (
-        <BodyText text={data?.name} />
+        <BodyText text={species?.name} />
       )}
     </>
   );

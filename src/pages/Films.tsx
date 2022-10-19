@@ -1,5 +1,5 @@
 // Hooks
-import useGetData from "../hooks/useGetData";
+import useFetchData from "../hooks/useFetchData";
 
 // Components
 import FilmCard from "../components/shared/cards/FilmCard";
@@ -10,41 +10,39 @@ import IsError from "../components/shared/is_error/IsError";
 import { IPage } from "../interfaces/page";
 import { IFilm } from "../interfaces/film";
 
-// Data
-import { initialState } from "../data/initialState";
-
 export default function FilmsPage() {
-  const [data, isLoading, isError] = useGetData<IPage<IFilm>>(
-    "films",
-    initialState
-  );
+  const {
+    isLoading,
+    data: films,
+    isError,
+  } = useFetchData<IPage<IFilm>>("films");
 
+  if (isLoading) {
+    return <IsLoading message="All films" />;
+  }
+  if (isError) {
+    return <IsError message="Unable to retrieve films" />;
+  }
   return (
-    <>
-      {isLoading ? (
-        <IsLoading message="All films" />
-      ) : isError ? (
-        <IsError message="Unable to retrieve films" />
-      ) : (
-        <main>
-          <div className="container">
-            <h1>Films {data.count}</h1>
-            <div className="cards">
-              {data.results
-                .sort((a, b) => +a.episode_id - +b.episode_id)
-                .map((result) => (
-                  <FilmCard
-                    key={result.title}
-                    episode={result.episode_id}
-                    title={result.title}
-                    year={result.release_date}
-                    url={result.url}
-                  />
-                ))}
-            </div>
-          </div>
-        </main>
-      )}
-    </>
+    <main>
+      <div className="container">
+        <h1>Films {films?.count}</h1>
+        <div className="cards">
+          {films?.results
+            .sort((a, b) => +a.episode_id - +b.episode_id)
+            .map((result) => (
+              <FilmCard
+                key={result.title}
+                episode={result.episode_id}
+                title={result.title}
+                year={result.release_date}
+                url={result.url}
+              />
+            ))}
+        </div>
+      </div>
+    </main>
+    //   )}
+    // </>
   );
 }
