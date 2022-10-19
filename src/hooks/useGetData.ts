@@ -17,7 +17,7 @@ export default function useGetData<T>(
         if (!res.ok) {
           console.log(res);
           setIsLoading(false);
-          setIsError(false);
+          setIsError(true);
           return;
         } else {
           setData(data);

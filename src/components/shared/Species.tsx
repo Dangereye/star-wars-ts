@@ -31,7 +31,7 @@ export default function Species({ url }: SpeciesProps) {
       {isLoading ? (
         <BodyText text="Loading..." />
       ) : isError ? (
-        <BodyText text="Unavailable." />
+        <BodyText text="Unavailable" />
       ) : (
         <BodyText text={data?.name} />
       )}
