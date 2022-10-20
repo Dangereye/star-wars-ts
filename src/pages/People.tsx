@@ -12,14 +12,16 @@ import PersonCard from "../components/shared/cards/PersonCard";
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
 import Button from "../components/shared/buttons/button/Button";
+import H1 from "../components/shared/text/H1";
+import BodyText from "../components/shared/text/BodyText";
 
 export default function People() {
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
   const {
     isLoading,
     data: people,
     isError,
-  } = useFetchData<IPage<IPeople>>("people");
+  } = useFetchData<IPage<IPeople>>(`people/?page=${page}`);
 
   if (isLoading) {
     return <IsLoading message="All people" />;
@@ -31,7 +33,9 @@ export default function People() {
   return (
     <main>
       <div className="container">
-        <h1>People {people?.count}</h1>
+        <H1 text={`People ${people.count}`} />
+        <BodyText text={`Page ${page}`} />
+
         <div className="cards">
           {people?.results.map((result) => (
             <PersonCard
@@ -48,7 +52,7 @@ export default function People() {
             name="previous"
             size="btn--large"
             variant="btn--primary"
-            onClick={() => {}}
+            onClick={() => setPage((prev) => prev - 1)}
             disabled={!people.previous}
           />
 
@@ -56,7 +60,7 @@ export default function People() {
             name="next"
             size="btn--large"
             variant="btn--primary"
-            onClick={() => {}}
+            onClick={() => setPage((prev) => prev + 1)}
             disabled={!people.next}
           />
         </div>
