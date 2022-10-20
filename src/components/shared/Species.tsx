@@ -15,7 +15,7 @@ export default function Species({ url }: SpeciesProps) {
   const checkId = () => {
     let id = "species/1";
     if (url[0]) {
-      id = url[0].replace("https://swapi.dev/api/", "");
+      id = url[0].replace("https://swapi.py4e.com/api/", "");
       return id;
     } else {
       return id;

@@ -11,7 +11,7 @@ type FilmCardProps = {
 };
 
 export default function FilmCard({ episode, title, year, url }: FilmCardProps) {
-  const id = url.replace("https://swapi.dev/api/films/", "");
+  const id = url.replace("https://swapi.py4e.com/api/films/", "");
   return (
     <Link to={`/films/${id}`} className=" card">
       <div className="card__image">

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // Hooks
 import useFetchData from "../hooks/useFetchData";
 
@@ -12,6 +14,7 @@ import { IPeople } from "../interfaces/people";
 import Button from "../components/shared/buttons/button/Button";
 
 export default function People() {
+  const [page, setPage] = useState();
   const {
     isLoading,
     data: people,
