@@ -2,26 +2,22 @@ type ButtonProps = {
   name: string;
   size?: "btn--large";
   variant?: "btn--primary" | "btn--secondary" | "btn--tertiary";
-  disabled?: boolean;
   onClick: () => void;
+  disabled?: boolean;
 };
 
 export default function Button({
   name,
   size,
   variant,
-  disabled,
   onClick,
+  disabled,
 }: ButtonProps) {
-  const handleClick = () => {
-    if (!disabled) {
-      onClick();
-    }
-  };
   return (
     <button
       className={`btn ${size} ${disabled ? "btn--disabled" : variant}`}
-      onClick={handleClick}
+      onClick={onClick}
+      disabled={disabled}
     >
       {name}
     </button>
