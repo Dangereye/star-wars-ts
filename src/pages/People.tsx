@@ -9,6 +9,7 @@ import PersonCard from "../components/shared/cards/PersonCard";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
+import Button from "../components/shared/buttons/button/Button";
 
 export default function People() {
   const {
@@ -18,7 +19,7 @@ export default function People() {
   } = useFetchData<IPage<IPeople>>("people");
 
   if (isLoading) {
-    return <IsLoading message="All films" />;
+    return <IsLoading message="All people" />;
   }
   if (isError) {
     return <IsLoading message="Unable to retrieve people" />;
@@ -38,6 +39,23 @@ export default function People() {
               url={result.url}
             />
           ))}
+        </div>
+        <div className="buttons">
+          <Button
+            name="previous"
+            size="btn--large"
+            variant="btn--primary"
+            onClick={() => {}}
+            disabled={!people.previous}
+          />
+
+          <Button
+            name="next"
+            size="btn--large"
+            variant="btn--primary"
+            onClick={() => {}}
+            disabled={!people.next}
+          />
         </div>
       </div>
     </main>

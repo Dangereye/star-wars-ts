@@ -1,0 +1,32 @@
+.btn {
+  font-family: "Open Sans", sans-serif;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+
+  &--large {
+    padding: 3rem 6rem;
+  }
+  &--primary {
+    color: $text-color-light;
+    background-color: $text-color-dark;
+  }
+  &--secondary {
+    color: $text-color-dark;
+    background-color: transparent;
+    border: 1px solid $text-color-dark;
+  }
+
+  &--tertiary {
+    color: $text-color-dark;
+    background-color: transparent;
+  }
+
+  &--disabled {
+    color: rgba($text-color-dark, 0.5);
+    cursor: not-allowed;
+  }
+}
