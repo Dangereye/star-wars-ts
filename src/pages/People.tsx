@@ -11,10 +11,9 @@ import PersonCard from "../components/shared/cards/PersonCard";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
-import Button from "../components/shared/buttons/button/Button";
 import H1 from "../components/shared/text/H1";
-import BodyText from "../components/shared/text/BodyText";
 import HDiv from "../components/shared/text/HDiv";
+import Pagination from "../components/shared/Pagination";
 
 export default function People() {
   const [page, setPage] = useState(1);
@@ -48,24 +47,7 @@ export default function People() {
             />
           ))}
         </div>
-        <BodyText text={`Page ${page} of ${Math.ceil(people.count / 10)}`} />
-        <div className="buttons">
-          <Button
-            name="previous"
-            size="btn--large"
-            variant="btn--primary"
-            onClick={() => setPage((prev) => prev - 1)}
-            disabled={!people.previous}
-          />
-
-          <Button
-            name="next"
-            size="btn--large"
-            variant="btn--primary"
-            onClick={() => setPage((prev) => prev + 1)}
-            disabled={!people.next}
-          />
-        </div>
+        <Pagination page={page} setPage={setPage} data={people} />
       </div>
     </main>
   );
