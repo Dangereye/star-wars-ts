@@ -14,6 +14,7 @@ import { IPeople } from "../interfaces/people";
 import Button from "../components/shared/buttons/button/Button";
 import H1 from "../components/shared/text/H1";
 import BodyText from "../components/shared/text/BodyText";
+import HDiv from "../components/shared/text/HDiv";
 
 export default function People() {
   const [page, setPage] = useState(1);
@@ -33,8 +34,8 @@ export default function People() {
   return (
     <main>
       <div className="container">
-        <H1 text={`People ${people.count}`} />
-        <BodyText text={`Page ${page}`} />
+        <H1 text="people" />
+        <HDiv variant="heading--h3" text={`Found ${people.count} results`} />
 
         <div className="cards">
           {people?.results.map((result) => (
@@ -47,6 +48,7 @@ export default function People() {
             />
           ))}
         </div>
+        <BodyText text={`Page ${page} of ${Math.ceil(people.count / 10)}`} />
         <div className="buttons">
           <Button
             name="previous"

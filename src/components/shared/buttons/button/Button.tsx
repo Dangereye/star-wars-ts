@@ -13,12 +13,22 @@ export default function Button({
   disabled,
   onClick,
 }: ButtonProps) {
+  const handleClick = () => {
+    if (!disabled) {
+      onClick();
+    }
+  };
   return (
     <button
       className={`btn ${size} ${disabled ? "btn--disabled" : variant}`}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {name}
     </button>
   );
 }
+
+Button.defaultProps = {
+  name: "button",
+  disabled: false,
+};
