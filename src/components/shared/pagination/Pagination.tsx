@@ -1,5 +1,5 @@
-import Button from "./buttons/button/Button";
-import BodyText from "./text/BodyText";
+import Button from "../buttons/button/Button";
+import BodyText from "../text/BodyText";
 
 type PaginationProps = {
   page: number;
