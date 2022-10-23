@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import PersonHeader from "../components/layout/header/person_header/PersonHeader";
 import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import HDiv from "../components/shared/text/HDiv";
@@ -23,10 +24,8 @@ export default function Person() {
   }
 
   return (
-    <main>
-      <div className="container">
-        <HDiv variant="heading--h2" text={person.name} />
-      </div>
-    </main>
+    <>
+      <PersonHeader data={person} />
+    </>
   );
 }

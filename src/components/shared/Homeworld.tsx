@@ -5,14 +5,14 @@ import useFetchData from "../../hooks/useFetchData";
 import BodyText from "./text/BodyText";
 
 // Interfaces
-import { ISpecies } from "../../interfaces/species";
+import { IHomeworld } from "../../interfaces/homeworld";
 
-type SpeciesProps = {
-  url: string[];
+type HomeworldProps = {
+  url: string;
 };
 
-export default function Species({ url }: SpeciesProps) {
-  const { data: species, isLoading, isError } = useFetchData<ISpecies>(url[0]);
+export default function Homeworld({ url }: HomeworldProps) {
+  const { data: homeworld, isLoading, isError } = useFetchData<IHomeworld>(url);
   return (
     <>
       {isLoading ? (
@@ -20,7 +20,7 @@ export default function Species({ url }: SpeciesProps) {
       ) : isError ? (
         <BodyText text="Unavailable" />
       ) : (
-        <BodyText text={species?.name} />
+        <BodyText text={homeworld?.name} />
       )}
     </>
   );
