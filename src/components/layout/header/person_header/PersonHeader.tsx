@@ -37,6 +37,28 @@ export default function PersonHeader({ data }: PersonHeaderProps) {
             text={`${data.birth_year} (Years before the battle of Yavin)`}
           />
           <H3 text="appearance" />
+          <ul>
+            <li>
+              <span>Height:</span>
+              <span>{data.height}</span>
+            </li>
+            <li>
+              <span>Mass:</span>
+              <span>{data.mass}</span>
+            </li>
+            <li>
+              <span>Hair colour:</span>
+              <span>{data.hair_color}</span>
+            </li>
+            <li>
+              <span>Skin colour:</span>
+              <span>{data.skin_color}</span>
+            </li>
+            <li>
+              <span>Eye colour:</span>
+              <span>{data.eye_color}</span>
+            </li>
+          </ul>
         </div>
         <Statistics
           films={data.films.length}
