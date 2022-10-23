@@ -43,32 +43,34 @@ export default function People() {
 
         <div className="cards">
           {people.pages.map((page) =>
-            page.results?.map((result) => (
+            page.results?.map((person) => (
               <PersonCard
-                key={result.name}
-                name={result.name}
-                species={result?.species}
-                gender={result.gender}
-                url={result.url}
+                key={person.name}
+                name={person.name}
+                species={person.species}
+                gender={person.gender}
+                url={person.url}
               />
             ))
           )}
         </div>
-        <div className="buttons">
-          <Button
-            name={
-              isFetchingNextPage
-                ? "loading more..."
-                : hasNextPage
-                ? "load more"
-                : "nothing more"
-            }
-            size="btn--large"
-            variant="btn--primary"
-            onClick={() => fetchNextPage()}
-            disabled={!hasNextPage}
-          />
-        </div>
+        {people.pages[0].next && (
+          <div className="buttons">
+            <Button
+              name={
+                isFetchingNextPage
+                  ? "loading more..."
+                  : hasNextPage
+                  ? "load more"
+                  : "nothing more"
+              }
+              size="btn--large"
+              variant="btn--primary"
+              onClick={() => fetchNextPage()}
+              disabled={!hasNextPage}
+            />
+          </div>
+        )}
       </div>
     </main>
   );

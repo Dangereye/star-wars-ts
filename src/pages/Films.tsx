@@ -1,5 +1,5 @@
 // Hooks
-import useFetchData from "../hooks/useFetchData";
+import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 
 // Components
 import FilmCard from "../components/shared/cards/FilmCard";
@@ -9,16 +9,25 @@ import IsError from "../components/shared/is_error/IsError";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IFilm } from "../interfaces/film";
+import Button from "../components/shared/buttons/button/Button";
 
 export default function FilmsPage() {
+  const getNextPageParam = (lastPage: IPage<IFilm>) =>
+    lastPage.next
+      ? lastPage.next.replace(`https://swapi.py4e.com/api/films/?page=`, "")
+      : null;
+
   const {
     isLoading,
-    data: films,
     isError,
-  } = useFetchData<IPage<IFilm>>("films");
+    data: films,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteFetchData<IPage<IFilm>>("films", getNextPageParam);
 
   if (isLoading) {
-    return <IsLoading message="All films" />;
+    return <IsLoading message="Films" />;
   }
   if (isError) {
     return <IsError message="Unable to retrieve films" />;
@@ -26,23 +35,38 @@ export default function FilmsPage() {
   return (
     <main>
       <div className="container">
-        <h1>Films {films?.count}</h1>
+        <h1>Films {films?.pages[0].count}</h1>
         <div className="cards">
-          {films?.results
-            .sort((a, b) => +a.episode_id - +b.episode_id)
-            .map((result) => (
+          {films.pages.map((page) =>
+            page.results.map((film) => (
               <FilmCard
-                key={result.title}
-                episode={result.episode_id}
-                title={result.title}
-                year={result.release_date}
-                url={result.url}
+                key={film.title}
+                episode={film.episode_id}
+                title={film.title}
+                year={film.release_date}
+                url={film.url}
               />
-            ))}
+            ))
+          )}
         </div>
+        {films.pages[0].next && (
+          <div className="buttons">
+            <Button
+              name={
+                isFetchingNextPage
+                  ? "loading more..."
+                  : hasNextPage
+                  ? "load more"
+                  : "nothing more"
+              }
+              size="btn--large"
+              variant="btn--primary"
+              onClick={() => fetchNextPage()}
+              disabled={!hasNextPage}
+            />
+          </div>
+        )}
       </div>
     </main>
-    //   )}
-    // </>
   );
 }
