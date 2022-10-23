@@ -5,11 +5,13 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 import FilmCard from "../components/shared/cards/FilmCard";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
+import Button from "../components/shared/buttons/button/Button";
+import BodyText from "../components/shared/text/BodyText";
+import HDiv from "../components/shared/text/HDiv";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IFilm } from "../interfaces/film";
-import Button from "../components/shared/buttons/button/Button";
 
 export default function FilmsPage() {
   const getNextPageParam = (lastPage: IPage<IFilm>) =>
@@ -35,7 +37,8 @@ export default function FilmsPage() {
   return (
     <main>
       <div className="container">
-        <h1>Films {films?.pages[0].count}</h1>
+        <HDiv variant="heading--h2" text="films" />
+        <BodyText text={`Found ${films.pages[0].count} results.`} />
         <div className="cards">
           {films.pages.map((page) =>
             page.results
