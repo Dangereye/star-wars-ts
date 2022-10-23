@@ -6,13 +6,16 @@ import BodyText from "./text/BodyText";
 
 // Interfaces
 import { ISpecies } from "../../interfaces/species";
+import LinkText from "./text/LinkText";
 
 type SpeciesProps = {
   url: string[];
+  icon?: boolean;
 };
 
-export default function Species({ url }: SpeciesProps) {
+export default function Species({ url, icon }: SpeciesProps) {
   const { data: species, isLoading, isError } = useFetchData<ISpecies>(url[0]);
+  const href = url[0].replace("https://swapi.py4e.com/api", "");
   return (
     <>
       {isLoading ? (
@@ -20,7 +23,7 @@ export default function Species({ url }: SpeciesProps) {
       ) : isError ? (
         <BodyText text="Unavailable" />
       ) : (
-        <BodyText text={species?.name} />
+        <LinkText href={href} icon={icon} text={species.name} />
       )}
     </>
   );

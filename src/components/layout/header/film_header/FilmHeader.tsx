@@ -12,6 +12,7 @@ import H3 from "../../../shared/text/H3";
 import H2 from "../../../shared/text/H2";
 import HDiv from "../../../shared/text/HDiv";
 import Header from "../../header/Header";
+import H1 from "../../../shared/text/H1";
 
 type FilmHeaderProps = {
   data: IFilm;
@@ -31,7 +32,7 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
       <div className="content">
         <div>
           <HDiv variant="heading--h3" text={`Episode ${data.episode_id}`} />
-          <H2 text={data.title} />
+          <H1 text={data.title} />
           <H3 text="released" />
           <BodyText text={<FormatDate date={data.release_date} />} />
           <H3 text="opening crawl." />

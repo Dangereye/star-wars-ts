@@ -14,6 +14,9 @@
     &__link {
       text-decoration: none;
       text-transform: capitalize;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: $text-color-dark;
     }
   }
 }

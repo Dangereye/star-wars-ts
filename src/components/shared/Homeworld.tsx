@@ -6,13 +6,16 @@ import BodyText from "./text/BodyText";
 
 // Interfaces
 import { IHomeworld } from "../../interfaces/homeworld";
+import LinkText from "./text/LinkText";
 
 type HomeworldProps = {
   url: string;
+  icon?: boolean;
 };
 
-export default function Homeworld({ url }: HomeworldProps) {
+export default function Homeworld({ url, icon }: HomeworldProps) {
   const { data: homeworld, isLoading, isError } = useFetchData<IHomeworld>(url);
+  const href = url.replace("https://swapi.py4e.com/api", "");
   return (
     <>
       {isLoading ? (
@@ -20,7 +23,7 @@ export default function Homeworld({ url }: HomeworldProps) {
       ) : isError ? (
         <BodyText text="Unavailable" />
       ) : (
-        <BodyText text={homeworld?.name} />
+        <LinkText href={href} icon={icon} text={homeworld?.name} />
       )}
     </>
   );

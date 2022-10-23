@@ -1,12 +1,12 @@
-import { IPeople } from "../../../../interfaces/people";
+// Components
+import Header from "../Header";
 import Homeworld from "../../../shared/Homeworld";
 import Species from "../../../shared/Species";
 import Statistics from "../../../shared/statistics/Statistics";
-import BodyText from "../../../shared/text/BodyText";
-import H2 from "../../../shared/text/H2";
-import H3 from "../../../shared/text/H3";
-import HDiv from "../../../shared/text/HDiv";
-import Header from "../Header";
+import H1 from "../../../shared/text/H1";
+
+// Interfaces
+import { IPeople } from "../../../../interfaces/people";
 
 type PersonHeaderProps = {
   data: IPeople;
@@ -25,37 +25,46 @@ export default function PersonHeader({ data }: PersonHeaderProps) {
       </div>
       <div className="content">
         <div>
-          <H2 text={data.name} />
-          <H3 text="gender" />
-          <BodyText text={data.gender} />
-          <H3 text="species" />
-          <Species url={data.species} />
-          <H3 text="homeworld" />
-          <Homeworld url={data.homeworld} />
-          <H3 text="birth year" />
-          <BodyText
-            text={`${data.birth_year} (Years before the battle of Yavin)`}
-          />
-          <H3 text="appearance" />
-          <ul>
-            <li>
-              <span>Height:</span>
-              <span>{data.height}</span>
+          <H1 text={data.name} />
+          <ul className="list">
+            <li className="list__item">
+              <span>gender</span>
+              <span>{data.gender}</span>
             </li>
-            <li>
-              <span>Mass:</span>
-              <span>{data.mass}</span>
+            <li className="list__item">
+              <span>species</span>
+              <span>
+                <Species url={data.species} icon />
+              </span>
             </li>
-            <li>
-              <span>Hair colour:</span>
+            <li className="list__item">
+              <span>Birth Year</span>
+              <span>{data.birth_year}</span>
+            </li>
+            <li className="list__item">
+              <span>Homeworld</span>
+              <span>
+                <Homeworld url={data.homeworld} icon />
+              </span>
+            </li>
+            <li className="list__item">
+              <span>Height</span>
+              <span>{data.height}cm</span>
+            </li>
+            <li className="list__item">
+              <span>Mass</span>
+              <span>{data.mass}kg</span>
+            </li>
+            <li className="list__item">
+              <span>Hair colour</span>
               <span>{data.hair_color}</span>
             </li>
-            <li>
-              <span>Skin colour:</span>
+            <li className="list__item">
+              <span>Skin colour</span>
               <span>{data.skin_color}</span>
             </li>
-            <li>
-              <span>Eye colour:</span>
+            <li className="list__item">
+              <span>Eye colour</span>
               <span>{data.eye_color}</span>
             </li>
           </ul>

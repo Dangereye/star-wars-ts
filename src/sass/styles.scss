@@ -28,7 +28,7 @@ a {
 body {
   font-size: 1.6rem;
   color: $text-color-dark;
-  background-color: hsl(0, 0%, 99%);
+  background-color: $background-color;
 }
 main {
   @include app-horizontal-padding;
