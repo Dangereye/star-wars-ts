@@ -1,31 +1,24 @@
-import React, { useState } from "react";
-import { useInfiniteQuery } from "@tanstack/react-query";
-
 // Hooks
-import useFetchData from "../hooks/useFetchData";
+import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 
 // Components
 import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import PersonCard from "../components/shared/cards/PersonCard";
+import HDiv from "../components/shared/text/HDiv";
+import BodyText from "../components/shared/text/BodyText";
+import Button from "../components/shared/buttons/button/Button";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
-import H1 from "../components/shared/text/H1";
-import Button from "../components/shared/buttons/button/Button";
-import BodyText from "../components/shared/text/BodyText";
-
-const fetchData = async ({ pageParam = 1 }) => {
-  console.log(pageParam);
-  const res = await fetch(
-    `https://swapi.py4e.com/api/people/?page=${pageParam}`
-  );
-  const data = await res.json();
-  return data;
-};
 
 export default function People() {
+  const getNextPageParam = (lastPage: IPage<IPeople>) =>
+    lastPage.next
+      ? lastPage.next.replace(`https://swapi.py4e.com/api/people/?page=`, "")
+      : null;
+
   const {
     isLoading,
     isError,
@@ -33,31 +26,19 @@ export default function People() {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery<IPage<IPeople>>(
-    ["people"],
-    (pageParams) => fetchData(pageParams),
-    {
-      getNextPageParam: (lastPage) =>
-        lastPage.next
-          ? lastPage.next.replace(
-              "https://swapi.py4e.com/api/people/?page=",
-              ""
-            )
-          : null,
-    }
-  );
+  } = useInfiniteFetchData<IPage<IPeople>>("people", getNextPageParam);
 
   if (isLoading) {
     return <IsLoading message={`People`} />;
   }
   if (isError) {
-    return <IsLoading message="Unable to retrieve people" />;
+    return <IsError message="Unable to retrieve people" />;
   }
 
   return (
     <main>
       <div className="container">
-        <H1 text="people" />
+        <HDiv variant="heading--h2" text="people" />
         <BodyText text={`Found ${people.pages[0].count} results.`} />
 
         <div className="cards">
@@ -77,9 +58,9 @@ export default function People() {
           <Button
             name={
               isFetchingNextPage
-                ? "Loading more..."
+                ? "loading more..."
                 : hasNextPage
-                ? "Load more"
+                ? "load more"
                 : "nothing more"
             }
             size="btn--large"
