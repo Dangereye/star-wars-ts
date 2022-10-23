@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 async function getData(endPoint: string) {
-  const res = await fetch(`https://swapi.py4e.com/api/${endPoint}`);
+  const res = await fetch(endPoint);
   return res.json();
 }
 

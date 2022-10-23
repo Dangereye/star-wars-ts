@@ -13,7 +13,9 @@ import IsError from "../components/shared/is_error/IsError";
 
 export default function Film() {
   const { filmId } = useParams();
-  const { data, isLoading, isError } = useFetchData<IFilm>(`films/${filmId}`);
+  const { data, isLoading, isError } = useFetchData<IFilm>(
+    `https://swapi.py4e.com/api/films/${filmId}`
+  );
 
   if (isLoading) {
     return <IsLoading message="Film" />;

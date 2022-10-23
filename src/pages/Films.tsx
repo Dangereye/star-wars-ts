@@ -38,15 +38,17 @@ export default function FilmsPage() {
         <h1>Films {films?.pages[0].count}</h1>
         <div className="cards">
           {films.pages.map((page) =>
-            page.results.map((film) => (
-              <FilmCard
-                key={film.title}
-                episode={film.episode_id}
-                title={film.title}
-                year={film.release_date}
-                url={film.url}
-              />
-            ))
+            page.results
+              .sort((a, b) => a.episode_id - b.episode_id)
+              .map((film) => (
+                <FilmCard
+                  key={film.title}
+                  episode={film.episode_id}
+                  title={film.title}
+                  year={film.release_date}
+                  url={film.url}
+                />
+              ))
           )}
         </div>
         {films.pages[0].next && (
