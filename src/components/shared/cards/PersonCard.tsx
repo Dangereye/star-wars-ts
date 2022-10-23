@@ -16,6 +16,8 @@ export default function PersonCard({
   gender,
   url,
 }: PersonCardProps) {
+  const id = url.replace("https://swapi.py4e.com/api/people/", "");
+
   const setBackground = () => {
     if (gender === "male") {
       return "hsl(203, 44%, 81%)";
@@ -25,6 +27,7 @@ export default function PersonCard({
     }
     return "hsl(39, 48%, 89%)";
   };
+
   const setIcon = () => {
     if (gender === "male") {
       return <TbGenderMale />;
@@ -36,7 +39,7 @@ export default function PersonCard({
   };
 
   return (
-    <Link to="/" className="card">
+    <Link to={`/people/${id}`} className="card">
       <div className="card__icon" style={{ backgroundColor: setBackground() }}>
         {setIcon()}
       </div>

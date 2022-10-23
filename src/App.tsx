@@ -17,6 +17,7 @@ import Planets from "./pages/Planets";
 import Species from "./pages/Species";
 import Starships from "./pages/Starships";
 import Vehicles from "./pages/Vehicles";
+import Person from "./pages/Person";
 
 function App() {
   const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/films" element={<Films />} />
           <Route path="/films/:filmId" element={<Film />} />
           <Route path="/people" element={<People />} />
+          <Route path="/people/:personId" element={<Person />} />
           <Route path="/species" element={<Species />} />
           <Route path="/planets" element={<Planets />} />
           <Route path="/starships" element={<Starships />} />
