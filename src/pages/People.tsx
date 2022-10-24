@@ -2,12 +2,10 @@
 import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 
 // Components
-import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
 import PersonCard from "../components/shared/cards/PersonCard";
-import HDiv from "../components/shared/text/HDiv";
-import BodyText from "../components/shared/text/BodyText";
-import Button from "../components/shared/buttons/button/Button";
+import Cards from "../components/shared/cards/Cards";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
@@ -36,42 +34,24 @@ export default function People() {
   }
 
   return (
-    <main>
-      <div className="container">
-        <HDiv variant="heading--h2" text="people" />
-        <BodyText text={`Found ${people.pages[0].count} results.`} />
-
-        <div className="cards">
-          {people.pages.map((page) =>
-            page.results?.map((person) => (
-              <PersonCard
-                key={person.name}
-                name={person.name}
-                species={person.species}
-                gender={person.gender}
-                url={person.url}
-              />
-            ))
-          )}
-        </div>
-        {people.pages[0].next && (
-          <div className="buttons">
-            <Button
-              name={
-                isFetchingNextPage
-                  ? "loading more..."
-                  : hasNextPage
-                  ? "load more"
-                  : "nothing more"
-              }
-              size="btn--large"
-              variant="btn--primary"
-              onClick={() => fetchNextPage()}
-              disabled={!hasNextPage}
-            />
-          </div>
-        )}
-      </div>
-    </main>
+    <Cards
+      title="People"
+      data={people}
+      isFetchingNextPage={isFetchingNextPage}
+      hasNextPage={hasNextPage}
+      fetchNextPage={fetchNextPage}
+    >
+      {people.pages.map((page) =>
+        page.results?.map((person) => (
+          <PersonCard
+            key={person.name}
+            name={person.name}
+            species={person.species}
+            gender={person.gender}
+            url={person.url}
+          />
+        ))
+      )}
+    </Cards>
   );
 }
