@@ -10,6 +10,7 @@ import { ReactNode } from "react";
 import { IFilm } from "../../../interfaces/film";
 import { IPage } from "../../../interfaces/page";
 import { IPeople } from "../../../interfaces/people";
+import { ISpecies } from "../../../interfaces/species";
 
 // Components
 import Button from "../buttons/button/Button";
@@ -18,13 +19,15 @@ import HDiv from "../text/HDiv";
 
 type CardsProps = {
   title: string;
-  data: InfiniteData<IPage<IFilm | IPeople>> | undefined;
+  data: InfiniteData<IPage<IFilm | IPeople | ISpecies>> | undefined;
   children: ReactNode;
   isFetchingNextPage: boolean;
   hasNextPage: boolean | undefined;
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
-  ) => Promise<InfiniteQueryObserverResult<IPage<IFilm | IPeople>, unknown>>;
+  ) => Promise<
+    InfiniteQueryObserverResult<IPage<IFilm | IPeople | ISpecies>, unknown>
+  >;
 };
 
 export default function Cards({
