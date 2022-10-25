@@ -40,11 +40,9 @@ export default function PersonCard({
 
   return (
     <Link to={`/people/${id}`} className="card">
-      <div className="card__icon" style={{ backgroundColor: setBackground() }}>
-        {setIcon()}
-      </div>
+      <div className={`card__icon card__icon--${gender}`}>{setIcon()}</div>
       <div className="card__content">
-        <HDiv variant="heading--h4" text={name} />
+        <HDiv variant="heading--h3" text={name} />
         <Species url={species} />
       </div>
     </Link>

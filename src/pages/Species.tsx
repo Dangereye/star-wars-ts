@@ -9,6 +9,7 @@ import Cards from "../components/shared/cards/Cards";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { ISpecies } from "../interfaces/species";
+import SpeciesCard from "../components/shared/cards/SpeciesCard";
 
 export default function Species() {
   const getNextPageParam = (lastPage: IPage<ISpecies>) =>
@@ -39,7 +40,13 @@ export default function Species() {
       fetchNextPage={fetchNextPage}
     >
       {species.pages.map((page) =>
-        page.results.map((entity) => <div>{entity.name}</div>)
+        page.results.map((entity) => (
+          <SpeciesCard
+            name={entity.name}
+            classification={entity.classification}
+            url={entity.url}
+          />
+        ))
       )}
     </Cards>
   );
