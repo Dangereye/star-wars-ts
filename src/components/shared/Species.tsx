@@ -15,7 +15,7 @@ type SpeciesProps = {
 
 export default function Species({ url, icon }: SpeciesProps) {
   const { data: species, isLoading, isError } = useFetchData<ISpecies>(url[0]);
-  const href = url[0].replace("https://swapi.py4e.com/api", "");
+  const href = url[0]?.replace("https://swapi.py4e.com/api", "");
   return (
     <>
       {isLoading ? (
@@ -23,7 +23,7 @@ export default function Species({ url, icon }: SpeciesProps) {
       ) : isError ? (
         <BodyText text="Unavailable" />
       ) : (
-        <LinkText href={href} icon={icon} text={species.name} />
+        <LinkText href={href} icon={icon} text={species?.name} />
       )}
     </>
   );

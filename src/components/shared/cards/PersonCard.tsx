@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { TbGenderNeutrois, TbGenderMale, TbGenderFemale } from "react-icons/tb";
+import {
+  TbGenderNeutrois,
+  TbGenderHermaphrodite,
+  TbGenderMale,
+  TbGenderFemale,
+} from "react-icons/tb";
 import Species from "../Species";
 import HDiv from "../text/HDiv";
 
@@ -34,6 +39,9 @@ export default function PersonCard({
     }
     if (gender === "female") {
       return <TbGenderFemale />;
+    }
+    if (gender === "hermaphrodite") {
+      return <TbGenderHermaphrodite />;
     }
     return <TbGenderNeutrois />;
   };

@@ -39,8 +39,8 @@ export default function Species() {
       hasNextPage={hasNextPage}
       fetchNextPage={fetchNextPage}
     >
-      {species.pages.map((page) =>
-        page.results.map((entity) => (
+      {species?.pages.map((page) =>
+        page?.results.map((entity) => (
           <SpeciesCard
             name={entity.name}
             classification={entity.classification}

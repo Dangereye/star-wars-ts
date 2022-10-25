@@ -58,8 +58,17 @@
       background-color: hsl(316, 44%, 83%);
     }
 
+    &--hermaphrodite {
+      background-image: linear-gradient(
+        to bottom right,
+        hsl(203, 44%, 81%),
+        hsl(316, 44%, 83%)
+      );
+    }
+
     &--unknown,
-    &--n\/a {
+    &--n\/a,
+    &--none {
       background-color: hsl(39, 48%, 89%);
     }
 
