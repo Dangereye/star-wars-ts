@@ -14,7 +14,7 @@ type HomeworldProps = {
 
 export default function Homeworld({ url }: HomeworldProps) {
   const { data: homeworld, isLoading, isError } = useFetchData<IHomeworld>(url);
-  const href = url.replace("https://swapi.py4e.com/api", "");
+  const href = url?.replace("https://swapi.py4e.com/api", "");
   return (
     <>
       {isLoading ? (

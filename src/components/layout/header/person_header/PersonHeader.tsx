@@ -7,6 +7,9 @@ import H1 from "../../../shared/text/H1";
 
 // Interfaces
 import { IPeople } from "../../../../interfaces/people";
+import List from "../../../shared/lists/List";
+import ListItem from "../../../shared/lists/list_item/ListItem";
+import StringToStringArray from "../../../../utilities/StringToStringArray";
 
 type PersonHeaderProps = {
   data: IPeople;
@@ -26,48 +29,29 @@ export default function PersonHeader({ data }: PersonHeaderProps) {
       <div className="content">
         <div>
           <H1 text={data.name} />
-          <ul className="list">
-            <li className="list__item">
-              <span>gender</span>
-              <span>{data.gender}</span>
-            </li>
-            <li className="list__item">
-              <span>species</span>
-              <span>
-                <Species url={data.species} />
-              </span>
-            </li>
-            <li className="list__item">
-              <span>Birth Year</span>
-              <span>{data.birth_year}</span>
-            </li>
-            <li className="list__item">
-              <span>Homeworld</span>
-              <span>
-                <Homeworld url={data.homeworld} />
-              </span>
-            </li>
-            <li className="list__item">
-              <span>Height</span>
-              <span>{data.height}cm</span>
-            </li>
-            <li className="list__item">
-              <span>Mass</span>
-              <span>{data.mass}kg</span>
-            </li>
-            <li className="list__item">
-              <span>Hair colour</span>
-              <span>{data.hair_color}</span>
-            </li>
-            <li className="list__item">
-              <span>Skin colour</span>
-              <span>{data.skin_color}</span>
-            </li>
-            <li className="list__item">
-              <span>Eye colour</span>
-              <span>{data.eye_color}</span>
-            </li>
-          </ul>
+          <List>
+            <ListItem name="gender" value={data.gender} />
+            <ListItem name="species" value={<Species url={data.species} />} />
+            <ListItem name="birth year" value={data.birth_year} />
+            <ListItem
+              name="homeworld"
+              value={<Homeworld url={data.homeworld} />}
+            />
+            <ListItem name="height" value={`${data.height}cm`} />
+            <ListItem name="mass" value={`${data.mass}kg`} />
+            <ListItem
+              name="hair colour"
+              value={<StringToStringArray string={data.hair_color} />}
+            />
+            <ListItem
+              name="skin colour"
+              value={<StringToStringArray string={data.skin_color} />}
+            />
+            <ListItem
+              name="eye colour"
+              value={<StringToStringArray string={data.eye_color} />}
+            />
+          </List>
         </div>
         <Statistics
           films={data.films.length}
