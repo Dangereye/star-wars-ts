@@ -10,10 +10,9 @@ import LinkText from "./text/LinkText";
 
 type HomeworldProps = {
   url: string;
-  icon?: boolean;
 };
 
-export default function Homeworld({ url, icon }: HomeworldProps) {
+export default function Homeworld({ url }: HomeworldProps) {
   const { data: homeworld, isLoading, isError } = useFetchData<IHomeworld>(url);
   const href = url.replace("https://swapi.py4e.com/api", "");
   return (
@@ -23,7 +22,7 @@ export default function Homeworld({ url, icon }: HomeworldProps) {
       ) : isError ? (
         <BodyText text="Unavailable" />
       ) : (
-        <LinkText href={href} icon={icon} text={homeworld?.name} />
+        <LinkText href={href} text={homeworld?.name} />
       )}
     </>
   );

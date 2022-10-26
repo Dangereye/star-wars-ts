@@ -11,67 +11,38 @@ html {
   color: $text-color-dark;
 
   &--h1 {
-    font-weight: 700;
     margin-bottom: 4rem;
-    font-size: 5.6rem;
+    font-size: $h1-size;
+    font-weight: 700;
   }
 
   &--h2 {
     margin-bottom: 4rem;
-    font-size: 4.8rem;
+    font-size: $h2-size;
     font-weight: 300;
   }
 
   &--h3 {
-    font-size: 2.4rem;
-    font-weight: 600;
     margin-bottom: 1rem;
+    font-size: $h3-size;
+    font-weight: 600;
   }
 
   &--h4 {
-    font-size: 1.6rem;
-    font-weight: 300;
     margin-bottom: 1rem;
+    font-size: $h4-size;
+    font-weight: 300;
   }
 }
 
 .body-text,
 .link-text {
-  color: rgba($text-color-dark, 0.7);
   max-width: 80ch;
-  font-size: 2.4rem;
+  font-size: $body-text-size;
   font-weight: 300;
   line-height: 1.618;
 
   & + * {
     margin-top: 4rem;
-  }
-}
-
-.link-text {
-  transition: color $time;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  span {
-    display: grid;
-    place-content: center;
-
-    svg {
-      width: 2rem;
-      height: 2rem;
-      background-color: $accent-color;
-      border-radius: 50%;
-      path {
-        color: $text-color-light;
-      }
-    }
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      color: $accent-color;
-    }
   }
 }

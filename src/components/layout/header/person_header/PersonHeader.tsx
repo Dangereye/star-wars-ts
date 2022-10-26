@@ -34,7 +34,7 @@ export default function PersonHeader({ data }: PersonHeaderProps) {
             <li className="list__item">
               <span>species</span>
               <span>
-                <Species url={data.species} icon />
+                <Species url={data.species} />
               </span>
             </li>
             <li className="list__item">
@@ -44,7 +44,7 @@ export default function PersonHeader({ data }: PersonHeaderProps) {
             <li className="list__item">
               <span>Homeworld</span>
               <span>
-                <Homeworld url={data.homeworld} icon />
+                <Homeworld url={data.homeworld} />
               </span>
             </li>
             <li className="list__item">

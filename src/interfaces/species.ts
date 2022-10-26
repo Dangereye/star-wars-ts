@@ -8,7 +8,7 @@ export interface ISpecies {
   hair_colors: string;
   skin_colors: string;
   language: string;
-  homworld: string;
+  homeworld: string;
   people: [];
   films: [];
   url: string;

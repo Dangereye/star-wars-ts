@@ -1,0 +1,35 @@
+.list-item {
+  padding: 1rem;
+  border: 1px solid red;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 4rem;
+  row-gap: 2rem;
+
+  &--name,
+  &--value {
+    text-transform: capitalize;
+    font-size: $body-text-size;
+  }
+
+  &--name {
+    min-width: max-content;
+  }
+
+  &--value {
+    font-weight: 400;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    span {
+      &:not(:last-child)::after {
+        content: ",";
+      }
+    }
+  }
+}

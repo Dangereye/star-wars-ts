@@ -18,6 +18,7 @@ import Species from "./pages/Species";
 import Starships from "./pages/Starships";
 import Vehicles from "./pages/Vehicles";
 import Person from "./pages/Person";
+import Entity from "./pages/Entity";
 
 function App() {
   const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ function App() {
           <Route path="/people" element={<People />} />
           <Route path="/people/:personId" element={<Person />} />
           <Route path="/species" element={<Species />} />
+          <Route path="/species/:speciesId" element={<Entity />} />
           <Route path="/planets" element={<Planets />} />
           <Route path="/starships" element={<Starships />} />
           <Route path="/vehicles" element={<Vehicles />} />

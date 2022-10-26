@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import PersonHeader from "../components/layout/header/person_header/PersonHeader";
 import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
-import HDiv from "../components/shared/text/HDiv";
 import useFetchData from "../hooks/useFetchData";
 
 import { IPeople } from "../interfaces/people";

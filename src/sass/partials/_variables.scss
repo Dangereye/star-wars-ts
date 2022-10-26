@@ -4,8 +4,18 @@ $tablet: 768px;
 
 $time: 0.3s;
 
+// Font sizes
+$h1-size: 5.6rem;
+$h2-size: 4.8rem;
+$h3-size: 2.4rem;
+$h4-size: 1.6rem;
+$body-text-size: 2.4rem;
+
+// Colours
 $text-color-light: hsl(0, 0%, 100%);
 $text-color-dark: hsl(225, 6%, 13%);
+$body-text-color-light: rgba($text-color-light, 0.7);
+$body-text-color-dark: rgba($text-color-dark, 0.7);
 
 $background-color: hsl(0, 0%, 99%);
 $accent-color: hsl(356, 89%, 72%);
