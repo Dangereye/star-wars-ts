@@ -7,10 +7,10 @@ export default function StringToStringArray({
 }: StringToStringArrayProps) {
   const array = string.replace(" ", "").split(",");
   return (
-    <>
+    <span className="string-to-string-array">
       {array.map((item: string) => (
-        <span className="string-array">{item}</span>
+        <span>{item}</span>
       ))}
-    </>
+    </span>
   );
 }

@@ -9,7 +9,7 @@ import H1 from "../../../shared/text/H1";
 import { IPeople } from "../../../../interfaces/people";
 import List from "../../../shared/lists/List";
 import ListItem from "../../../shared/lists/list_item/ListItem";
-import StringToStringArray from "../../../../utilities/StringToStringArray";
+import StringToStringArray from "../../../../utilities/string_to_string_array/StringToStringArray";
 
 type PersonHeaderProps = {
   data: IPeople;
@@ -37,8 +37,8 @@ export default function PersonHeader({ data }: PersonHeaderProps) {
               name="homeworld"
               value={<Homeworld url={data.homeworld} />}
             />
-            <ListItem name="height" value={`${data.height}cm`} />
-            <ListItem name="mass" value={`${data.mass}kg`} />
+            <ListItem name="height" value={`${data.height}`} />
+            <ListItem name="mass" value={`${data.mass}`} />
             <ListItem
               name="hair colour"
               value={<StringToStringArray string={data.hair_color} />}

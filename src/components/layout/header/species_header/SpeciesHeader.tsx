@@ -10,7 +10,7 @@ import Statistics from "../../../shared/statistics/Statistics";
 import { ISpecies } from "../../../../interfaces/species";
 
 // Utilities
-import StringToStringArray from "../../../../utilities/StringToStringArray";
+import StringToStringArray from "../../../../utilities/string_to_string_array/StringToStringArray";
 
 type SpeciesHeaderProps = {
   data: ISpecies;
@@ -33,10 +33,7 @@ export default function PersonHeader({ data }: SpeciesHeaderProps) {
           <List>
             <ListItem name="classification" value={data.classification} />
             <ListItem name="designation" value={data.designation} />
-            <ListItem
-              name="average height"
-              value={`${data.average_height}cm`}
-            />
+            <ListItem name="average height" value={`${data.average_height}`} />
             <ListItem
               name="skin colours"
               value={<StringToStringArray string={data.skin_colors} />}
@@ -51,7 +48,7 @@ export default function PersonHeader({ data }: SpeciesHeaderProps) {
             />
             <ListItem
               name="average lifespan"
-              value={`${data.average_lifespan}yrs`}
+              value={`${data.average_lifespan}`}
             />
             <ListItem
               name="homeworld"

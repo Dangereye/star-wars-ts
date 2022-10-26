@@ -13,6 +13,7 @@ import H2 from "../../../shared/text/H2";
 import HDiv from "../../../shared/text/HDiv";
 import Header from "../../header/Header";
 import H1 from "../../../shared/text/H1";
+import StringToStringArray from "../../../../utilities/string_to_string_array/StringToStringArray";
 
 type FilmHeaderProps = {
   data: IFilm;
@@ -37,7 +38,10 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
           <BodyText text={<FormatDate date={data.release_date} />} />
           <H3 text="opening crawl." />
           <BodyText text={data.opening_crawl} />
-          <ProductionTeam director={data.director} producer={data.producer} />
+          <ProductionTeam
+            director={data.director}
+            producer={<StringToStringArray string={data.producer} />}
+          />
         </div>
         <Statistics
           characters={data.characters?.length}

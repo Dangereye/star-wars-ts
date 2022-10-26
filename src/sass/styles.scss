@@ -5,8 +5,13 @@
 @import "./mixins/index";
 
 // Layout
-@import "./layout/index"; // Components
+@import "./layout/index";
+
+// Components
 @import "./components/index";
+
+// Utilities
+@import "./utilities/index.scss";
 
 // Reset
 * {

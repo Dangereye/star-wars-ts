@@ -1,10 +1,12 @@
+import { ReactNode } from "react";
+
 // Components
 import H3 from "../../../../shared/text/H3";
 import BodyText from "../../../../shared/text/BodyText";
 
 type ProductionTeamProps = {
   director?: string;
-  producer?: string;
+  producer?: string | ReactNode;
 };
 
 export default function ProductionTeam({
