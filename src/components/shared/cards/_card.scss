@@ -82,5 +82,9 @@
         fill: $text-color-dark;
       }
     }
+
+    &--planets {
+      background-color: hsl(34, 20%, 73%);
+    }
   }
 }
