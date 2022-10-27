@@ -5,7 +5,7 @@ import useFetchData from "../../hooks/useFetchData";
 import BodyText from "./text/BodyText";
 
 // Interfaces
-import { IHomeworld } from "../../interfaces/homeworld";
+import { IPlanet } from "../../interfaces/planet";
 import LinkText from "./text/LinkText";
 
 type HomeworldProps = {
@@ -13,7 +13,7 @@ type HomeworldProps = {
 };
 
 export default function Homeworld({ url }: HomeworldProps) {
-  const { data: homeworld, isLoading, isError } = useFetchData<IHomeworld>(url);
+  const { data: homeworld, isLoading, isError } = useFetchData<IPlanet>(url);
   const href = url?.replace("https://swapi.py4e.com/api", "");
   return (
     <>

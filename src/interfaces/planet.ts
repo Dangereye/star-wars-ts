@@ -1,4 +1,4 @@
-export interface IHomeworld {
+export interface IPlanet {
   name: string;
   diameter: string;
   rotation_period: string;
