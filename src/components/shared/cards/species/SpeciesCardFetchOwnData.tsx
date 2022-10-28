@@ -3,16 +3,16 @@ import { GiDna1 } from "react-icons/gi";
 
 // Components
 import { Link } from "react-router-dom";
-import LoadingCard from "./LoadingCard";
-import ErrorCard from "./ErrorCard";
-import HDiv from "../text/HDiv";
-import BodyText from "../text/BodyText";
+import LoadingCard from "../LoadingCard";
+import ErrorCard from "../ErrorCard";
+import HDiv from "../../text/HDiv";
+import BodyText from "../../text/BodyText";
 
 // Hooks
-import useFetchData from "../../../hooks/useFetchData";
+import useFetchData from "../../../../hooks/useFetchData";
 
 // Interfaces
-import { ISpecies } from "../../../interfaces/species";
+import { ISpecies } from "../../../../interfaces/species";
 
 type SpeciesCardProps = {
   url: string;

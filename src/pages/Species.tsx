@@ -9,7 +9,7 @@ import Cards from "../components/shared/cards/Cards";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { ISpecies } from "../interfaces/species";
-import SpeciesCard from "../components/shared/cards/SpeciesCard";
+import SpeciesCard from "../components/shared/cards/species/SpeciesCard";
 
 export default function Species() {
   const getNextPageParam = (lastPage: IPage<ISpecies>) =>

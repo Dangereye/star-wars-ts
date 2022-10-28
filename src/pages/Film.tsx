@@ -11,8 +11,8 @@ import FilmHeader from "../components/layout/header/film_header/FilmHeader";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import CardsFetchOwnData from "../components/shared/cards/CardsFetchOwnData";
-import PersonCardFetchOwnData from "../components/shared/cards/PersonCardFetchOwnData";
-import SpeciesCardFetchOwnData from "../components/shared/cards/SpeciesCardFetchOwnData";
+import PersonCardFetchOwnData from "../components/shared/cards/person/PersonCardFetchOwnData";
+import SpeciesCardFetchOwnData from "../components/shared/cards/species/SpeciesCardFetchOwnData";
 
 export default function Film() {
   const { filmId } = useParams();

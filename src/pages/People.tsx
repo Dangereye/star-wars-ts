@@ -4,7 +4,7 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
-import PersonCard from "../components/shared/cards/PersonCard";
+import PersonCard from "../components/shared/cards/person/PersonCard";
 import Cards from "../components/shared/cards/Cards";
 
 // Interfaces

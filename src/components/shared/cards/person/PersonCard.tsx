@@ -9,8 +9,8 @@ import {
 } from "react-icons/tb";
 
 // Components
-import Species from "../Species";
-import HDiv from "../text/HDiv";
+import Species from "../../Species";
+import HDiv from "../../text/HDiv";
 
 type PersonCardProps = {
   name: string;

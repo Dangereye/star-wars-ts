@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { GiDna1 } from "react-icons/gi";
-import BodyText from "../text/BodyText";
-import HDiv from "../text/HDiv";
+import BodyText from "../../text/BodyText";
+import HDiv from "../../text/HDiv";
 
 type SpeciesCardProps = {
   name: string;

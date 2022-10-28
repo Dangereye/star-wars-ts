@@ -8,16 +8,16 @@ import {
 
 // Components
 import { Link } from "react-router-dom";
-import LoadingCard from "./LoadingCard";
-import ErrorCard from "./ErrorCard";
-import HDiv from "../text/HDiv";
-import Species from "../Species";
+import LoadingCard from "../LoadingCard";
+import ErrorCard from "../ErrorCard";
+import HDiv from "../../text/HDiv";
+import Species from "../../Species";
 
 // Hooks
-import useFetchData from "../../../hooks/useFetchData";
+import useFetchData from "../../../../hooks/useFetchData";
 
 // Interfaces
-import { IPeople } from "../../../interfaces/people";
+import { IPeople } from "../../../../interfaces/people";
 
 type PersonCardProps = {
   url: string;
