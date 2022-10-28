@@ -1,18 +1,18 @@
 // Components
-import Header from "../Header";
-import Homeworld from "../../../shared/Homeworld";
-import Species from "../../../shared/Species";
-import Statistics from "../../../shared/statistics/Statistics";
-import H1 from "../../../shared/text/H1";
+import Header from "./Header";
+import Homeworld from "../../shared/Homeworld";
+import Species from "../../shared/Species";
+import Statistics from "../../shared/statistics/Statistics";
+import H1 from "../../shared/text/H1";
 
 // Interfaces
-import { IPeople } from "../../../../interfaces/people";
-import List from "../../../shared/lists/List";
-import ListItem from "../../../shared/lists/list_item/ListItem";
+import { IPeople } from "../../../interfaces/people";
+import List from "../../shared/lists/List";
+import ListItem from "../../shared/lists/list_item/ListItem";
 
 // Utilities
-import StringToStringArray from "../../../../utilities/string_to_string_array/StringToStringArray";
-import CheckUnits from "../../../../utilities/CheckUnits";
+import StringToStringArray from "../../../utilities/string_to_string_array/StringToStringArray";
+import CheckUnits from "../../../utilities/CheckUnits";
 
 type PersonHeaderProps = {
   data: IPeople;

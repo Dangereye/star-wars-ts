@@ -20,7 +20,7 @@ export default function Homeworld({ url }: HomeworldProps) {
       {isLoading ? (
         <BodyText text="Loading..." />
       ) : isError ? (
-        <BodyText text="Unavailable" />
+        <BodyText text="n/a" />
       ) : (
         <LinkText href={href} text={homeworld?.name} />
       )}

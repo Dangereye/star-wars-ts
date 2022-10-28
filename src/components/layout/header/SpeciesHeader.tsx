@@ -1,17 +1,17 @@
 // Components
-import Header from "../Header";
-import H1 from "../../../shared/text/H1";
-import List from "../../../shared/lists/List";
-import ListItem from "../../../shared/lists/list_item/ListItem";
-import Homeworld from "../../../shared/Homeworld";
-import Statistics from "../../../shared/statistics/Statistics";
+import Header from "./Header";
+import H1 from "../../shared/text/H1";
+import List from "../../shared/lists/List";
+import ListItem from "../../shared/lists/list_item/ListItem";
+import Homeworld from "../../shared/Homeworld";
+import Statistics from "../../shared/statistics/Statistics";
 
 // Interfaces
-import { ISpecies } from "../../../../interfaces/species";
+import { ISpecies } from "../../../interfaces/species";
 
 // Utilities
-import StringToStringArray from "../../../../utilities/string_to_string_array/StringToStringArray";
-import CheckUnits from "../../../../utilities/CheckUnits";
+import StringToStringArray from "../../../utilities/string_to_string_array/StringToStringArray";
+import CheckUnits from "../../../utilities/CheckUnits";
 
 type SpeciesHeaderProps = {
   data: ISpecies;

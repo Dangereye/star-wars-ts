@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import SpeciesHeader from "../components/layout/header/species_header/SpeciesHeader";
+import SpeciesHeader from "../components/layout/header/SpeciesHeader";
 import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import useFetchData from "../hooks/useFetchData";

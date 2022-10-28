@@ -20,7 +20,7 @@ export default function Species({ url }: SpeciesProps) {
       {isLoading ? (
         <BodyText text="Loading..." />
       ) : isError ? (
-        <BodyText text="Unavailable" />
+        <BodyText text="n/a" />
       ) : (
         <LinkText href={href} text={species?.name} />
       )}

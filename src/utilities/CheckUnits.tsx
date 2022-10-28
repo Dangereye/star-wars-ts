@@ -1,5 +1,5 @@
 type CheckUnitsProps = {
-  type: "cm" | "kg" | "yrs";
+  type?: "cm" | "kg" | "yrs" | "km" | "hrs" | " days" | "%";
   string: string;
 };
 
@@ -8,5 +8,11 @@ export default function CheckUnits({ type, string }: CheckUnitsProps) {
   if (expression.test(string)) {
     return <>{string}</>;
   }
-  return <>{`${string}${type}`}</>;
+  return (
+    <>{`${string
+      .toString()
+      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}${type}`}</>
+  );
 }
+
+CheckUnits.defaultProps = { type: "" };

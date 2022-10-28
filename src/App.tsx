@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import People from "./pages/People";
 import Planets from "./pages/Planets";
+import Planet from "./pages/Planet";
 import Species from "./pages/Species";
 import Starships from "./pages/Starships";
 import Vehicles from "./pages/Vehicles";
@@ -36,6 +37,7 @@ function App() {
           <Route path="/species" element={<Species />} />
           <Route path="/species/:speciesId" element={<Entity />} />
           <Route path="/planets" element={<Planets />} />
+          <Route path="/planets/:planetId" element={<Planet />} />
           <Route path="/starships" element={<Starships />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="*" element={<NotFound />} />
