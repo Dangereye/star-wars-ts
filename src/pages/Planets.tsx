@@ -44,6 +44,7 @@ export default function People() {
       {planets.pages.map((page) =>
         page.results?.map((planet) => (
           <PlanetCard
+            key={planet.name}
             name={planet.name}
             climate={planet.climate}
             url={planet.url}
