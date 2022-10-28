@@ -22,9 +22,9 @@
       margin: 0;
     }
 
-    .body-text,
-    .link-text {
+    .body-text {
       text-transform: capitalize;
+      color: $body-text-color-dark;
     }
   }
 
