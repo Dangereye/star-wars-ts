@@ -42,6 +42,7 @@ export default function Species() {
       {species?.pages.map((page) =>
         page?.results.map((entity) => (
           <SpeciesCard
+            key={entity.name}
             name={entity.name}
             classification={entity.classification}
             url={entity.url}
