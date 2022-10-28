@@ -12,6 +12,7 @@ import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import CardsFetchOwnData from "../components/shared/cards/CardsFetchOwnData";
 import PersonCardFetchOwnData from "../components/shared/cards/PersonCardFetchOwnData";
+import SpeciesCardFetchOwnData from "../components/shared/cards/SpeciesCardFetchOwnData";
 
 export default function Film() {
   const { filmId } = useParams();
@@ -33,6 +34,11 @@ export default function Film() {
         <CardsFetchOwnData title="characters">
           {data.characters.map((character) => (
             <PersonCardFetchOwnData url={character} />
+          ))}
+        </CardsFetchOwnData>
+        <CardsFetchOwnData title="species">
+          {data.species.map((entity) => (
+            <SpeciesCardFetchOwnData url={entity} />
           ))}
         </CardsFetchOwnData>
       </main>
