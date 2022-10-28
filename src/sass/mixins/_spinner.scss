@@ -1,0 +1,9 @@
+@mixin icon-spinner {
+  animation: spinner 1s linear infinite forwards;
+}
+
+@keyframes spinner {
+  100% {
+    rotate: 360deg;
+  }
+}

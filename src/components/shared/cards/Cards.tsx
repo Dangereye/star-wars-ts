@@ -43,7 +43,7 @@ export default function Cards({
   fetchNextPage,
 }: CardsProps) {
   return (
-    <main>
+    <article className="article">
       <div className="container">
         <HDiv variant="heading--h2" text={title} />
         <BodyText text={`Found ${data?.pages[0].count} results.`} />
@@ -66,6 +66,6 @@ export default function Cards({
           </div>
         )}
       </div>
-    </main>
+    </article>
   );
 }

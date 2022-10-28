@@ -1,0 +1,8 @@
+.article {
+  @include app-horizontal-padding;
+  @include app-vertical-padding;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

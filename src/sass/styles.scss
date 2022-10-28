@@ -1,14 +1,17 @@
-// Partials
-@import "partials/index";
-
 // Mixins
 @import "./mixins/index";
+
+// Partials
+@import "partials/index";
 
 // Layout
 @import "./layout/index";
 
 // Components
 @import "./components/index";
+
+// Articles
+@import "./articles/index";
 
 // Utilities
 @import "./utilities/index.scss";
@@ -34,13 +37,6 @@ body {
   font-size: 1.6rem;
   color: $text-color-dark;
   background-color: $background-color;
-}
-main {
-  @include app-horizontal-padding;
-  @include app-vertical-padding;
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .container {

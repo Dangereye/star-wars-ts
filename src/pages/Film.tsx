@@ -10,6 +10,8 @@ import { IFilm } from "../interfaces/film";
 import FilmHeader from "../components/layout/header/film_header/FilmHeader";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
+import CardsFetchOwnData from "../components/shared/cards/CardsFetchOwnData";
+import PersonCardFetchOwnData from "../components/shared/cards/PersonCardFetchOwnData";
 
 export default function Film() {
   const { filmId } = useParams();
@@ -27,6 +29,13 @@ export default function Film() {
   return (
     <>
       <FilmHeader data={data} />
+      <main>
+        <CardsFetchOwnData title="characters">
+          {data.characters.map((character) => (
+            <PersonCardFetchOwnData url={character} />
+          ))}
+        </CardsFetchOwnData>
+      </main>
     </>
   );
 }
