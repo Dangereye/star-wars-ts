@@ -17,6 +17,7 @@ import Planets from "./pages/Planets";
 import Planet from "./pages/Planet";
 import Species from "./pages/Species";
 import Starships from "./pages/Starships";
+import Starship from "./pages/Starship";
 import Vehicles from "./pages/Vehicles";
 import Person from "./pages/Person";
 import Entity from "./pages/Entity";
@@ -39,6 +40,7 @@ function App() {
           <Route path="/planets" element={<Planets />} />
           <Route path="/planets/:planetId" element={<Planet />} />
           <Route path="/starships" element={<Starships />} />
+          <Route path="/starships/:starshipId" element={<Starship />} />
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
