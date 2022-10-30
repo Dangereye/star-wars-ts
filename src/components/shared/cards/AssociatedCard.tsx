@@ -1,13 +1,13 @@
 // Components
 import { Link } from "react-router-dom";
-import LoadingCard from "./LoadingCard";
-import ErrorCard from "./ErrorCard";
-
-// Hooks
-import useFetchData from "../../../hooks/useFetchData";
+import AssociatedLoadingCard from "./AssociatedLoadingCard";
+import AssociatedErrorCard from "./AssociatedErrorCard";
 import HDiv from "../text/HDiv";
 import BodyText from "../text/BodyText";
 import Species from "../GetSpecies";
+
+// Hooks
+import useFetchData from "../../../hooks/useFetchData";
 
 type Props<T> = {
   type: string;
@@ -32,11 +32,11 @@ export default function AssociatedCard<T>({
   const id = url.replace(`https://swapi.py4e.com/api/${type}/`, "");
 
   if (isLoading) {
-    return <LoadingCard type={type} />;
+    return <AssociatedLoadingCard type={type} />;
   }
 
   if (isError) {
-    return <ErrorCard type={type} />;
+    return <AssociatedErrorCard type={type} />;
   }
 
   return (

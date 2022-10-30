@@ -1,21 +1,21 @@
 // Icons
-import { RiErrorWarningLine } from "react-icons/ri";
+import { FaSpinner } from "react-icons/fa";
 
 // Components
 import BodyText from "../text/BodyText";
 import HDiv from "../text/HDiv";
 
-type ErrorCardProps = {
+type LoadingCardProps = {
   type: string;
 };
 
-export default function ErrorCard({ type }: ErrorCardProps) {
+export default function AssociatedLoadingCard({ type }: LoadingCardProps) {
   return (
     <div className="card">
-      <div className="card__icon">{<RiErrorWarningLine />}</div>
+      <div className="card__icon card__icon--spinner">{<FaSpinner />}</div>
       <div className="card__content">
         <HDiv variant="heading--h3" text={type} />
-        <BodyText text="Unavailable" />
+        <BodyText text="loading..." />
       </div>
     </div>
   );

@@ -5,11 +5,14 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
-import SpeciesCard from "../components/shared/cards/species/SpeciesCard";
+import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { ISpecies } from "../interfaces/species";
+
+// Icons
+import { GiDna1 } from "react-icons/gi";
 
 export default function Species() {
   const getNextPageParam = (lastPage: IPage<ISpecies>) =>
@@ -25,12 +28,15 @@ export default function Species() {
     fetchNextPage,
     hasNextPage,
   } = useInfiniteFetchData<IPage<ISpecies>>("species", getNextPageParam);
+
   if (isLoading) {
     return <IsLoading message="Species" />;
   }
+
   if (isError) {
     return <IsError message="Unable to retrieve Species" />;
   }
+
   return (
     <InfiniteDataCards
       title="species"
@@ -41,11 +47,13 @@ export default function Species() {
     >
       {species?.pages.map((page) =>
         page?.results.map((entity) => (
-          <SpeciesCard
-            key={entity.name}
-            name={entity.name}
-            classification={entity.classification}
+          <InfiniteDataCard
+            type="species"
+            color="species"
+            icon={() => <GiDna1 />}
             url={entity.url}
+            heading={entity.name}
+            body={entity.classification}
           />
         ))
       )}

@@ -63,7 +63,7 @@ export default function People() {
     >
       {people.pages.map((page) =>
         page.results?.map((person) => (
-          <InfiniteDataCard<IPeople>
+          <InfiniteDataCard
             type={"people"}
             color={person.gender}
             icon={() => getPeopleIcon(person)}
