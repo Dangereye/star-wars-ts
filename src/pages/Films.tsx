@@ -4,8 +4,8 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
+import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
 import FilmCard from "../components/shared/cards/FilmCard";
-import Cards from "../components/shared/cards/Cards";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
@@ -33,7 +33,7 @@ export default function FilmsPage() {
     return <IsError message="Unable to retrieve films" />;
   }
   return (
-    <Cards
+    <InfiniteDataCards
       title="Films"
       data={films}
       isFetchingNextPage={isFetchingNextPage}
@@ -53,6 +53,6 @@ export default function FilmsPage() {
             />
           ))
       )}
-    </Cards>
+    </InfiniteDataCards>
   );
 }

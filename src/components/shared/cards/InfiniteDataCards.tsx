@@ -7,8 +7,8 @@ import {
 import { ReactNode } from "react";
 
 // Interfaces
-import { IPage } from "../../../interfaces/page";
 import { IFilm } from "../../../interfaces/film";
+import { IPage } from "../../../interfaces/page";
 import { IPeople } from "../../../interfaces/people";
 import { IPlanet } from "../../../interfaces/planet";
 import { ISpecies } from "../../../interfaces/species";
@@ -34,7 +34,7 @@ type CardsProps = {
   >;
 };
 
-export default function Cards({
+export default function InfiniteDataCards({
   title,
   data,
   children,
@@ -43,7 +43,7 @@ export default function Cards({
   fetchNextPage,
 }: CardsProps) {
   return (
-    <article className="article">
+    <main>
       <div className="container">
         <HDiv variant="heading--h2" text={title} />
         <BodyText text={`Found ${data?.pages[0].count} results.`} />
@@ -66,6 +66,6 @@ export default function Cards({
           </div>
         )}
       </div>
-    </article>
+    </main>
   );
 }

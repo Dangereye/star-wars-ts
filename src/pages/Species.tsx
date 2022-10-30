@@ -4,12 +4,12 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 // Components
 import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
-import Cards from "../components/shared/cards/Cards";
+import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
+import SpeciesCard from "../components/shared/cards/species/SpeciesCard";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { ISpecies } from "../interfaces/species";
-import SpeciesCard from "../components/shared/cards/species/SpeciesCard";
 
 export default function Species() {
   const getNextPageParam = (lastPage: IPage<ISpecies>) =>
@@ -32,7 +32,7 @@ export default function Species() {
     return <IsError message="Unable to retrieve Species" />;
   }
   return (
-    <Cards
+    <InfiniteDataCards
       title="species"
       data={species}
       isFetchingNextPage={isFetchingNextPage}
@@ -49,6 +49,6 @@ export default function Species() {
           />
         ))
       )}
-    </Cards>
+    </InfiniteDataCards>
   );
 }

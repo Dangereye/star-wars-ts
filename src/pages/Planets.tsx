@@ -4,7 +4,7 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
-import Cards from "../components/shared/cards/Cards";
+import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
 import PlanetCard from "../components/shared/cards/PlanetCard";
 
 // Interfaces
@@ -34,7 +34,7 @@ export default function People() {
   }
 
   return (
-    <Cards
+    <InfiniteDataCards
       title="planets"
       data={planets}
       isFetchingNextPage={isFetchingNextPage}
@@ -51,6 +51,6 @@ export default function People() {
           />
         ))
       )}
-    </Cards>
+    </InfiniteDataCards>
   );
 }

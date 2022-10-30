@@ -19,7 +19,7 @@ type Props<T> = {
   url: string;
 };
 
-export default function GenericCard<T>({
+export default function AssociatedCard<T>({
   type,
   color,
   icon,

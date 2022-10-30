@@ -11,8 +11,8 @@ import { IPeople } from "../interfaces/people";
 import FilmHeader from "../components/layout/header/film_header/FilmHeader";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
-import CardsFetchOwnData from "../components/shared/cards/CardsFetchOwnData";
-import GenericCard from "../components/shared/cards/GenericCard";
+import AssociatedCards from "../components/shared/cards/AssociatedCards";
+import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
 import {
@@ -54,9 +54,9 @@ export default function Film() {
     <>
       <FilmHeader data={film} />
       <main>
-        <CardsFetchOwnData title="people">
+        <AssociatedCards title="people">
           {film.characters.map((character) => (
-            <GenericCard<IPeople>
+            <AssociatedCard<IPeople>
               type="people"
               color={(data) => data.gender}
               icon={getPeopleIcon}
@@ -65,7 +65,7 @@ export default function Film() {
               url={character}
             />
           ))}
-        </CardsFetchOwnData>
+        </AssociatedCards>
       </main>
     </>
   );
