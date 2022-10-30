@@ -12,7 +12,7 @@ import { IPage } from "../interfaces/page";
 import { IPlanet } from "../interfaces/planet";
 
 // Icons
-import { TbPlanet } from "react-icons/tb";
+import { BiPlanet } from "react-icons/bi";
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 
 export default function People() {
@@ -31,10 +31,10 @@ export default function People() {
   } = useInfiniteFetchData<IPage<IPlanet>>("planets", getNextPageParam);
 
   if (isLoading) {
-    return <IsLoading message={`People`} />;
+    return <IsLoading message={`planets`} />;
   }
   if (isError) {
-    return <IsError message="Unable to retrieve people" />;
+    return <IsError message="Unable to retrieve planets" />;
   }
 
   return (
@@ -50,7 +50,7 @@ export default function People() {
           <InfiniteDataCard
             key={planet.name}
             type="planets"
-            icon={() => <TbPlanet />}
+            icon={() => <BiPlanet />}
             url={planet.url}
             color="planets"
             heading={planet.name}

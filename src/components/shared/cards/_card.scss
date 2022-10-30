@@ -85,6 +85,17 @@
 
     &--planets {
       background-color: hsl(34, 20%, 73%);
+
+      svg {
+        fill: $text-color-dark;
+      }
+    }
+    &--starships {
+      background-color: hsl(0, 56%, 72%);
+
+      svg {
+        fill: $text-color-dark;
+      }
     }
 
     &--spinner {

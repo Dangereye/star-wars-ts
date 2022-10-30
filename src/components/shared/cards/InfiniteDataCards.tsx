@@ -12,6 +12,7 @@ import { IPage } from "../../../interfaces/page";
 import { IPeople } from "../../../interfaces/people";
 import { IPlanet } from "../../../interfaces/planet";
 import { ISpecies } from "../../../interfaces/species";
+import { IStarship } from "../../../interfaces/starship";
 
 // Components
 import Button from "../buttons/button/Button";
@@ -20,7 +21,9 @@ import HDiv from "../text/HDiv";
 
 type CardsProps = {
   title: string;
-  data: InfiniteData<IPage<IFilm | IPeople | ISpecies | IPlanet>> | undefined;
+  data:
+    | InfiniteData<IPage<IFilm | IPeople | ISpecies | IPlanet | IStarship>>
+    | undefined;
   children: ReactNode;
   isFetchingNextPage: boolean;
   hasNextPage: boolean | undefined;
@@ -28,7 +31,7 @@ type CardsProps = {
     options?: FetchNextPageOptions | undefined
   ) => Promise<
     InfiniteQueryObserverResult<
-      IPage<IFilm | IPeople | ISpecies | IPlanet>,
+      IPage<IFilm | IPeople | ISpecies | IPlanet | IStarship>,
       unknown
     >
   >;
