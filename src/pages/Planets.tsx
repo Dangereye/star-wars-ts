@@ -5,11 +5,15 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
-import PlanetCard from "../components/shared/cards/PlanetCard";
+import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPlanet } from "../interfaces/planet";
+
+// Icons
+import { TbPlanet } from "react-icons/tb";
+import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IPlanet>) =>
@@ -43,11 +47,14 @@ export default function People() {
     >
       {planets.pages.map((page) =>
         page.results?.map((planet) => (
-          <PlanetCard
+          <InfiniteDataCard
             key={planet.name}
-            name={planet.name}
-            climate={planet.climate}
+            type="planets"
+            icon={() => <TbPlanet />}
             url={planet.url}
+            color="planets"
+            heading={planet.name}
+            body={<StringToStringArray string={planet.climate} />}
           />
         ))
       )}
