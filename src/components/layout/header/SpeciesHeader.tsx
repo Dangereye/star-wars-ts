@@ -3,7 +3,7 @@ import Header from "./Header";
 import H1 from "../../shared/text/H1";
 import List from "../../shared/lists/List";
 import ListItem from "../../shared/lists/list_item/ListItem";
-import Homeworld from "../../shared/Homeworld";
+import Homeworld from "../../shared/GetHomeworld";
 import Statistics from "../../shared/statistics/Statistics";
 
 // Interfaces

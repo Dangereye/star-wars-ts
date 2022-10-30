@@ -1,7 +1,7 @@
 // Components
 import Header from "./Header";
-import Homeworld from "../../shared/Homeworld";
-import Species from "../../shared/Species";
+import Homeworld from "../../shared/GetHomeworld";
+import Species from "../../shared/GetSpecies";
 import Statistics from "../../shared/statistics/Statistics";
 import H1 from "../../shared/text/H1";
 

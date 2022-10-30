@@ -9,7 +9,7 @@ import {
 } from "react-icons/tb";
 
 // Components
-import Species from "../../Species";
+import Species from "../../GetSpecies";
 import HDiv from "../../text/HDiv";
 
 type PersonCardProps = {
