@@ -4,12 +4,19 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
-import PersonCard from "../components/shared/cards/person/PersonCard";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
+import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
+
+import {
+  TbGenderFemale,
+  TbGenderHermaphrodite,
+  TbGenderMale,
+  TbGenderNeutrois,
+} from "react-icons/tb";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IPeople>) =>
@@ -25,6 +32,19 @@ export default function People() {
     fetchNextPage,
     hasNextPage,
   } = useInfiniteFetchData<IPage<IPeople>>("people", getNextPageParam);
+
+  const getPeopleIcon = (person: IPeople) => {
+    if (person.gender === "male") {
+      return <TbGenderMale />;
+    }
+    if (person.gender === "female") {
+      return <TbGenderFemale />;
+    }
+    if (person.gender === "hermaphrodite") {
+      return <TbGenderHermaphrodite />;
+    }
+    return <TbGenderNeutrois />;
+  };
 
   if (isLoading) {
     return <IsLoading message={`People`} />;
@@ -43,12 +63,13 @@ export default function People() {
     >
       {people.pages.map((page) =>
         page.results?.map((person) => (
-          <PersonCard
-            key={person.name}
-            name={person.name}
-            species={person.species}
-            gender={person.gender}
+          <InfiniteDataCard<IPeople>
+            type={"people"}
+            color={person.gender}
+            icon={() => getPeopleIcon(person)}
             url={person.url}
+            heading={person.name}
+            species={person.species}
           />
         ))
       )}
