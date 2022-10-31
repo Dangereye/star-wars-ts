@@ -51,23 +51,19 @@ export default function StarshipHeader({ data }: Props) {
               value={<CheckUnits string={data.passengers} />}
             />
             <ListItem
-              name="atmosphere speed"
-              value={<CheckUnits string={data.max_atmosphering_speed} />}
-            />
-            <ListItem
               name="hyperdrive rating"
               value={<CheckUnits string={data.hyperdrive_rating} />}
             />
             <ListItem
-              name="megalights"
-              value={<CheckUnits type="ph" string={data.MGLT} />}
+              name="max speed"
+              value={<CheckUnits type="mglt" string={data.MGLT} />}
             />
             <ListItem
               name="cargo capacity"
               value={<CheckUnits type="kg" string={data.cargo_capacity} />}
             />
             <ListItem
-              name="consumables"
+              name="consumables supply"
               value={<CheckUnits string={data.consumables} />}
             />
           </List>

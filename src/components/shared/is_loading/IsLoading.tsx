@@ -1,14 +1,17 @@
+import BodyText from "../text/BodyText";
+import HDiv from "../text/HDiv";
+
 type IsLoadingProps = {
   message: string;
 };
 
 export default function IsLoading({ message }: IsLoadingProps) {
   return (
-    <main>
+    <article className="article article__is-loading">
       <div className="container">
-        <h1 className="heading heading--h1">Loading </h1>
-        <p className="body-text">{message}...</p>
+        <HDiv variant="heading--h3" text="Please wait" />
+        <BodyText text="Loading Films..." />
       </div>
-    </main>
+    </article>
   );
 }

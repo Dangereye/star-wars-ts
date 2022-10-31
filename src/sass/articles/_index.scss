@@ -5,4 +5,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
+  @import "./is-loading";
+  @import "./is-error";
 }

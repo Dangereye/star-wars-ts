@@ -1,5 +1,5 @@
 type CheckUnitsProps = {
-  type?: "cm" | "kg" | "yrs" | "km" | "hrs" | " days" | "%" | "m" | "ph";
+  type?: "cm" | "kg" | "yrs" | "km" | "hrs" | " days" | "%" | "m" | "mglt";
   string: string;
 };
 

@@ -1,16 +1,19 @@
+import BodyText from "../text/BodyText";
+import HDiv from "../text/HDiv";
+
 type IsErrorProps = {
   message: string;
 };
 
 export default function IsError({ message }: IsErrorProps) {
   return (
-    <main>
+    <article className="article article__is-error">
       <div className="container">
-        <h1 className="heading heading--h1">Oops!</h1>
-        <p className="body-text">Something went wrong? {message}.</p>
+        <HDiv variant="heading--h3" text="Error" />
+        <BodyText text={message} />
         <button>try again</button>
         <button>home</button>
       </div>
-    </main>
+    </article>
   );
 }
