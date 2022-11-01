@@ -1,19 +1,27 @@
+import { useParams } from "react-router-dom";
+
+// Hooks
+import useFetchData from "../hooks/useFetchData";
+
+// Components
+import GenericHeader from "../components/layout/header/GenericHeader";
+import Homeworld from "../components/shared/GetHomeworld";
+import Species from "../components/shared/GetSpecies";
+import IsError from "../components/shared/is_error/IsError";
+import IsLoading from "../components/shared/is_loading/IsLoading";
+
+// Icons
 import {
   TbGenderFemale,
   TbGenderHermaphrodite,
   TbGenderMale,
   TbGenderNeutrois,
 } from "react-icons/tb";
-import { useParams } from "react-router-dom";
-import GenericHeader from "../components/layout/header/GenericHeader";
-import PersonHeader from "../components/layout/header/PersonHeader";
-import Homeworld from "../components/shared/GetHomeworld";
-import Species from "../components/shared/GetSpecies";
-import IsError from "../components/shared/is_error/IsError";
-import IsLoading from "../components/shared/is_loading/IsLoading";
-import useFetchData from "../hooks/useFetchData";
 
+// Interfaces
 import { IPeople } from "../interfaces/people";
+
+// Utilities
 import CheckUnits from "../utilities/CheckUnits";
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 
