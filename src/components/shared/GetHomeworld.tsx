@@ -13,7 +13,7 @@ type HomeworldProps = {
   link?: boolean;
 };
 
-export default function Homeworld({ url, link }: HomeworldProps) {
+export default function GetHomeworld({ url, link }: HomeworldProps) {
   const { data: homeworld, isLoading, isError } = useFetchData<IPlanet>(url);
   const href = url?.replace("https://swapi.py4e.com/api", "");
   return (
@@ -31,6 +31,6 @@ export default function Homeworld({ url, link }: HomeworldProps) {
   );
 }
 
-Homeworld.defaultProps = {
+GetHomeworld.defaultProps = {
   link: false,
 };
