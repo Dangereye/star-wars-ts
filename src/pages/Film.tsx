@@ -63,7 +63,7 @@ export default function Film() {
       <FilmHeader data={film} />
       <main>
         {/* People */}
-        <AssociatedCards title="people">
+        <AssociatedCards title="people" results={film.characters.length}>
           {film.characters.map((character, i) => (
             <AssociatedCard<IPeople>
               key={`associated-people-${i}`}
@@ -78,7 +78,7 @@ export default function Film() {
         </AssociatedCards>
 
         {/* Species */}
-        <AssociatedCards title="species">
+        <AssociatedCards title="species" results={film.species.length}>
           {film.species.map((species, i) => (
             <AssociatedCard<ISpecies>
               key={`associated-species-${i}`}
@@ -93,7 +93,7 @@ export default function Film() {
         </AssociatedCards>
 
         {/* Planets */}
-        <AssociatedCards title="planets">
+        <AssociatedCards title="planets" results={film.planets.length}>
           {film.planets.map((planet, i) => (
             <AssociatedCard<IPlanet>
               key={`associated-planets-${i}`}
@@ -108,7 +108,7 @@ export default function Film() {
         </AssociatedCards>
 
         {/* Starships */}
-        <AssociatedCards title="starships">
+        <AssociatedCards title="starships" results={film.starships.length}>
           {film.starships.map((starship, i) => (
             <AssociatedCard<IStarship>
               key={`associated-starship-${i}`}
@@ -123,7 +123,7 @@ export default function Film() {
         </AssociatedCards>
 
         {/* Vehicles */}
-        <AssociatedCards title="vehicles">
+        <AssociatedCards title="vehicles" results={film.vehicles.length}>
           {film.vehicles.map((vehicle, i) => (
             <AssociatedCard<IVehicle>
               key={`associated-vehicles-${i}`}

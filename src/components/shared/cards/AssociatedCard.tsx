@@ -8,13 +8,15 @@ import Species from "../GetSpecies";
 
 // Hooks
 import useFetchData from "../../../hooks/useFetchData";
+import { ReactNode } from "react";
 
 type Props<T> = {
-  type: string;
+  type: "films" | "people" | "species" | "planets" | "starships" | "vehicles";
   color: (data: T) => string;
-  icon: (data: T) => JSX.Element;
+  image?: (data: T) => JSX.Element;
+  icon?: (data: T) => JSX.Element;
   heading: (data: T) => string;
-  body?: (data: T) => string;
+  body?: (data: T) => string | ReactNode;
   species?: (data: T) => string[];
   url: string;
 };
@@ -22,6 +24,7 @@ type Props<T> = {
 export default function AssociatedCard<T>({
   type,
   color,
+  image,
   icon,
   url,
   heading,
@@ -41,9 +44,12 @@ export default function AssociatedCard<T>({
 
   return (
     <Link to={`/${type}/${id}`} className="card">
-      <div className={`card__icon card__icon--${color(data)}`}>
-        {icon(data)}
-      </div>
+      {image && <div className="card__image">{image(data)}</div>}
+      {icon && color && (
+        <div className={`card__icon card__icon--${color(data)}`}>
+          {icon(data)}
+        </div>
+      )}
       <div className="card__content">
         <HDiv variant="heading--h3" text={heading(data)} />
         {body && <BodyText text={body(data)} />}
