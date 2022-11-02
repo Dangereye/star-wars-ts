@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import useFetchData from "../hooks/useFetchData";
 
 // Components
+import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
 import GenericHeader from "../components/layout/header/GenericHeader";
 import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
 import Homeworld from "../components/shared/GetHomeworld";
 import Species from "../components/shared/GetSpecies";
-import IsError from "../components/shared/is_error/IsError";
-import IsLoading from "../components/shared/is_loading/IsLoading";
 
 // Icons
 import {
@@ -19,6 +19,11 @@ import {
   TbGenderMale,
   TbGenderNeutrois,
 } from "react-icons/tb";
+import { IStarship } from "../interfaces/starship";
+import { VscRocket } from "react-icons/vsc";
+import { IVehicle } from "../interfaces/vehicle";
+import { GiTank } from "react-icons/gi";
+import { IFilm } from "../interfaces/film";
 
 // Interfaces
 import { IPeople } from "../interfaces/people";
@@ -26,12 +31,6 @@ import { IPeople } from "../interfaces/people";
 // Utilities
 import CheckUnits from "../utilities/CheckUnits";
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
-import { IStarship } from "../interfaces/starship";
-import { VscRocket } from "react-icons/vsc";
-import { IVehicle } from "../interfaces/vehicle";
-import { GiDna1, GiTank } from "react-icons/gi";
-import { ISpecies } from "../interfaces/species";
-import { IFilm } from "../interfaces/film";
 import FormatDate from "../utilities/FormatDate";
 
 export default function Person() {
