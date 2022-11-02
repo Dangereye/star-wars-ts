@@ -10,6 +10,7 @@ import IsLoading from "../components/shared/is_loading/IsLoading";
 
 // Icons
 import { VscRocket } from "react-icons/vsc";
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 // Interfaces
 import { IStarship } from "../interfaces/starship";
@@ -17,6 +18,11 @@ import { IStarship } from "../interfaces/starship";
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import CheckUnits from "../utilities/CheckUnits";
+import AssociatedCards from "../components/shared/cards/AssociatedCards";
+import AssociatedCard from "../components/shared/cards/AssociatedCard";
+import { IFilm } from "../interfaces/film";
+import FormatDate from "../utilities/FormatDate";
+import { IPeople } from "../interfaces/people";
 
 export default function Person() {
   const { starshipId } = useParams();
@@ -84,6 +90,44 @@ export default function Person() {
         icon={() => <VscRocket />}
         list={list}
       />
+      <main>
+        {/* Films */}
+        <AssociatedCards title="films" results={starship.films.length}>
+          {starship.films.map((film, i) => (
+            <AssociatedCard<IFilm>
+              key={`associated-films-${i}`}
+              type="films"
+              color={() => "films"}
+              image={(data) => (
+                <img
+                  src={`/images/films/ep${data.episode_id}@600.jpg`}
+                  width="600px"
+                  height="900px"
+                  alt={data.title}
+                />
+              )}
+              heading={(data) => data.title}
+              body={(data) => <FormatDate date={data.release_date} />}
+              url={film}
+            />
+          ))}
+        </AssociatedCards>
+
+        {/* People */}
+        <AssociatedCards title="pilots" results={starship.pilots.length}>
+          {starship.pilots.map((character, i) => (
+            <AssociatedCard<IPeople>
+              key={`associated-people-${i}`}
+              type="people"
+              color={(data) => data.gender}
+              icon={getPeopleIcon}
+              heading={(data) => data.name}
+              species={(data) => data.species}
+              url={character}
+            />
+          ))}
+        </AssociatedCards>
+      </main>
     </>
   );
 }

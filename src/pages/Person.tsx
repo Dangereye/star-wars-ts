@@ -46,7 +46,7 @@ export default function Person() {
 
   const list = [
     { name: "gender", value: person.gender },
-    { name: "species", value: <Species url={person.species} /> },
+    { name: "species", value: <Species url={person.species} link /> },
     { name: "birth year", value: person.birth_year },
     { name: "homeworld", value: <Homeworld url={person.homeworld} link /> },
     { name: "height", value: <CheckUnits type="cm" string={person.height} /> },
