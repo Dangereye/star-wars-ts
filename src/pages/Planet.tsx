@@ -4,19 +4,25 @@ import { useParams } from "react-router-dom";
 import useFetchData from "../hooks/useFetchData";
 
 // Components
-import GenericHeader from "../components/layout/header/GenericHeader";
-import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
+import GenericHeader from "../components/layout/header/GenericHeader";
+import AssociatedCards from "../components/shared/cards/AssociatedCards";
+import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
 import { BiPlanet } from "react-icons/bi";
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 // Interfaces
 import { IPlanet } from "../interfaces/planet";
+import { IFilm } from "../interfaces/film";
+import { IPeople } from "../interfaces/people";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import CheckUnits from "../utilities/CheckUnits";
+import FormatDate from "../utilities/FormatDate";
 
 export default function Person() {
   const { planetId } = useParams();
@@ -66,6 +72,43 @@ export default function Person() {
   return (
     <>
       <GenericHeader name={planet.name} icon={() => <BiPlanet />} list={list} />
+      <main>
+        {/* Films */}
+        <AssociatedCards title="films" results={planet.films.length}>
+          {planet.films.map((film, i) => (
+            <AssociatedCard<IFilm>
+              key={`associated-films-${i}`}
+              type="films"
+              color={() => "films"}
+              image={(data) => (
+                <img
+                  src={`/images/films/ep${data.episode_id}@600.jpg`}
+                  width="600px"
+                  height="900px"
+                  alt={data.title}
+                />
+              )}
+              heading={(data) => data.title}
+              body={(data) => <FormatDate date={data.release_date} />}
+              url={film}
+            />
+          ))}
+        </AssociatedCards>
+        {/* People */}
+        <AssociatedCards title="residents" results={planet.residents.length}>
+          {planet.residents.map((character, i) => (
+            <AssociatedCard<IPeople>
+              key={`associated-people-${i}`}
+              type="people"
+              color={(data) => data.gender}
+              icon={getPeopleIcon}
+              heading={(data) => data.name}
+              species={(data) => data.species}
+              url={character}
+            />
+          ))}
+        </AssociatedCards>
+      </main>
     </>
   );
 }

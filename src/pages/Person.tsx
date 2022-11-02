@@ -13,12 +13,7 @@ import Homeworld from "../components/shared/GetHomeworld";
 import Species from "../components/shared/GetSpecies";
 
 // Icons
-import {
-  TbGenderFemale,
-  TbGenderHermaphrodite,
-  TbGenderMale,
-  TbGenderNeutrois,
-} from "react-icons/tb";
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 import { IStarship } from "../interfaces/starship";
 import { VscRocket } from "react-icons/vsc";
 import { IVehicle } from "../interfaces/vehicle";
@@ -48,19 +43,6 @@ export default function Person() {
   if (isError) {
     return <IsError message="Unable to retrieve person" />;
   }
-
-  const getPeopleIcon = (person: IPeople) => {
-    if (person.gender === "male") {
-      return <TbGenderMale />;
-    }
-    if (person.gender === "female") {
-      return <TbGenderFemale />;
-    }
-    if (person.gender === "hermaphrodite") {
-      return <TbGenderHermaphrodite />;
-    }
-    return <TbGenderNeutrois />;
-  };
 
   const list = [
     { name: "gender", value: person.gender },
@@ -114,7 +96,10 @@ export default function Person() {
         </AssociatedCards>
 
         {/* Starships */}
-        <AssociatedCards title="starships" results={person.starships.length}>
+        <AssociatedCards
+          title="starships piloted"
+          results={person.starships.length}
+        >
           {person.starships.map((starship, i) => (
             <AssociatedCard<IStarship>
               key={`associated-starship-${i}`}
@@ -129,7 +114,10 @@ export default function Person() {
         </AssociatedCards>
 
         {/* Vehicles */}
-        <AssociatedCards title="vehicles" results={person.vehicles.length}>
+        <AssociatedCards
+          title="vehicles driven"
+          results={person.vehicles.length}
+        >
           {person.vehicles.map((vehicle, i) => (
             <AssociatedCard<IVehicle>
               key={`associated-vehicles-${i}`}

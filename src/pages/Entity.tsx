@@ -13,12 +13,7 @@ import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
 import { GiDna1 } from "react-icons/gi";
-import {
-  TbGenderFemale,
-  TbGenderHermaphrodite,
-  TbGenderMale,
-  TbGenderNeutrois,
-} from "react-icons/tb";
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 // Interfaces
 import { ISpecies } from "../interfaces/species";
@@ -37,19 +32,6 @@ export default function Entity() {
     isLoading,
     isError,
   } = useFetchData<ISpecies>(`https://swapi.py4e.com/api/species/${speciesId}`);
-
-  const getPeopleIcon = (data: IPeople) => {
-    if (data.gender === "male") {
-      return <TbGenderMale />;
-    }
-    if (data.gender === "female") {
-      return <TbGenderFemale />;
-    }
-    if (data.gender === "hermaphrodite") {
-      return <TbGenderHermaphrodite />;
-    }
-    return <TbGenderNeutrois />;
-  };
 
   if (isLoading) {
     return <IsLoading message="Species" />;

@@ -16,12 +16,7 @@ import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
-import {
-  TbGenderFemale,
-  TbGenderHermaphrodite,
-  TbGenderMale,
-  TbGenderNeutrois,
-} from "react-icons/tb";
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 import { BiPlanet } from "react-icons/bi";
 import { ISpecies } from "../interfaces/species";
 import { IStarship } from "../interfaces/starship";
@@ -37,19 +32,6 @@ export default function Film() {
     isLoading,
     isError,
   } = useFetchData<IFilm>(`https://swapi.py4e.com/api/films/${filmId}`);
-
-  const getPeopleIcon = (data: IPeople) => {
-    if (data.gender === "male") {
-      return <TbGenderMale />;
-    }
-    if (data.gender === "female") {
-      return <TbGenderFemale />;
-    }
-    if (data.gender === "hermaphrodite") {
-      return <TbGenderHermaphrodite />;
-    }
-    return <TbGenderNeutrois />;
-  };
 
   if (isLoading) {
     return <IsLoading message="Film" />;
