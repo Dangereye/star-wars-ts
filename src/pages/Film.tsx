@@ -27,6 +27,8 @@ import { ISpecies } from "../interfaces/species";
 import { IStarship } from "../interfaces/starship";
 import { VscRocket } from "react-icons/vsc";
 import { GiDna1 } from "react-icons/gi";
+import { IVehicle } from "../interfaces/vehicle";
+import { GiTank } from "react-icons/gi";
 
 export default function Film() {
   const { filmId } = useParams();
@@ -116,6 +118,21 @@ export default function Film() {
               heading={(data) => data.name}
               body={(data) => data.model}
               url={starship}
+            />
+          ))}
+        </AssociatedCards>
+
+        {/* Vehicles */}
+        <AssociatedCards title="vehicles">
+          {film.vehicles.map((vehicle, i) => (
+            <AssociatedCard<IVehicle>
+              key={`associated-vehicles-${i}`}
+              type="vehicles"
+              color={() => "vehicles"}
+              icon={() => <GiTank />}
+              heading={(data) => data.name}
+              body={(data) => data.model}
+              url={vehicle}
             />
           ))}
         </AssociatedCards>
