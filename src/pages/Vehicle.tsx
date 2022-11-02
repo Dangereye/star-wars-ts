@@ -4,19 +4,25 @@ import { useParams } from "react-router-dom";
 import useFetchData from "../hooks/useFetchData";
 
 // Components
-import GenericHeader from "../components/layout/header/GenericHeader";
-import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
+import GenericHeader from "../components/layout/header/GenericHeader";
+import AssociatedCards from "../components/shared/cards/AssociatedCards";
+import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
 import { GiTank } from "react-icons/gi";
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 // Interfaces
 import { IVehicle } from "../interfaces/vehicle";
+import { IFilm } from "../interfaces/film";
+import { IPeople } from "../interfaces/people";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import CheckUnits from "../utilities/CheckUnits";
+import FormatDate from "../utilities/FormatDate";
 
 export default function Vehicle() {
   const { vehicleId } = useParams();
@@ -76,6 +82,44 @@ export default function Vehicle() {
   return (
     <>
       <GenericHeader name={vehicle.name} icon={() => <GiTank />} list={list} />
+      <main>
+        {/* Films */}
+        <AssociatedCards title="films" results={vehicle.films.length}>
+          {vehicle.films.map((film, i) => (
+            <AssociatedCard<IFilm>
+              key={`associated-films-${i}`}
+              type="films"
+              color={() => "films"}
+              image={(data) => (
+                <img
+                  src={`/images/films/ep${data.episode_id}@600.jpg`}
+                  width="600px"
+                  height="900px"
+                  alt={data.title}
+                />
+              )}
+              heading={(data) => data.title}
+              body={(data) => <FormatDate date={data.release_date} />}
+              url={film}
+            />
+          ))}
+        </AssociatedCards>
+
+        {/* People */}
+        <AssociatedCards title="drivers" results={vehicle.pilots.length}>
+          {vehicle.pilots.map((character, i) => (
+            <AssociatedCard<IPeople>
+              key={`associated-people-${i}`}
+              type="people"
+              color={(data) => data.gender}
+              icon={getPeopleIcon}
+              heading={(data) => data.name}
+              species={(data) => data.species}
+              url={character}
+            />
+          ))}
+        </AssociatedCards>
+      </main>
     </>
   );
 }
