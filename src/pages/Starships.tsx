@@ -1,5 +1,6 @@
 // Hooks
 import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
+import useObserver from "../hooks/useObserver";
 
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
@@ -25,7 +26,11 @@ export default function People() {
     isLoading,
     isError,
     data: starships,
+    hasNextPage,
+    fetchNextPage,
   } = useInfiniteFetchData<IPage<IStarship>>("starships", getNextPageParam);
+
+  const lastCard = useObserver(starships, hasNextPage, fetchNextPage);
 
   if (isLoading) {
     return <IsLoading message={`starships`} />;
@@ -37,17 +42,33 @@ export default function People() {
   return (
     <InfiniteDataCards title="starships" data={starships}>
       {starships.pages.map((page) =>
-        page.results?.map((starship) => (
-          <InfiniteDataCard
-            key={starship.name}
-            type="starships"
-            icon={() => <VscRocket />}
-            url={starship.url}
-            color="starships"
-            heading={starship.name}
-            body={<StringToStringArray string={starship.starship_class} />}
-          />
-        ))
+        page.results?.map((starship, i) => {
+          if (i + 1 === page.results.length) {
+            return (
+              <InfiniteDataCard
+                ref={lastCard}
+                key={starship.name}
+                type="starships"
+                icon={() => <VscRocket />}
+                url={starship.url}
+                color="starships"
+                heading={starship.name}
+                body={<StringToStringArray string={starship.starship_class} />}
+              />
+            );
+          }
+          return (
+            <InfiniteDataCard
+              key={starship.name}
+              type="starships"
+              icon={() => <VscRocket />}
+              url={starship.url}
+              color="starships"
+              heading={starship.name}
+              body={<StringToStringArray string={starship.starship_class} />}
+            />
+          );
+        })
       )}
     </InfiniteDataCards>
   );
