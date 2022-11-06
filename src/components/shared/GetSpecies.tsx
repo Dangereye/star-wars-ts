@@ -6,7 +6,7 @@ import BodyText from "./text/BodyText";
 
 // Interfaces
 import { ISpecies } from "../../interfaces/species";
-import LinkText from "./text/LinkText";
+import LinkText from "./text/link_text/LinkText";
 
 type SpeciesProps = {
   url: string[];

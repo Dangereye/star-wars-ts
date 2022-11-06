@@ -6,7 +6,7 @@ import BodyText from "./text/BodyText";
 
 // Interfaces
 import { IPlanet } from "../../interfaces/planet";
-import LinkText from "./text/LinkText";
+import LinkText from "./text/link_text/LinkText";
 
 type HomeworldProps = {
   url: string;

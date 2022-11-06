@@ -1,0 +1,10 @@
+a.link-text {
+  color: $link-text-color;
+  transition: color $time;
+
+  @media (hover: hover) {
+    &:hover {
+      color: darken($link-text-color, 30%);
+    }
+  }
+}

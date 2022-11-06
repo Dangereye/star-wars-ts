@@ -21,5 +21,9 @@
 
   &--value {
     font-weight: 400;
+    .body-text,
+    .link-text {
+      font-weight: 400;
+    }
   }
 }
