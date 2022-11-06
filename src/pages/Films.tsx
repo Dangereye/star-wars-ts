@@ -25,7 +25,6 @@ export default function FilmsPage() {
     isLoading,
     isError,
     data: films,
-    isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
   } = useInfiniteFetchData<IPage<IFilm>>("films", getNextPageParam);
@@ -41,13 +40,7 @@ export default function FilmsPage() {
   }
 
   return (
-    <InfiniteDataCards
-      title="Films"
-      data={films}
-      isFetchingNextPage={isFetchingNextPage}
-      hasNextPage={hasNextPage}
-      fetchNextPage={fetchNextPage}
-    >
+    <InfiniteDataCards title="Films" data={films}>
       {films.pages.map((page) =>
         page.results
           .sort((a, b) => a.episode_id - b.episode_id)

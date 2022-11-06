@@ -1,10 +1,5 @@
-import {
-  FetchNextPageOptions,
-  InfiniteData,
-  InfiniteQueryObserverResult,
-} from "@tanstack/react-query";
-
 import { ReactNode } from "react";
+import { InfiniteData } from "@tanstack/react-query";
 
 // Interfaces
 import { IFilm } from "../../../interfaces/film";
@@ -16,7 +11,6 @@ import { IStarship } from "../../../interfaces/starship";
 import { IVehicle } from "../../../interfaces/vehicle";
 
 // Components
-import Button from "../buttons/button/Button";
 import BodyText from "../text/BodyText";
 import HDiv from "../text/HDiv";
 
@@ -28,25 +22,12 @@ type CardsProps = {
       >
     | undefined;
   children: ReactNode;
-  isFetchingNextPage: boolean;
-  hasNextPage: boolean | undefined;
-  fetchNextPage: (
-    options?: FetchNextPageOptions | undefined
-  ) => Promise<
-    InfiniteQueryObserverResult<
-      IPage<IFilm | IPeople | ISpecies | IPlanet | IStarship | IVehicle>,
-      unknown
-    >
-  >;
 };
 
 export default function InfiniteDataCards({
   title,
   data,
   children,
-  isFetchingNextPage,
-  hasNextPage,
-  fetchNextPage,
 }: CardsProps) {
   return (
     <article className="article">
@@ -54,23 +35,6 @@ export default function InfiniteDataCards({
         <HDiv variant="heading--h2" text={title} />
         <BodyText text={`Found ${data?.pages[0].count} results.`} />
         <div className="cards">{children}</div>
-        {data?.pages[0].next && (
-          <div className="buttons">
-            <Button
-              name={
-                isFetchingNextPage
-                  ? "loading more..."
-                  : hasNextPage
-                  ? "load more"
-                  : "nothing more"
-              }
-              size="btn--large"
-              variant="btn--primary"
-              onClick={() => fetchNextPage()}
-              disabled={!hasNextPage}
-            />
-          </div>
-        )}
       </div>
     </article>
   );

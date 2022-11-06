@@ -24,9 +24,6 @@ export default function Species() {
     isLoading,
     isError,
     data: species,
-    isFetchingNextPage,
-    fetchNextPage,
-    hasNextPage,
   } = useInfiniteFetchData<IPage<ISpecies>>("species", getNextPageParam);
 
   if (isLoading) {
@@ -38,13 +35,7 @@ export default function Species() {
   }
 
   return (
-    <InfiniteDataCards
-      title="species"
-      data={species}
-      isFetchingNextPage={isFetchingNextPage}
-      hasNextPage={hasNextPage}
-      fetchNextPage={fetchNextPage}
-    >
+    <InfiniteDataCards title="species" data={species}>
       {species?.pages.map((page) =>
         page?.results.map((entity) => (
           <InfiniteDataCard

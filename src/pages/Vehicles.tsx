@@ -27,9 +27,6 @@ export default function People() {
     isLoading,
     isError,
     data: vehicles,
-    isFetchingNextPage,
-    fetchNextPage,
-    hasNextPage,
   } = useInfiniteFetchData<IPage<IVehicle>>("vehicles", getNextPageParam);
 
   if (isLoading) {
@@ -40,13 +37,7 @@ export default function People() {
   }
 
   return (
-    <InfiniteDataCards
-      title="vehicles"
-      data={vehicles}
-      isFetchingNextPage={isFetchingNextPage}
-      hasNextPage={hasNextPage}
-      fetchNextPage={fetchNextPage}
-    >
+    <InfiniteDataCards title="vehicles" data={vehicles}>
       {vehicles.pages.map((page) =>
         page.results?.map((vehicle) => (
           <InfiniteDataCard

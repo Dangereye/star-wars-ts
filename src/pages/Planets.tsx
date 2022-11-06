@@ -25,9 +25,6 @@ export default function People() {
     isLoading,
     isError,
     data: planets,
-    isFetchingNextPage,
-    fetchNextPage,
-    hasNextPage,
   } = useInfiniteFetchData<IPage<IPlanet>>("planets", getNextPageParam);
 
   if (isLoading) {
@@ -38,13 +35,7 @@ export default function People() {
   }
 
   return (
-    <InfiniteDataCards
-      title="planets"
-      data={planets}
-      isFetchingNextPage={isFetchingNextPage}
-      hasNextPage={hasNextPage}
-      fetchNextPage={fetchNextPage}
-    >
+    <InfiniteDataCards title="planets" data={planets}>
       {planets.pages.map((page) =>
         page.results?.map((planet) => (
           <InfiniteDataCard
