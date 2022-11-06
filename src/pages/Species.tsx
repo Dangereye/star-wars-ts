@@ -1,5 +1,6 @@
 // Hooks
 import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
+import useObserver from "../hooks/useObserver";
 
 // Components
 import IsError from "../components/shared/is_error/IsError";
@@ -24,7 +25,11 @@ export default function Species() {
     isLoading,
     isError,
     data: species,
+    hasNextPage,
+    fetchNextPage,
   } = useInfiniteFetchData<IPage<ISpecies>>("species", getNextPageParam);
+
+  const lastCard = useObserver(species, hasNextPage, fetchNextPage);
 
   if (isLoading) {
     return <IsLoading message="Species" />;
@@ -37,16 +42,33 @@ export default function Species() {
   return (
     <InfiniteDataCards title="species" data={species}>
       {species?.pages.map((page) =>
-        page?.results.map((entity) => (
-          <InfiniteDataCard
-            type="species"
-            color="species"
-            icon={() => <GiDna1 />}
-            url={entity.url}
-            heading={entity.name}
-            body={entity.classification}
-          />
-        ))
+        page?.results.map((entity, i) => {
+          if (i + 1 === page.results.length) {
+            return (
+              <InfiniteDataCard
+                ref={lastCard}
+                key={entity.name}
+                type="species"
+                color="species"
+                icon={() => <GiDna1 />}
+                url={entity.url}
+                heading={entity.name}
+                body={entity.classification}
+              />
+            );
+          }
+          return (
+            <InfiniteDataCard
+              key={entity.name}
+              type="species"
+              color="species"
+              icon={() => <GiDna1 />}
+              url={entity.url}
+              heading={entity.name}
+              body={entity.classification}
+            />
+          );
+        })
       )}
     </InfiniteDataCards>
   );

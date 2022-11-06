@@ -41,8 +41,8 @@ export default function FilmsPage() {
 
   return (
     <InfiniteDataCards title="Films" data={films}>
-      {films.pages.map((page) =>
-        page.results
+      {films?.pages.map((page) =>
+        page?.results
           .sort((a, b) => a.episode_id - b.episode_id)
           .map((film, i) => {
             if (i + 1 === page.results.length) {

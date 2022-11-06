@@ -40,8 +40,8 @@ export default function People() {
 
   return (
     <InfiniteDataCards title="People" data={people}>
-      {people.pages.map((page) =>
-        page.results?.map((person, i) => {
+      {people?.pages.map((page) =>
+        page?.results.map((person, i) => {
           if (i + 1 === page.results.length) {
             return (
               <InfiniteDataCard
