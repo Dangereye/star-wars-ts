@@ -11,6 +11,7 @@ import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
+
 // Icons
 import { getPeopleIcon } from "../icons/getPeopleIcon";
 
