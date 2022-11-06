@@ -16,6 +16,7 @@ import { GiTank } from "react-icons/gi";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
+import useObserver from "../hooks/useObserver";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IVehicle>) =>
@@ -27,7 +28,11 @@ export default function People() {
     isLoading,
     isError,
     data: vehicles,
+    hasNextPage,
+    fetchNextPage,
   } = useInfiniteFetchData<IPage<IVehicle>>("vehicles", getNextPageParam);
+
+  const lastCard = useObserver(vehicles, hasNextPage, fetchNextPage);
 
   if (isLoading) {
     return <IsLoading message={`vehicles`} />;
@@ -39,17 +44,33 @@ export default function People() {
   return (
     <InfiniteDataCards title="vehicles" data={vehicles}>
       {vehicles.pages.map((page) =>
-        page.results?.map((vehicle) => (
-          <InfiniteDataCard
-            key={vehicle.name}
-            type="vehicles"
-            icon={() => <GiTank />}
-            url={vehicle.url}
-            color="vehicles"
-            heading={vehicle.name}
-            body={<StringToStringArray string={vehicle.model} />}
-          />
-        ))
+        page.results?.map((vehicle, i) => {
+          if (i + 1 === page.results.length) {
+            return (
+              <InfiniteDataCard
+                ref={lastCard}
+                key={vehicle.name}
+                type="vehicles"
+                icon={() => <GiTank />}
+                url={vehicle.url}
+                color="vehicles"
+                heading={vehicle.name}
+                body={<StringToStringArray string={vehicle.model} />}
+              />
+            );
+          }
+          return (
+            <InfiniteDataCard
+              key={vehicle.name}
+              type="vehicles"
+              icon={() => <GiTank />}
+              url={vehicle.url}
+              color="vehicles"
+              heading={vehicle.name}
+              body={<StringToStringArray string={vehicle.model} />}
+            />
+          );
+        })
       )}
     </InfiniteDataCards>
   );
