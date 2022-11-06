@@ -1,5 +1,6 @@
 // Hooks
 import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
+import useObserver from "../hooks/useObserver";
 
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
@@ -16,7 +17,6 @@ import { GiTank } from "react-icons/gi";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
-import useObserver from "../hooks/useObserver";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IVehicle>) =>

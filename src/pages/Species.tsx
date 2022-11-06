@@ -3,8 +3,8 @@ import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
 import useObserver from "../hooks/useObserver";
 
 // Components
-import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
 import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 

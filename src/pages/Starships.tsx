@@ -14,6 +14,8 @@ import { IStarship } from "../interfaces/starship";
 
 // Icons
 import { VscRocket } from "react-icons/vsc";
+
+// Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 
 export default function People() {
