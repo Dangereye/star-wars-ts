@@ -1,5 +1,6 @@
 // Hooks
 import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
+import useObserver from "../hooks/useObserver";
 
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
@@ -10,13 +11,8 @@ import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
-
-import {
-  TbGenderFemale,
-  TbGenderHermaphrodite,
-  TbGenderMale,
-  TbGenderNeutrois,
-} from "react-icons/tb";
+// Icons
+import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IPeople>) =>
@@ -33,18 +29,7 @@ export default function People() {
     hasNextPage,
   } = useInfiniteFetchData<IPage<IPeople>>("people", getNextPageParam);
 
-  const getPeopleIcon = (person: IPeople) => {
-    if (person.gender === "male") {
-      return <TbGenderMale />;
-    }
-    if (person.gender === "female") {
-      return <TbGenderFemale />;
-    }
-    if (person.gender === "hermaphrodite") {
-      return <TbGenderHermaphrodite />;
-    }
-    return <TbGenderNeutrois />;
-  };
+  const lastCard = useObserver(people, hasNextPage, fetchNextPage);
 
   if (isLoading) {
     return <IsLoading message={`People`} />;
@@ -62,16 +47,33 @@ export default function People() {
       fetchNextPage={fetchNextPage}
     >
       {people.pages.map((page) =>
-        page.results?.map((person) => (
-          <InfiniteDataCard
-            type={"people"}
-            color={person.gender}
-            icon={() => getPeopleIcon(person)}
-            url={person.url}
-            heading={person.name}
-            species={person.species}
-          />
-        ))
+        page.results?.map((person, i) => {
+          if (i + 1 === page.results.length) {
+            return (
+              <InfiniteDataCard
+                ref={lastCard}
+                key={person.name}
+                type={"people"}
+                color={person.gender}
+                icon={() => getPeopleIcon(person)}
+                url={person.url}
+                heading={person.name}
+                species={person.species}
+              />
+            );
+          }
+          return (
+            <InfiniteDataCard
+              key={person.name}
+              type={"people"}
+              color={person.gender}
+              icon={() => getPeopleIcon(person)}
+              url={person.url}
+              heading={person.name}
+              species={person.species}
+            />
+          );
+        })
       )}
     </InfiniteDataCards>
   );
