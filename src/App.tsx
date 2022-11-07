@@ -4,6 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+// Context
+import AppContextProvider from "./context/AppContext";
+
 // Components
 import Navbar from "./components/layout/navbar/Navbar";
 
@@ -29,23 +32,25 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="app">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/films" element={<Films />} />
-          <Route path="/films/:filmId" element={<Film />} />
-          <Route path="/people" element={<People />} />
-          <Route path="/people/:personId" element={<Person />} />
-          <Route path="/species" element={<Species />} />
-          <Route path="/species/:speciesId" element={<Entity />} />
-          <Route path="/planets" element={<Planets />} />
-          <Route path="/planets/:planetId" element={<Planet />} />
-          <Route path="/starships" element={<Starships />} />
-          <Route path="/starships/:starshipId" element={<Starship />} />
-          <Route path="/vehicles" element={<Vehicles />} />
-          <Route path="/vehicles/:vehicleId" element={<Vehicle />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/films" element={<Films />} />
+            <Route path="/films/:filmId" element={<Film />} />
+            <Route path="/people" element={<People />} />
+            <Route path="/people/:personId" element={<Person />} />
+            <Route path="/species" element={<Species />} />
+            <Route path="/species/:speciesId" element={<Entity />} />
+            <Route path="/planets" element={<Planets />} />
+            <Route path="/planets/:planetId" element={<Planet />} />
+            <Route path="/starships" element={<Starships />} />
+            <Route path="/starships/:starshipId" element={<Starship />} />
+            <Route path="/vehicles" element={<Vehicles />} />
+            <Route path="/vehicles/:vehicleId" element={<Vehicle />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AppContextProvider>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
