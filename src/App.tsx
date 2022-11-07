@@ -9,6 +9,7 @@ import AppContextProvider from "./context/AppContext";
 
 // Components
 import Navbar from "./components/layout/navbar/Navbar";
+import MobileMenu from "./components/layout/mobile_menu/MobileMenu";
 
 // Pages
 import Film from "./pages/Film";
@@ -34,6 +35,7 @@ function App() {
       <div className="app">
         <AppContextProvider>
           <Navbar />
+          <MobileMenu />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/films" element={<Films />} />

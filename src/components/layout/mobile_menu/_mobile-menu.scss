@@ -1,0 +1,16 @@
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  background-color: #eee;
+
+  @include app-horizontal-padding;
+  @include app-vertical-padding;
+  transition: left $time;
+  z-index: 999;
+
+  &.open {
+    left: 0;
+  }
+}
