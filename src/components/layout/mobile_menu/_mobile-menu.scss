@@ -2,6 +2,8 @@
   position: fixed;
   top: 0;
   left: -100%;
+  width: 100%;
+  max-width: 40rem;
   height: 100%;
   background-color: #eee;
 
@@ -12,5 +14,9 @@
 
   &.open {
     left: 0;
+  }
+
+  @media (min-width: $tablet) {
+    display: none;
   }
 }
