@@ -68,6 +68,7 @@ export default function Person() {
   return (
     <>
       <GenericHeader
+        bgImage="/images/headers/people_header.webp"
         name={person.name}
         icon={() => getPeopleIcon(person)}
         list={list}

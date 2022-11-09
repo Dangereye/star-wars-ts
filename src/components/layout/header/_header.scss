@@ -8,11 +8,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 750px) {
+    align-items: flex-start;
+  }
+
   .heading {
     color: $text-color-light;
   }
+
   .body-text {
     color: $body-text-color-light;
+  }
+
+  .list-item--name {
+    color: $body-text-color-light;
+  }
+
+  .list-item--value {
+    color: $text-color-light;
   }
 
   @include app-vertical-padding;
@@ -25,28 +39,33 @@
 
   .container {
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
+    max-width: 145rem;
 
-    @media (max-width: 836px) {
-      flex-direction: column;
+    display: grid;
+    gap: 6rem;
+    grid-template-columns: 2fr 3fr;
+
+    @media (max-width: 750px) {
+      grid-template-columns: 1fr;
     }
   }
 
-  .image,
   .icon {
-    flex: 1 1 35rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
 
-    @media (max-width: 1500px) {
-      align-items: flex-start;
-    }
-
-    img,
     svg {
+      width: 22rem;
+      height: auto;
+    }
+  }
+
+  .image {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    img {
       width: 100%;
       max-width: 60rem;
       height: auto;
@@ -54,16 +73,10 @@
   }
 
   .content {
-    flex: 2 2 35rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: space-evenly;
     gap: 4rem;
-
-    @media (max-width: 1500px) {
-      padding: 0;
-      justify-content: flex-start;
-    }
   }
 }

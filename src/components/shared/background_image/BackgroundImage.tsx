@@ -28,6 +28,7 @@ export default function BackgroundImage({
 }
 
 BackgroundImage.defaultProps = {
+  src: "/images/headers/people_header.webp",
   position: "center",
   size: "cover",
   attachment: "scroll",
