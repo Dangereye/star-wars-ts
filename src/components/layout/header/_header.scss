@@ -39,11 +39,11 @@
 
   .container {
     position: relative;
-    max-width: 145rem;
+    max-width: 150rem;
 
     display: grid;
     gap: 6rem;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 10fr 19fr;
 
     @media (max-width: 750px) {
       grid-template-columns: 1fr;
@@ -55,7 +55,7 @@
     place-content: center;
 
     svg {
-      width: 22rem;
+      width: 15rem;
       height: auto;
     }
   }
@@ -78,5 +78,12 @@
     justify-content: space-between;
     align-items: space-evenly;
     gap: 4rem;
+  }
+
+  .list {
+    @media (min-width: $mobile) {
+      @include glass-bg;
+      padding: 4rem;
+    }
   }
 }

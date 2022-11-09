@@ -4,10 +4,10 @@
   border-left-color: rgba($body-text-color-light, 0.2);
   border-right-color: $body-text-color-dark;
   border-bottom-color: $body-text-color-dark;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(6px);
   background-image: linear-gradient(
     to bottom right,
-    rgba($body-text-color-light, 0.07),
-    rgba($body-text-color-dark, 0.01)
+    rgba($body-text-color-light, 0.04),
+    rgba($body-text-color-dark, 0)
   );
 }
