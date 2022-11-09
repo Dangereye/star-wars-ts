@@ -11,7 +11,7 @@ import { IPlanet } from "../interfaces/planet";
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
-import FilmHeader from "../components/layout/header/film_header/FilmHeader";
+import FilmHeader from "../components/layout/header/FilmHeader";
 import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
 

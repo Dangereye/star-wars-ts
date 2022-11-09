@@ -1,18 +1,18 @@
 // Interfaces
-import { IFilm } from "../../../../interfaces/film";
+import { IFilm } from "../../../interfaces/film";
 
 // Components
-import BackgroundImage from "../../../shared/background_image/BackgroundImage";
-import HDiv from "../../../shared/text/HDiv";
-import H1 from "../../../shared/text/H1";
-import H3 from "../../../shared/text/H3";
-import BodyText from "../../../shared/text/BodyText";
+import BackgroundImage from "../../shared/background_image/BackgroundImage";
+import HDiv from "../../shared/text/HDiv";
+import H1 from "../../shared/text/H1";
+import H3 from "../../shared/text/H3";
+import BodyText from "../../shared/text/BodyText";
 import ProductionTeam from "./production_team/ProductionTeam";
-import Statistics from "../../../shared/statistics/Statistics";
+import Statistics from "../../shared/statistics/Statistics";
 
 // Utilities
-import FormatDate from "../../../../utilities/FormatDate";
-import StringToStringArray from "../../../../utilities/string_to_string_array/StringToStringArray";
+import FormatDate from "../../../utilities/FormatDate";
+import StringToStringArray from "../../../utilities/string_to_string_array/StringToStringArray";
 
 type FilmHeaderProps = {
   data: IFilm;
