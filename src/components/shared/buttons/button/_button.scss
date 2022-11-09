@@ -10,10 +10,12 @@
   &--large {
     padding: 3rem 6rem;
   }
+
   &--primary {
     color: $text-color-light;
     background-color: $text-color-dark;
   }
+
   &--secondary {
     color: $text-color-dark;
     background-color: transparent;

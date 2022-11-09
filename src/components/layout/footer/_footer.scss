@@ -1,0 +1,17 @@
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+  @include app-horizontal-padding;
+
+  background-color: $text-color-dark;
+  color: $body-text-color-light;
+
+  .btn {
+    position: absolute;
+    top: -5rem;
+  }
+}

@@ -1,5 +1,6 @@
+import { ReactNode } from "react";
 type ButtonProps = {
-  name: string;
+  name: string | ReactNode;
   size?: "btn--large";
   variant?: "btn--primary" | "btn--secondary" | "btn--tertiary";
   onClick: () => void;

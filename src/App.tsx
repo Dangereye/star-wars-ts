@@ -10,6 +10,7 @@ import AppContextProvider from "./context/AppContext";
 // Components
 import Navbar from "./components/layout/navbar/Navbar";
 import MobileMenu from "./components/layout/mobile_menu/MobileMenu";
+import Footer from "./components/layout/footer/Footer";
 
 // Pages
 import Film from "./pages/Film";
@@ -52,6 +53,7 @@ function App() {
             <Route path="/vehicles/:vehicleId" element={<Vehicle />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <Footer />
         </AppContextProvider>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
