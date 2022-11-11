@@ -68,10 +68,19 @@ export default function Person() {
       value: <CheckUnits string={planet.population} />,
     },
   ];
+  const stats = {
+    films: planet.films.length,
+    people: planet.residents.length,
+  };
 
   return (
     <>
-      <GenericHeader name={planet.name} category="planet" list={list} />
+      <GenericHeader
+        name={planet.name}
+        category="planet"
+        list={list}
+        stats={stats}
+      />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={planet.films.length}>

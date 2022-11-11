@@ -78,10 +78,19 @@ export default function Vehicle() {
       value: <CheckUnits string={vehicle.consumables} />,
     },
   ];
+  const stats = {
+    films: vehicle.films.length,
+    people: vehicle.pilots.length,
+  };
 
   return (
     <>
-      <GenericHeader name={vehicle.name} category="vehicle" list={list} />
+      <GenericHeader
+        name={vehicle.name}
+        category="vehicle"
+        list={list}
+        stats={stats}
+      />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={vehicle.films.length}>

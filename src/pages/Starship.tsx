@@ -82,10 +82,19 @@ export default function Person() {
       value: <CheckUnits string={starship.consumables} />,
     },
   ];
+  const stats = {
+    films: starship.films.length,
+    people: starship.pilots.length,
+  };
 
   return (
     <>
-      <GenericHeader name={starship.name} category="starship" list={list} />
+      <GenericHeader
+        name={starship.name}
+        category="starship"
+        list={list}
+        stats={stats}
+      />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={starship.films.length}>
