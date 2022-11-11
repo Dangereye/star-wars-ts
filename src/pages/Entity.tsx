@@ -73,6 +73,10 @@ export default function Entity() {
       value: species.language,
     },
   ];
+  const stats = {
+    films: species.films.length,
+    people: species.people.length,
+  };
 
   return (
     <>
@@ -81,6 +85,7 @@ export default function Entity() {
         category="Species"
         color="species"
         list={list}
+        stats={stats}
       />
       <main>
         {/* Films */}
