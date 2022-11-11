@@ -81,6 +81,7 @@ export default function Entity() {
   return (
     <>
       <GenericHeader
+        bgImage="/images/headers/species_header.webp"
         name={species.name}
         category="Species"
         color="species"

@@ -77,6 +77,7 @@ export default function Person() {
     <>
       <GenericHeader
         name={planet.name}
+        bgImage="/images/headers/planets_header.webp"
         category="planet"
         list={list}
         stats={stats}

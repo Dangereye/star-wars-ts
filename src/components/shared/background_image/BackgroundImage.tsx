@@ -32,5 +32,5 @@ BackgroundImage.defaultProps = {
   position: "center",
   size: "cover",
   attachment: "scroll",
-  opacity: 0.05,
+  opacity: 0.1,
 };
