@@ -71,7 +71,7 @@ export default function Person() {
 
   return (
     <>
-      <GenericHeader name={planet.name} icon={() => <BiPlanet />} list={list} />
+      <GenericHeader name={planet.name} category="planet" list={list} />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={planet.films.length}>

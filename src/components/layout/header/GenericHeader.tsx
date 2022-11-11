@@ -8,6 +8,8 @@ type Props = {
   variant?: string;
   bgImage?: string;
   icon?: () => JSX.Element;
+  category?: string;
+  color?: string;
   name: string;
   list: (
     | {
@@ -19,27 +21,31 @@ type Props = {
         value: JSX.Element;
       }
   )[];
-  statistics?: [];
+  stats?: {
+    films?: number;
+    people?: number;
+    planets?: number;
+    species?: number;
+    starships?: number;
+    vehicles?: number;
+  };
 };
 
 export default function GenericHeader({
   variant,
   bgImage,
-  icon,
+  category,
   name,
   list,
-  statistics,
+  stats,
 }: Props) {
   return (
     <header className={`header ${variant}`}>
       <BackgroundImage src={bgImage} attachment="fixed" />
-      <div className="container">
-        {icon && (
-          <div
-            className="icon"
-            style={{ backgroundColor: "hsl(203, 44%, 81%,.9)" }}
-          >
-            {icon()}
+      <div className="container container--generic">
+        {category && (
+          <div className="category">
+            <div className="rotate">{category}</div>
           </div>
         )}
         <div className="content">
@@ -51,7 +57,14 @@ export default function GenericHeader({
               ))}
             </List>
           </div>
-          {/* <Statistics statistics={statistics} /> */}
+          <Statistics
+            films={stats?.films}
+            characters={stats?.people}
+            planets={stats?.planets}
+            species={stats?.species}
+            starships={stats?.starships}
+            vehicles={stats?.vehicles}
+          />
         </div>
       </div>
     </header>

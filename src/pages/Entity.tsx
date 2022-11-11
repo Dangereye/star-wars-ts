@@ -76,7 +76,12 @@ export default function Entity() {
 
   return (
     <>
-      <GenericHeader name={species.name} icon={() => <GiDna1 />} list={list} />
+      <GenericHeader
+        name={species.name}
+        category="Species"
+        color="species"
+        list={list}
+      />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={species.films.length}>

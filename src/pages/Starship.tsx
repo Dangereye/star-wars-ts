@@ -85,11 +85,7 @@ export default function Person() {
 
   return (
     <>
-      <GenericHeader
-        name={starship.name}
-        icon={() => <VscRocket />}
-        list={list}
-      />
+      <GenericHeader name={starship.name} category="starship" list={list} />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={starship.films.length}>

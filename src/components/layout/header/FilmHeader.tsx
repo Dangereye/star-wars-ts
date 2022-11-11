@@ -25,7 +25,7 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
         src={`/images/films/episode${data.episode_id}_background.webp`}
         attachment="fixed"
       />
-      <div className="container">
+      <div className="container container--film">
         <div className="image">
           <img
             src={`/images/films/ep${data.episode_id}@600.jpg`}

@@ -81,7 +81,7 @@ export default function Vehicle() {
 
   return (
     <>
-      <GenericHeader name={vehicle.name} icon={() => <GiTank />} list={list} />
+      <GenericHeader name={vehicle.name} category="vehicle" list={list} />
       <main>
         {/* Films */}
         <AssociatedCards title="films" results={vehicle.films.length}>

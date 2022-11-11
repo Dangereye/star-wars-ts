@@ -65,13 +65,22 @@ export default function Person() {
     },
   ];
 
+  const stats = {
+    films: person.films.length,
+    starships: person.starships.length,
+    vehicles: person.vehicles.length,
+  };
+
   return (
     <>
       <GenericHeader
         bgImage="/images/headers/people_header.webp"
         name={person.name}
         icon={() => getPeopleIcon(person)}
+        category="character"
+        color={person.gender}
         list={list}
+        stats={stats}
       />
       <main>
         {/* Films */}
