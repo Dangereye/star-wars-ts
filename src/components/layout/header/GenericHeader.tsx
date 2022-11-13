@@ -35,6 +35,7 @@ export default function GenericHeader({
   variant,
   bgImage,
   category,
+  color,
   name,
   list,
   stats,
@@ -44,7 +45,7 @@ export default function GenericHeader({
       <BackgroundImage src={bgImage} attachment="fixed" />
       <div className="container container--generic">
         {category && (
-          <div className="category">
+          <div className={`category ${color}`}>
             <div className="rotate">{category}</div>
           </div>
         )}

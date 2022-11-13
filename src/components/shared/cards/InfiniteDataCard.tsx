@@ -24,9 +24,7 @@ const InfiniteDataCard = forwardRef<HTMLAnchorElement, Props>(
     return (
       <Link to={`/${type}/${id}`} className="card" ref={ref}>
         {image && <div className="card__image">{image()}</div>}
-        {icon && (
-          <div className={`card__icon card__icon--${color}`}>{icon()}</div>
-        )}
+        {icon && <div className={`card__icon ${color}`}>{icon()}</div>}
         <div className="card__content">
           <HDiv variant="heading--h3" text={heading} />
           {body && <BodyText text={body} />}

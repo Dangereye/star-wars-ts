@@ -1,0 +1,55 @@
+@mixin background-colors {
+  &.male {
+    background-color: hsl(203, 44%, 81%);
+  }
+
+  &.female {
+    background-color: hsl(316, 44%, 83%);
+  }
+
+  &.hermaphrodite {
+    background-image: linear-gradient(hsl(203, 44%, 81%), hsl(316, 44%, 83%));
+  }
+
+  &.species {
+    background-image: linear-gradient(
+      to bottom,
+      hsl(130, 65%, 84%),
+      rgb(219, 231, 149)
+    );
+
+    svg {
+      fill: $text-color-dark;
+    }
+  }
+
+  &.unknown,
+  &.n\/a,
+  &.none {
+    background-color: hsl(39, 48%, 89%);
+  }
+
+  &.planets {
+    background-color: hsl(34, 20%, 73%);
+
+    svg {
+      fill: $text-color-dark;
+    }
+  }
+
+  &.starships {
+    background-color: hsl(0, 56%, 72%);
+
+    svg {
+      fill: $text-color-dark;
+    }
+  }
+
+  &.vehicles {
+    background-color: hsl(258, 56%, 72%);
+
+    svg {
+      fill: $text-color-dark;
+    }
+  }
+}

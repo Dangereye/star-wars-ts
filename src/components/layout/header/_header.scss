@@ -59,26 +59,20 @@
     }
 
     &--generic {
-      gap: 6rem;
       max-width: 120rem;
       grid-template-columns: 11.3rem 1fr;
-
-      @media (min-width: 750px) {
-        @include glass-bg;
-        padding: 4rem 4rem 4rem 3rem;
-      }
 
       .category {
         display: grid;
         place-content: center;
-        background-color: hsl(0, 0%, 8%);
+        @include background-colors;
 
         .rotate {
           rotate: -90deg;
-          font-size: 6rem;
+          font-size: 5rem;
           font-weight: 400;
           text-transform: uppercase;
-          color: hsl(0, 0%, 3%);
+          color: $text-color-dark;
         }
 
         @media (max-width: 750px) {
@@ -94,8 +88,13 @@
 
   .content {
     display: flex;
+    gap: 6rem;
     flex-direction: column;
     justify-content: space-between;
-    gap: 6rem;
+
+    @media (min-width: 750px) {
+      @include glass-bg;
+      padding: 6rem;
+    }
   }
 }

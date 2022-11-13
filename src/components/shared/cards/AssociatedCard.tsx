@@ -46,9 +46,7 @@ export default function AssociatedCard<T>({
     <Link to={`/${type}/${id}`} className="card">
       {image && <div className="card__image">{image(data)}</div>}
       {icon && color && (
-        <div className={`card__icon card__icon--${color(data)}`}>
-          {icon(data)}
-        </div>
+        <div className={`card__icon ${color(data)}`}>{icon(data)}</div>
       )}
       <div className="card__content">
         <HDiv variant="heading--h3" text={heading(data)} />
