@@ -93,6 +93,7 @@ export default function Person() {
         bgImage="/images/headers/starships_header.webp"
         name={starship.name}
         category="starship"
+        color="starships"
         list={list}
         stats={stats}
       />

@@ -79,6 +79,7 @@ export default function Person() {
         name={planet.name}
         bgImage="/images/headers/planets_header.webp"
         category="planet"
+        color="planets"
         list={list}
         stats={stats}
       />

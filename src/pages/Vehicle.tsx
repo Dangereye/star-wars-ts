@@ -89,6 +89,7 @@ export default function Vehicle() {
         bgImage="/images/headers/vehicles_header.webp"
         name={vehicle.name}
         category="vehicle"
+        color="vehicles"
         list={list}
         stats={stats}
       />
