@@ -5,10 +5,8 @@ import ListItem from "../../shared/lists/list_item/ListItem";
 import BackgroundImage from "../../shared/background_image/BackgroundImage";
 
 type Props = {
-  variant?: string;
-  bgImage?: string;
-  icon?: () => JSX.Element;
-  category?: string;
+  bgImage: string;
+  category: string;
   color?: string;
   name: string;
   list: (
@@ -21,6 +19,7 @@ type Props = {
         value: JSX.Element;
       }
   )[];
+
   stats?: {
     films?: number;
     people?: number;
@@ -32,7 +31,6 @@ type Props = {
 };
 
 export default function GenericHeader({
-  variant,
   bgImage,
   category,
   color,
@@ -41,14 +39,12 @@ export default function GenericHeader({
   stats,
 }: Props) {
   return (
-    <header className={`header ${variant}`}>
+    <header className="header">
       <BackgroundImage src={bgImage} attachment="fixed" />
       <div className="container container--generic">
-        {category && (
-          <div className={`category ${color}`}>
-            <div className="rotate">{category}</div>
-          </div>
-        )}
+        <div className={`category ${color}`}>
+          <div className="rotate">{category}</div>
+        </div>
         <div className="content">
           <div className="">
             <H1 text={name} />

@@ -13,7 +13,6 @@ import Homeworld from "../components/shared/GetHomeworld";
 import Species from "../components/shared/GetSpecies";
 
 // Icons
-import { getPeopleIcon } from "../icons/getPeopleIcon";
 import { IStarship } from "../interfaces/starship";
 import { VscRocket } from "react-icons/vsc";
 import { IVehicle } from "../interfaces/vehicle";
@@ -76,7 +75,6 @@ export default function Person() {
       <GenericHeader
         bgImage="/images/headers/people_header.webp"
         name={person.name}
-        icon={() => getPeopleIcon(person)}
         category="character"
         color={person.gender}
         list={list}

@@ -43,7 +43,7 @@
 
     &--film {
       gap: 6rem;
-      grid-template-columns: 10fr 19fr;
+      grid-template-columns: 1fr 2fr;
 
       .image {
         display: flex;
@@ -60,7 +60,7 @@
 
     &--generic {
       max-width: 120rem;
-      grid-template-columns: 11.3rem 1fr;
+      grid-template-columns: 10rem 1fr;
 
       .category {
         display: grid;
@@ -68,9 +68,12 @@
         @include background-colors;
 
         .rotate {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
           rotate: -90deg;
-          font-size: 5rem;
-          font-weight: 400;
+          font-size: 6rem;
+          font-weight: 200;
           text-transform: uppercase;
           color: $text-color-dark;
         }
@@ -79,22 +82,24 @@
           display: none;
         }
       }
+
+      .content {
+        @media (min-width: 750px) {
+          @include glass-bg;
+          padding: 6rem;
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      gap: 6rem;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     @media (max-width: 750px) {
       grid-template-columns: 1fr;
-    }
-  }
-
-  .content {
-    display: flex;
-    gap: 6rem;
-    flex-direction: column;
-    justify-content: space-between;
-
-    @media (min-width: 750px) {
-      @include glass-bg;
-      padding: 6rem;
     }
   }
 }
