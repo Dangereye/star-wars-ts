@@ -33,6 +33,7 @@
   }
 
   &__image {
+    @include background-colors;
     width: 100%;
     max-width: 40rem;
 
@@ -50,7 +51,7 @@
     place-content: center;
 
     svg {
-      width: clamp(4.8rem, 5vw, 8rem);
+      width: 20rem;
       height: auto;
       stroke: $text-color-dark;
     }

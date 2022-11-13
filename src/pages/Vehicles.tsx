@@ -12,9 +12,6 @@ import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 import { IPage } from "../interfaces/page";
 import { IVehicle } from "../interfaces/vehicle";
 
-// Icons
-import { GiTank } from "react-icons/gi";
-
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 
@@ -34,9 +31,14 @@ export default function People() {
 
   const lastCard = useObserver(vehicles, hasNextPage, fetchNextPage);
 
+  const imageId = (name: string) => {
+    return name.replace(/[\s\/]/g, "_").toLowerCase();
+  };
+
   if (isLoading) {
     return <IsLoading message={`vehicles`} />;
   }
+
   if (isError) {
     return <IsError message="Unable to retrieve vehicles" />;
   }
@@ -51,7 +53,14 @@ export default function People() {
                 ref={lastCard}
                 key={vehicle.name}
                 type="vehicles"
-                icon={() => <GiTank />}
+                image={() => (
+                  <img
+                    src={`/images/vehicles/${imageId(vehicle.name)}.webp`}
+                    width="50px"
+                    height="500px"
+                    alt={imageId(vehicle.name)}
+                  />
+                )}
                 url={vehicle.url}
                 color="vehicles"
                 heading={vehicle.name}
@@ -63,7 +72,14 @@ export default function People() {
             <InfiniteDataCard
               key={vehicle.name}
               type="vehicles"
-              icon={() => <GiTank />}
+              image={() => (
+                <img
+                  src={`/images/vehicles/${imageId(vehicle.name)}.webp`}
+                  width="500px"
+                  height="500px"
+                  alt={imageId(vehicle.name)}
+                />
+              )}
               url={vehicle.url}
               color="vehicles"
               heading={vehicle.name}

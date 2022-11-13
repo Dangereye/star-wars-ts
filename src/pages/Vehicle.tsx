@@ -11,7 +11,6 @@ import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
-import { GiTank } from "react-icons/gi";
 import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 // Interfaces
