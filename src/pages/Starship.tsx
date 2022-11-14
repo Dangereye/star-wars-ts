@@ -4,25 +4,24 @@ import { useParams } from "react-router-dom";
 import useFetchData from "../hooks/useFetchData";
 
 // Components
-import GenericHeader from "../components/layout/header/GenericHeader";
-import IsError from "../components/shared/is_error/IsError";
 import IsLoading from "../components/shared/is_loading/IsLoading";
+import IsError from "../components/shared/is_error/IsError";
+import GenericHeader from "../components/layout/header/GenericHeader";
+import AssociatedCards from "../components/shared/cards/AssociatedCards";
+import AssociatedCard from "../components/shared/cards/AssociatedCard";
 
 // Icons
-import { VscRocket } from "react-icons/vsc";
 import { getPeopleIcon } from "../icons/getPeopleIcon";
 
 // Interfaces
+import { IFilm } from "../interfaces/film";
+import { IPeople } from "../interfaces/people";
 import { IStarship } from "../interfaces/starship";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import CheckUnits from "../utilities/CheckUnits";
-import AssociatedCards from "../components/shared/cards/AssociatedCards";
-import AssociatedCard from "../components/shared/cards/AssociatedCard";
-import { IFilm } from "../interfaces/film";
 import FormatDate from "../utilities/FormatDate";
-import { IPeople } from "../interfaces/people";
 
 export default function Person() {
   const { starshipId } = useParams();
