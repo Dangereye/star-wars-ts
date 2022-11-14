@@ -16,7 +16,6 @@ import Species from "../components/shared/GetSpecies";
 import { IStarship } from "../interfaces/starship";
 import { VscRocket } from "react-icons/vsc";
 import { IVehicle } from "../interfaces/vehicle";
-import { GiTank } from "react-icons/gi";
 import { IFilm } from "../interfaces/film";
 
 // Interfaces
@@ -26,6 +25,7 @@ import { IPeople } from "../interfaces/people";
 import CheckUnits from "../utilities/CheckUnits";
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import FormatDate from "../utilities/FormatDate";
+import { vehicleImageId } from "../utilities/vehicleImageId";
 
 export default function Person() {
   const { personId } = useParams();
@@ -131,7 +131,14 @@ export default function Person() {
               key={`associated-vehicles-${i}`}
               type="vehicles"
               color={() => "vehicles"}
-              icon={() => <GiTank />}
+              image={(data) => (
+                <img
+                  src={`/images/vehicles/${vehicleImageId(data.name)}.webp`}
+                  width="500px"
+                  height="500px"
+                  alt={vehicleImageId(data.name)}
+                />
+              )}
               heading={(data) => data.name}
               body={(data) => data.model}
               url={vehicle}
