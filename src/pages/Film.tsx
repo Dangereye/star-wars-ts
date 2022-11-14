@@ -23,7 +23,9 @@ import { IStarship } from "../interfaces/starship";
 import { VscRocket } from "react-icons/vsc";
 import { GiDna1 } from "react-icons/gi";
 import { IVehicle } from "../interfaces/vehicle";
-import { GiTank } from "react-icons/gi";
+
+// Utilities
+import { vehicleImageId } from "../utilities/vehicleImageId";
 
 export default function Film() {
   const { filmId } = useParams();
@@ -111,7 +113,14 @@ export default function Film() {
               key={`associated-vehicles-${i}`}
               type="vehicles"
               color={() => "vehicles"}
-              icon={() => <GiTank />}
+              image={(data) => (
+                <img
+                  src={`/images/vehicles/${vehicleImageId(data.name)}.webp`}
+                  width="500px"
+                  height="500px"
+                  alt={vehicleImageId(data.name)}
+                />
+              )}
               heading={(data) => data.name}
               body={(data) => data.model}
               url={vehicle}

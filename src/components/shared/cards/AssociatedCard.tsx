@@ -44,7 +44,9 @@ export default function AssociatedCard<T>({
 
   return (
     <Link to={`/${type}/${id}`} className="card">
-      {image && <div className="card__image">{image(data)}</div>}
+      {image && (
+        <div className={`card__image ${color(data)}`}>{image(data)}</div>
+      )}
       {icon && color && (
         <div className={`card__icon ${color(data)}`}>{icon(data)}</div>
       )}

@@ -14,6 +14,7 @@ import { IVehicle } from "../interfaces/vehicle";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
+import { vehicleImageId } from "../utilities/vehicleImageId";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IVehicle>) =>
@@ -30,10 +31,6 @@ export default function People() {
   } = useInfiniteFetchData<IPage<IVehicle>>("vehicles", getNextPageParam);
 
   const lastCard = useObserver(vehicles, hasNextPage, fetchNextPage);
-
-  const imageId = (name: string) => {
-    return name.replace(/[\s\/]/g, "_").toLowerCase();
-  };
 
   if (isLoading) {
     return <IsLoading message={`vehicles`} />;
@@ -55,10 +52,12 @@ export default function People() {
                 type="vehicles"
                 image={() => (
                   <img
-                    src={`/images/vehicles/${imageId(vehicle.name)}.webp`}
-                    width="50px"
+                    src={`/images/vehicles/${vehicleImageId(
+                      vehicle.name
+                    )}.webp`}
+                    width="500px"
                     height="500px"
-                    alt={imageId(vehicle.name)}
+                    alt={vehicle.name}
                   />
                 )}
                 url={vehicle.url}
@@ -74,10 +73,10 @@ export default function People() {
               type="vehicles"
               image={() => (
                 <img
-                  src={`/images/vehicles/${imageId(vehicle.name)}.webp`}
+                  src={`/images/vehicles/${vehicleImageId(vehicle.name)}.webp`}
                   width="500px"
                   height="500px"
-                  alt={imageId(vehicle.name)}
+                  alt={vehicle.name}
                 />
               )}
               url={vehicle.url}
