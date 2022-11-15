@@ -11,6 +11,7 @@ import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
 import Homeworld from "../components/shared/GetHomeworld";
 import Species from "../components/shared/GetSpecies";
+import Image from "../components/shared/Image";
 
 // Icons
 import { IStarship } from "../interfaces/starship";
@@ -25,7 +26,7 @@ import { IPeople } from "../interfaces/people";
 import CheckUnits from "../utilities/CheckUnits";
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import FormatDate from "../utilities/FormatDate";
-import { vehicleImageId } from "../utilities/vehicleImageId";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function Person() {
   const { personId } = useParams();
@@ -132,11 +133,10 @@ export default function Person() {
               type="vehicles"
               color={() => "vehicles"}
               image={(data) => (
-                <img
-                  src={`/images/vehicles/${vehicleImageId(data.name)}.webp`}
-                  width="500px"
-                  height="500px"
-                  alt={vehicleImageId(data.name)}
+                <Image
+                  src={`/images/vehicles/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
                 />
               )}
               heading={(data) => data.name}

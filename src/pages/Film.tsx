@@ -14,6 +14,7 @@ import IsError from "../components/shared/is_error/IsError";
 import FilmHeader from "../components/layout/header/FilmHeader";
 import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
+import Image from "../components/shared/Image";
 
 // Icons
 import { getPeopleIcon } from "../icons/getPeopleIcon";
@@ -25,7 +26,7 @@ import { GiDna1 } from "react-icons/gi";
 import { IVehicle } from "../interfaces/vehicle";
 
 // Utilities
-import { vehicleImageId } from "../utilities/vehicleImageId";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function Film() {
   const { filmId } = useParams();
@@ -114,11 +115,10 @@ export default function Film() {
               type="vehicles"
               color={() => "vehicles"}
               image={(data) => (
-                <img
-                  src={`/images/vehicles/${vehicleImageId(data.name)}.webp`}
-                  width="500px"
-                  height="500px"
-                  alt={vehicleImageId(data.name)}
+                <Image
+                  src={`/images/vehicles/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
                 />
               )}
               heading={(data) => data.name}

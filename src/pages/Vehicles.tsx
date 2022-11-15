@@ -7,6 +7,7 @@ import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
 import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
+import Image from "../components/shared/Image";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
@@ -14,7 +15,7 @@ import { IVehicle } from "../interfaces/vehicle";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
-import { vehicleImageId } from "../utilities/vehicleImageId";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IVehicle>) =>
@@ -51,12 +52,11 @@ export default function People() {
                 key={vehicle.name}
                 type="vehicles"
                 image={() => (
-                  <img
-                    src={`/images/vehicles/${vehicleImageId(
+                  <Image
+                    src={`/images/vehicles/${formatImageName(
                       vehicle.name
                     )}.webp`}
-                    width="500px"
-                    height="500px"
+                    fallback="/images/error_500x500.webp"
                     alt={vehicle.name}
                   />
                 )}
@@ -72,10 +72,9 @@ export default function People() {
               key={vehicle.name}
               type="vehicles"
               image={() => (
-                <img
-                  src={`/images/vehicles/${vehicleImageId(vehicle.name)}.webp`}
-                  width="500px"
-                  height="500px"
+                <Image
+                  src={`/images/vehicles/${formatImageName(vehicle.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
                   alt={vehicle.name}
                 />
               )}
