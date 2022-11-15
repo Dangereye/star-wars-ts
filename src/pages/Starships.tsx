@@ -17,6 +17,8 @@ import { VscRocket } from "react-icons/vsc";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
+import Image from "../components/shared/Image";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IStarship>) =>
@@ -51,7 +53,15 @@ export default function People() {
                 ref={lastCard}
                 key={starship.name}
                 type="starships"
-                icon={() => <VscRocket />}
+                image={() => (
+                  <Image
+                    src={`/images/starships/${formatImageName(
+                      starship.name
+                    )}.webp`}
+                    fallback="/images/error_500x500.webp"
+                    alt={starship.name}
+                  />
+                )}
                 url={starship.url}
                 color="starships"
                 heading={starship.name}
@@ -63,7 +73,15 @@ export default function People() {
             <InfiniteDataCard
               key={starship.name}
               type="starships"
-              icon={() => <VscRocket />}
+              image={() => (
+                <Image
+                  src={`/images/starships/${formatImageName(
+                    starship.name
+                  )}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={starship.name}
+                />
+              )}
               url={starship.url}
               color="starships"
               heading={starship.name}
