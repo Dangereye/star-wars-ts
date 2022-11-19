@@ -7,13 +7,14 @@ import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
 import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
+import Image from "../components/shared/Image";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { ISpecies } from "../interfaces/species";
 
-// Icons
-import { GiDna1 } from "react-icons/gi";
+// Utilities
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function Species() {
   const getNextPageParam = (lastPage: IPage<ISpecies>) =>
@@ -50,7 +51,13 @@ export default function Species() {
                 key={entity.name}
                 type="species"
                 color="species"
-                icon={() => <GiDna1 />}
+                image={() => (
+                  <Image
+                    src={`/images/species/${formatImageName(entity.name)}.webp`}
+                    fallback="/images/error_500x500.webp"
+                    alt={entity.name}
+                  />
+                )}
                 url={entity.url}
                 heading={entity.name}
                 body={entity.classification}
@@ -62,7 +69,13 @@ export default function Species() {
               key={entity.name}
               type="species"
               color="species"
-              icon={() => <GiDna1 />}
+              image={() => (
+                <Image
+                  src={`/images/species/${formatImageName(entity.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={entity.name}
+                />
+              )}
               url={entity.url}
               heading={entity.name}
               body={entity.classification}
