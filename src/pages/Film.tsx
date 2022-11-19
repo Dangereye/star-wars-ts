@@ -7,6 +7,9 @@ import useFetchData from "../hooks/useFetchData";
 import { IFilm } from "../interfaces/film";
 import { IPeople } from "../interfaces/people";
 import { IPlanet } from "../interfaces/planet";
+import { ISpecies } from "../interfaces/species";
+import { IStarship } from "../interfaces/starship";
+import { IVehicle } from "../interfaces/vehicle";
 
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
@@ -19,11 +22,7 @@ import Image from "../components/shared/Image";
 // Icons
 import { getPeopleIcon } from "../icons/getPeopleIcon";
 import { BiPlanet } from "react-icons/bi";
-import { ISpecies } from "../interfaces/species";
-import { IStarship } from "../interfaces/starship";
-import { VscRocket } from "react-icons/vsc";
 import { GiDna1 } from "react-icons/gi";
-import { IVehicle } from "../interfaces/vehicle";
 
 // Utilities
 import { formatImageName } from "../utilities/formatImageName";
@@ -99,7 +98,13 @@ export default function Film() {
               key={`associated-starship-${i}`}
               type="starships"
               color={() => "starships"}
-              icon={() => <VscRocket />}
+              image={(data) => (
+                <Image
+                  src={`/images/starships/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
+                />
+              )}
               heading={(data) => data.name}
               body={(data) => data.model}
               url={starship}
