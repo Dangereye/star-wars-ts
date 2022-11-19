@@ -7,14 +7,15 @@ import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
 import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
+import Image from "../components/shared/Image";
 
 // Interfaces
 import { IPage } from "../interfaces/page";
 import { IPlanet } from "../interfaces/planet";
 
-// Icons
-import { BiPlanet } from "react-icons/bi";
+// Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IPlanet>) =>
@@ -49,7 +50,13 @@ export default function People() {
                 ref={lastCard}
                 key={planet.name}
                 type="planets"
-                icon={() => <BiPlanet />}
+                image={() => (
+                  <Image
+                    src={`/images/planets/${formatImageName(planet.name)}.webp`}
+                    fallback="/images/error_500x500.webp"
+                    alt={planet.name}
+                  />
+                )}
                 url={planet.url}
                 color="planets"
                 heading={planet.name}
@@ -61,7 +68,13 @@ export default function People() {
             <InfiniteDataCard
               key={planet.name}
               type="planets"
-              icon={() => <BiPlanet />}
+              image={() => (
+                <Image
+                  src={`/images/planets/${formatImageName(planet.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={planet.name}
+                />
+              )}
               url={planet.url}
               color="planets"
               heading={planet.name}
