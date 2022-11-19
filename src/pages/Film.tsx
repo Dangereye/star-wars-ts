@@ -22,7 +22,6 @@ import Image from "../components/shared/Image";
 // Icons
 import { getPeopleIcon } from "../icons/getPeopleIcon";
 import { BiPlanet } from "react-icons/bi";
-import { GiDna1 } from "react-icons/gi";
 
 // Utilities
 import { formatImageName } from "../utilities/formatImageName";
@@ -68,7 +67,13 @@ export default function Film() {
               key={`associated-species-${i}`}
               type="species"
               color={() => "species"}
-              icon={() => <GiDna1 />}
+              image={(data) => (
+                <Image
+                  src={`/images/species/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
+                />
+              )}
               heading={(data) => data.name}
               body={(data) => data.classification}
               url={species}
