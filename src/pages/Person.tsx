@@ -15,7 +15,6 @@ import Image from "../components/shared/Image";
 
 // Icons
 import { IStarship } from "../interfaces/starship";
-import { VscRocket } from "react-icons/vsc";
 import { IVehicle } from "../interfaces/vehicle";
 import { IFilm } from "../interfaces/film";
 
@@ -114,7 +113,13 @@ export default function Person() {
               key={`associated-starship-${i}`}
               type="starships"
               color={() => "starships"}
-              icon={() => <VscRocket />}
+              image={(data) => (
+                <Image
+                  src={`/images/starships/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
+                />
+              )}
               heading={(data) => data.name}
               body={(data) => data.model}
               url={starship}
