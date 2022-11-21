@@ -14,6 +14,8 @@ import { IPeople } from "../interfaces/people";
 
 // Icons
 import { getPeopleIcon } from "../icons/getPeopleIcon";
+import Image from "../components/shared/Image";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IPeople>) =>
@@ -49,7 +51,13 @@ export default function People() {
                 key={person.name}
                 type={"people"}
                 color={person.gender}
-                icon={() => getPeopleIcon(person)}
+                image={() => (
+                  <Image
+                    src={`/images/people/${formatImageName(person.name)}.webp`}
+                    fallback="/images/error_500x500.webp"
+                    alt={person.name}
+                  />
+                )}
                 url={person.url}
                 heading={person.name}
                 species={person.species}
@@ -61,7 +69,13 @@ export default function People() {
               key={person.name}
               type={"people"}
               color={person.gender}
-              icon={() => getPeopleIcon(person)}
+              image={() => (
+                <Image
+                  src={`/images/people/${formatImageName(person.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={person.name}
+                />
+              )}
               url={person.url}
               heading={person.name}
               species={person.species}

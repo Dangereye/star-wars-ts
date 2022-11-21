@@ -21,7 +21,6 @@ import Image from "../components/shared/Image";
 
 // Icons
 import { getPeopleIcon } from "../icons/getPeopleIcon";
-import { BiPlanet } from "react-icons/bi";
 
 // Utilities
 import { formatImageName } from "../utilities/formatImageName";
