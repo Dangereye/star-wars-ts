@@ -88,7 +88,13 @@ export default function Film() {
               key={`associated-planets-${i}`}
               type="planets"
               color={() => "planets"}
-              icon={() => <BiPlanet />}
+              image={(data) => (
+                <Image
+                  src={`/images/planets/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
+                />
+              )}
               heading={(data) => data.name}
               body={(data) => data.climate}
               url={planet}
