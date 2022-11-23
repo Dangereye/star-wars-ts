@@ -19,9 +19,6 @@ import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
 import Image from "../components/shared/Image";
 
-// Icons
-import { getPeopleIcon } from "../icons/getPeopleIcon";
-
 // Utilities
 import { formatImageName } from "../utilities/formatImageName";
 
@@ -51,7 +48,13 @@ export default function Film() {
               key={`associated-people-${i}`}
               type="people"
               color={(data) => data.gender}
-              icon={getPeopleIcon}
+              image={(data) => (
+                <Image
+                  src={`/images/people/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
+                />
+              )}
               heading={(data) => data.name}
               species={(data) => data.species}
               url={character}
