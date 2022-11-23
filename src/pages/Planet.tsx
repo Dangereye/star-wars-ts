@@ -3,26 +3,24 @@ import { useParams } from "react-router-dom";
 // Hooks
 import useFetchData from "../hooks/useFetchData";
 
+// Interfaces
+import { IPlanet } from "../interfaces/planet";
+import { IFilm } from "../interfaces/film";
+import { IPeople } from "../interfaces/people";
+
 // Components
 import IsLoading from "../components/shared/is_loading/IsLoading";
 import IsError from "../components/shared/is_error/IsError";
 import GenericHeader from "../components/layout/header/GenericHeader";
 import AssociatedCards from "../components/shared/cards/AssociatedCards";
 import AssociatedCard from "../components/shared/cards/AssociatedCard";
-
-// Icons
-import { BiPlanet } from "react-icons/bi";
-import { getPeopleIcon } from "../icons/getPeopleIcon";
-
-// Interfaces
-import { IPlanet } from "../interfaces/planet";
-import { IFilm } from "../interfaces/film";
-import { IPeople } from "../interfaces/people";
+import Image from "../components/shared/Image";
 
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import CheckUnits from "../utilities/CheckUnits";
 import FormatDate from "../utilities/FormatDate";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function Person() {
   const { planetId } = useParams();
@@ -112,7 +110,13 @@ export default function Person() {
               key={`associated-people-${i}`}
               type="people"
               color={(data) => data.gender}
-              icon={getPeopleIcon}
+              image={(data) => (
+                <Image
+                  src={`/images/people/${formatImageName(data.name)}.webp`}
+                  fallback="/images/error_500x500.webp"
+                  alt={data.name}
+                />
+              )}
               heading={(data) => data.name}
               species={(data) => data.species}
               url={character}
