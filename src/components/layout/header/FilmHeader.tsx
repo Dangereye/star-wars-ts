@@ -13,6 +13,8 @@ import Statistics from "../../shared/statistics/Statistics";
 // Utilities
 import FormatDate from "../../../utilities/FormatDate";
 import StringToStringArray from "../../../utilities/string_to_string_array/StringToStringArray";
+import Image from "../../shared/Image";
+import { formatImageName } from "../../../utilities/formatImageName";
 
 type FilmHeaderProps = {
   data: IFilm;
@@ -27,10 +29,11 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
       />
       <div className="container container--film">
         <div className="image">
-          <img
-            src={`/images/films/ep${data.episode_id}@600.jpg`}
-            width="600px"
-            height="900px"
+          <Image
+            src={`/images/films/${formatImageName(data.title)}.webp`}
+            fallback="/images/films/error_600x900.webp"
+            width={600}
+            height={900}
             alt={data.title}
           />
         </div>

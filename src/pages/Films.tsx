@@ -56,7 +56,7 @@ export default function FilmsPage() {
                   image={() => (
                     <Image
                       src={`/images/films/${formatImageName(film.title)}.webp`}
-                      fallback="/images/error_500x500.webp"
+                      fallback="/images/films/error_600x900.webp"
                       width={600}
                       height={900}
                       alt={film.title}
@@ -75,7 +75,7 @@ export default function FilmsPage() {
                 image={() => (
                   <Image
                     src={`/images/films/${formatImageName(film.title)}.webp`}
-                    fallback="/images/error_500x500.webp"
+                    fallback="/images/films/error_600x900.webp"
                     width={600}
                     height={900}
                     alt={film.title}
