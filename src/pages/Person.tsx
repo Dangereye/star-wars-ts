@@ -89,10 +89,11 @@ export default function Person() {
               type="films"
               color={() => "films"}
               image={(data) => (
-                <img
-                  src={`/images/films/ep${data.episode_id}@600.jpg`}
-                  width="600px"
-                  height="900px"
+                <Image
+                  src={`/images/films/${formatImageName(data.title)}.webp`}
+                  fallback="/images/films/error_600x900.webp"
+                  width={600}
+                  height={900}
                   alt={data.title}
                 />
               )}
