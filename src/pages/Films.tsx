@@ -14,6 +14,8 @@ import { IFilm } from "../interfaces/film";
 
 // Utilities
 import FormatDate from "../utilities/FormatDate";
+import Image from "../components/shared/Image";
+import { formatImageName } from "../utilities/formatImageName";
 
 export default function FilmsPage() {
   const getNextPageParam = (lastPage: IPage<IFilm>) =>
@@ -52,10 +54,11 @@ export default function FilmsPage() {
                   key={film.title}
                   type="films"
                   image={() => (
-                    <img
-                      src={`/images/films/ep${film.episode_id}@600.jpg`}
-                      width="600px"
-                      height="900px"
+                    <Image
+                      src={`/images/films/${formatImageName(film.title)}.webp`}
+                      fallback="/images/error_500x500.webp"
+                      width={600}
+                      height={900}
                       alt={film.title}
                     />
                   )}
@@ -70,10 +73,11 @@ export default function FilmsPage() {
                 key={film.title}
                 type="films"
                 image={() => (
-                  <img
-                    src={`/images/films/ep${film.episode_id}@600.jpg`}
-                    width="600px"
-                    height="900px"
+                  <Image
+                    src={`/images/films/${formatImageName(film.title)}.webp`}
+                    fallback="/images/error_500x500.webp"
+                    width={600}
+                    height={900}
                     alt={film.title}
                   />
                 )}
