@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
 
+  @import "./home-page";
   @import "./is-loading";
   @import "./is-error";
 }
