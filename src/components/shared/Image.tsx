@@ -17,6 +17,7 @@ export default function Image({ src, fallback, alt, width, height }: Props) {
 
   return (
     <img
+      className="image"
       src={imgSrc}
       alt={alt}
       width={`${width}px`}

@@ -9,6 +9,10 @@
 
   &--large {
     padding: 3rem 6rem;
+
+    @media (max-width: $mobile) {
+      padding: 2rem 4rem;
+    }
   }
 
   &--primary {

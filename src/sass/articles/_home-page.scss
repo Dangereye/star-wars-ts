@@ -1,8 +1,20 @@
 &.home-page {
   min-height: 100vh;
+
   .container {
     position: relative;
-    display: grid;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    .image {
+      padding: 0 3rem;
+      max-width: 50rem;
+      @media (max-width: 400px) {
+        padding: 0;
+      }
+    }
   }
 }
