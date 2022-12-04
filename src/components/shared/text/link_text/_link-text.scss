@@ -1,10 +1,10 @@
 a.link-text {
-  color: $link-text-color;
+  color: $accent-color;
   transition: color $time;
 
   @media (hover: hover) {
     &:hover {
-      color: darken($link-text-color, 30%);
+      color: $accent-color-hover;
     }
   }
 }

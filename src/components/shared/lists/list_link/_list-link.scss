@@ -1,12 +1,13 @@
-.list-link {
+a.list-link {
   min-width: 25rem;
   font-size: $body-text-size;
   text-transform: capitalize;
+  color: $accent-color;
   transition: color $time;
 
   @media (hover: hover) {
     &:hover {
-      color: $accent-color;
+      color: $accent-color-hover;
     }
   }
 }
