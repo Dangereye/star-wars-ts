@@ -17,10 +17,10 @@ $body-text-size: clamp(1.6rem, 2vw, 2.4rem);
 
 // Colors
 $text-color-light: hsl(0, 0%, 100%);
-$text-color-dark: hsl(225, 6%, 13%);
+$text-color-dark: hsl(195, 33%, 2%);
 $body-text-color-light: rgba($text-color-light, 0.7);
 $body-text-color-dark: rgba($text-color-dark, 0.7);
 
 $background-color: hsl(0, 0%, 99%);
-$accent-color: hsl(356, 89%, 72%);
+$accent-color: hsl(201, 56%, 55%);
 $accent-color-hover: darken($accent-color, 10%);
