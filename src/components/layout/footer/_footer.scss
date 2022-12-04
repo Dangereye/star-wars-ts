@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
 
-  padding: 2rem;
   @include app-horizontal-padding;
 
   background-color: $text-color-dark;
@@ -22,10 +21,29 @@
   }
 
   &__extras {
-    @include app-vertical-padding;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
     display: flex;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 8rem;
     flex-wrap: wrap;
+  }
+
+  &__logo {
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 4rem;
+    flex-wrap: wrap;
+
+    .list {
+      min-width: 25rem;
+    }
   }
 }

@@ -13,7 +13,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__extras">
-          <div>
+          <div className="footer__logo">
             <Link to="/">
               <Image
                 src="/svg/star_wars_alt.svg"
@@ -23,32 +23,36 @@ export default function Footer() {
                 height={67}
               />
             </Link>
+            <BodyText text="Explore a small part of the galaxy." />
           </div>
-          <div>
-            <H3 text="Pages" />
-            <List>
-              {pages.map((page) => (
-                <ListLink to={page.link} name={page.name} />
-              ))}
-            </List>
-          </div>
-          <div>
-            <H3 text="API" />
-            <List>
-              <ListAnchor href="https://swapi.py4e.com" name="SWAPI" />
-            </List>
-          </div>
-          <div>
-            <H3 text="extras" />
-            <List>
-              <ListLink to="/" name="Yoda Speak" />
-              <ListLink to="/" name="Wookiee Translator" />
-            </List>
+          <div className="footer__links">
+            <div>
+              <H3 text="Pages" />
+              <List>
+                {pages.map((page) => (
+                  <ListLink key={page.name} to={page.link} name={page.name} />
+                ))}
+              </List>
+            </div>
+            <div>
+              <H3 text="extras" />
+              <List>
+                <ListLink to="/" name="Yoda Speak" />
+                <ListLink to="/" name="Wookiee Translator" />
+              </List>
+            </div>
+            <div>
+              <H3 text="API" />
+              <List>
+                <ListAnchor href="https://swapi.py4e.com" name="SWAPI" />
+              </List>
+            </div>
           </div>
           <div>
             <Button name="Back to top" onClick={() => {}} />
           </div>
         </div>
+
         <BodyText text=" Copyright &copy; 2022, Craig Puxty. All rights reserved." />
       </div>
     </footer>
