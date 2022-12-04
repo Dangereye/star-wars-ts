@@ -4,7 +4,6 @@ import Button from "../../shared/buttons/button/Button";
 import Image from "../../shared/Image";
 import List from "../../shared/lists/List";
 import ListAnchor from "../../shared/lists/list_anchor/ListAnchor";
-import ListItem from "../../shared/lists/list_item/TableItem";
 import ListLink from "../../shared/lists/list_link/listLink";
 import BodyText from "../../shared/text/BodyText";
 import H3 from "../../shared/text/H3";

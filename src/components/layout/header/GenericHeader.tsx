@@ -1,7 +1,7 @@
 import H1 from "../../shared/text/H1";
 import List from "../../shared/lists/List";
 import Statistics from "../../shared/statistics/Statistics";
-import ListItem from "../../shared/lists/list_item/TableItem";
+import ListTable from "../../shared/lists/list_table/ListTable";
 import BackgroundImage from "../../shared/background_image/BackgroundImage";
 
 type Props = {
@@ -50,7 +50,7 @@ export default function GenericHeader({
             <H1 text={name} />
             <List>
               {list.map((item) => (
-                <ListItem name={item.name} value={item.value} />
+                <ListTable name={item.name} value={item.value} />
               ))}
             </List>
           </div>
