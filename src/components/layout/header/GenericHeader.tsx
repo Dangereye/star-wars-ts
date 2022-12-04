@@ -1,7 +1,7 @@
 import H1 from "../../shared/text/H1";
 import List from "../../shared/lists/List";
 import Statistics from "../../shared/statistics/Statistics";
-import ListItem from "../../shared/lists/list_item/ListItem";
+import ListItem from "../../shared/lists/list_item/TableItem";
 import BackgroundImage from "../../shared/background_image/BackgroundImage";
 
 type Props = {

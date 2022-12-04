@@ -8,10 +8,24 @@
   @include app-horizontal-padding;
 
   background-color: $text-color-dark;
-  color: $body-text-color-light;
 
-  .btn {
-    position: absolute;
-    top: -5rem;
+  .heading {
+    color: $text-color-light;
+  }
+
+  .body-text {
+    color: $body-text-color-light;
+  }
+
+  .image {
+    max-width: 150px;
+  }
+
+  &__extras {
+    @include app-vertical-padding;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 }
