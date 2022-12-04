@@ -1,6 +1,6 @@
 .btn {
   font-family: "Open Sans", sans-serif;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-size: 1.6rem;
   font-weight: 500;
   padding: 1rem 2rem;
@@ -21,9 +21,18 @@
   }
 
   &--secondary {
-    color: $text-color-dark;
+    color: $text-color-light;
     background-color: transparent;
-    border: 1px solid $text-color-dark;
+    border: 1px solid $body-text-color-light;
+    transition: color $time, border-color $time, background-color $time;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $accent-color;
+        border-color: $accent-color;
+        background-color: rgba($accent-color, 0.05);
+      }
+    }
   }
 
   &--tertiary {

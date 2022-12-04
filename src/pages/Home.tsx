@@ -21,7 +21,7 @@ export default function Home() {
               alt="Star Wars Logo"
             />
             <Link to="/films" className="btn btn--large btn--secondary">
-              Explore the Galaxy
+              get started
             </Link>
           </div>
           <div className="container__blank"></div>
