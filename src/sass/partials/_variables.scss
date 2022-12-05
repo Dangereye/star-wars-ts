@@ -2,7 +2,7 @@ $container-max-width: 1920px;
 
 // Screens
 $laptop: 1024px;
-$tablet: 768px;
+$tablet: 820px;
 $mobile: 450px;
 
 // Transitions
@@ -22,5 +22,5 @@ $body-text-color-light: rgba($text-color-light, 0.7);
 $body-text-color-dark: rgba($text-color-dark, 0.7);
 
 $background-color: hsl(0, 0%, 99%);
-$accent-color: hsl(201, 56%, 55%);
+$accent-color: hsl(193, 88%, 44%);
 $accent-color-hover: darken($accent-color, 10%);
