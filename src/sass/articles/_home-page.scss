@@ -18,6 +18,12 @@
     }
   }
 
+  .body-text {
+    max-width: 62rem;
+    text-align: center;
+    color: $body-text-color-light;
+  }
+
   .container {
     position: relative;
     display: flex;
