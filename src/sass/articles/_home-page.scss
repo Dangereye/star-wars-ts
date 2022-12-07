@@ -1,21 +1,39 @@
 &.home-page {
+  position: relative;
   background-color: #000;
   min-height: 100vh;
+
+  .background-image {
+    background-image: url(../../../public/images/headers/home_header.webp);
+    background-size: cover;
+    background-position: right;
+
+    @media (max-width: 1300px) {
+      opacity: 0.4;
+    }
+
+    @media (max-width: $tablet) {
+      background-image: url(../../../public/images/headers/home_header_tablet.webp);
+      background-position: center;
+    }
+  }
+
   .container {
     position: relative;
     display: flex;
     justify-content: flex-start;
-    @media (max-width: $tablet) {
+    @media (max-width: 1300px) {
       justify-content: center;
     }
 
     .image {
-      padding: 0 2rem;
-      max-width: 50rem;
+      padding: 0 1rem;
+      max-width: 70rem;
     }
+
     .content {
       width: 100%;
-      max-width: 45%;
+      max-width: 50%;
       height: 100%;
       display: flex;
       gap: 4rem;
@@ -23,9 +41,8 @@
       align-items: center;
       justify-content: center;
 
-      @media (max-width: $tablet) {
+      @media (max-width: 1300px) {
         max-width: 100%;
-        justify-content: flex-end;
       }
     }
   }

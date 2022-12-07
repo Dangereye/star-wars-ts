@@ -2,16 +2,16 @@ type Props = {
   src: string;
   position?: "top" | "right" | "bottom" | "left" | "center";
   size?: "cover";
-  attachment?: "fixed";
+  attachment?: "scroll" | "fixed";
   opacity?: number;
 };
 
 export default function BackgroundImage({
   src,
-  position,
-  size,
-  attachment,
-  opacity,
+  position = "center",
+  size = "cover",
+  attachment = "scroll",
+  opacity = 0.1,
 }: Props) {
   return (
     <div
@@ -26,11 +26,3 @@ export default function BackgroundImage({
     ></div>
   );
 }
-
-BackgroundImage.defaultProps = {
-  src: "/images/headers/people_header.webp",
-  position: "center",
-  size: "cover",
-  attachment: "scroll",
-  opacity: 0.1,
-};

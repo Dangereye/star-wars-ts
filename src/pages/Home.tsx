@@ -6,11 +6,7 @@ export default function Home() {
   return (
     <main>
       <article className="article home-page">
-        <BackgroundImage
-          src="/images/headers/home_header.webp"
-          opacity={1}
-          position="right"
-        />
+        <div className="background-image"></div>
         <div className="container">
           <div className="content">
             <Image
@@ -20,8 +16,8 @@ export default function Home() {
               height={500}
               alt="Star Wars Logo"
             />
-            <Link to="/films" className="btn btn--large btn--secondary">
-              Explore
+            <Link to="/films" className="btn btn--large btn--primary">
+              get started
             </Link>
           </div>
         </div>
