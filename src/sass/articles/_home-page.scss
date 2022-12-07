@@ -22,12 +22,17 @@
     max-width: 62rem;
     text-align: center;
     color: $body-text-color-light;
+
+    @media (max-width: $mobile) {
+      max-width: 32rem;
+    }
   }
 
   .container {
     position: relative;
     display: flex;
     justify-content: flex-start;
+
     @media (max-width: 1300px) {
       justify-content: center;
     }
@@ -35,6 +40,10 @@
     .image {
       padding: 0 1rem;
       max-width: 70rem;
+    }
+
+    .btn {
+      margin: 0;
     }
 
     .content {
