@@ -74,6 +74,7 @@ export default function Person() {
     <>
       <GenericHeader
         bgImage="/images/headers/people_header.webp"
+        imageFolder="people"
         name={person.name}
         category="character"
         color={person.gender}

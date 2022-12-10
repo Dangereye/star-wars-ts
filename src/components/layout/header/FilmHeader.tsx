@@ -28,7 +28,7 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
         attachment="fixed"
       />
       <div className="container container--film">
-        <div className="image">
+        <div className="header__image">
           <Image
             src={`/images/films/${formatImageName(data.title)}.webp`}
             fallback="/images/films/error_600x900.webp"
@@ -37,7 +37,7 @@ export default function FilmHeader({ data }: FilmHeaderProps) {
             alt={data.title}
           />
         </div>
-        <div className="content">
+        <div className="header__content">
           <div>
             <HDiv variant="heading--h3" text={`Episode ${data.episode_id}`} />
             <H1 text={data.title} />

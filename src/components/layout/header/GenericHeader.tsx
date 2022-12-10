@@ -3,9 +3,12 @@ import List from "../../shared/lists/List";
 import Statistics from "../../shared/statistics/Statistics";
 import ListTable from "../../shared/lists/list_table/ListTable";
 import BackgroundImage from "../../shared/background_image/BackgroundImage";
+import Image from "../../shared/Image";
+import { formatImageName } from "../../../utilities/formatImageName";
 
 type Props = {
   bgImage: string;
+  imageFolder?: string;
   category: string;
   color?: string;
   name: string;
@@ -32,7 +35,7 @@ type Props = {
 
 export default function GenericHeader({
   bgImage,
-  category,
+  imageFolder,
   color,
   name,
   list,
@@ -42,10 +45,14 @@ export default function GenericHeader({
     <header className="header">
       <BackgroundImage src={bgImage} attachment="fixed" />
       <div className="container container--generic">
-        <div className={`category ${color}`}>
-          <div className="rotate">{category}</div>
+        <div className="header__image">
+          <Image
+            src={`/images/${imageFolder}/${formatImageName(name)}.webp`}
+            fallback="/images/error_500x500_alt.webp"
+            alt={name}
+          />
         </div>
-        <div className="content">
+        <div className="header__content">
           <div className="">
             <H1 text={name} />
             <List>

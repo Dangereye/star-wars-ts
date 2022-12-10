@@ -1,6 +1,6 @@
 .card {
   display: block;
-  background-color: hsl(0, 0%, 95%);
+  background-color: $grey-color;
   transition: transform $time;
   cursor: pointer;
 
