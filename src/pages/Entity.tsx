@@ -80,8 +80,8 @@ export default function Entity() {
     <>
       <GenericHeader
         bgImage="/images/headers/species_header.webp"
+        imageFolder="species"
         name={species.name}
-        category="Species"
         color="species"
         list={list}
         stats={stats}

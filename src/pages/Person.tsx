@@ -76,7 +76,6 @@ export default function Person() {
         bgImage="/images/headers/people_header.webp"
         imageFolder="people"
         name={person.name}
-        category="character"
         color={person.gender}
         list={list}
         stats={stats}

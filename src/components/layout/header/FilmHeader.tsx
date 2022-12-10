@@ -3,6 +3,7 @@ import { IFilm } from "../../../interfaces/film";
 
 // Components
 import BackgroundImage from "../../shared/background_image/BackgroundImage";
+import Image from "../../shared/Image";
 import HDiv from "../../shared/text/HDiv";
 import H1 from "../../shared/text/H1";
 import H3 from "../../shared/text/H3";
@@ -13,7 +14,6 @@ import Statistics from "../../shared/statistics/Statistics";
 // Utilities
 import FormatDate from "../../../utilities/FormatDate";
 import StringToStringArray from "../../../utilities/string_to_string_array/StringToStringArray";
-import Image from "../../shared/Image";
 import { formatImageName } from "../../../utilities/formatImageName";
 
 type FilmHeaderProps = {

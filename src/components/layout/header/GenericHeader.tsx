@@ -1,15 +1,17 @@
+// Components
 import H1 from "../../shared/text/H1";
 import List from "../../shared/lists/List";
 import Statistics from "../../shared/statistics/Statistics";
 import ListTable from "../../shared/lists/list_table/ListTable";
 import BackgroundImage from "../../shared/background_image/BackgroundImage";
 import Image from "../../shared/Image";
+
+// Utilities
 import { formatImageName } from "../../../utilities/formatImageName";
 
 type Props = {
   bgImage: string;
   imageFolder?: string;
-  category: string;
   color?: string;
   name: string;
   list: (
@@ -22,7 +24,6 @@ type Props = {
         value: JSX.Element;
       }
   )[];
-
   stats?: {
     films?: number;
     people?: number;
@@ -51,6 +52,7 @@ export default function GenericHeader({
             fallback="/images/error_500x500_alt.webp"
             alt={name}
           />
+          <div className={`header__image__background ${color}`}></div>
         </div>
         <div className="header__content">
           <div className="">

@@ -89,8 +89,8 @@ export default function Person() {
     <>
       <GenericHeader
         bgImage="/images/headers/starships_header.webp"
+        imageFolder="starships"
         name={starship.name}
-        category="starship"
         color="starships"
         list={list}
         stats={stats}

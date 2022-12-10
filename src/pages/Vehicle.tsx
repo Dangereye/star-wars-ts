@@ -85,8 +85,8 @@ export default function Vehicle() {
     <>
       <GenericHeader
         bgImage="/images/headers/vehicles_header.webp"
+        imageFolder="vehicles"
         name={vehicle.name}
-        category="vehicle"
         color="vehicles"
         list={list}
         stats={stats}
