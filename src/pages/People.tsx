@@ -13,7 +13,6 @@ import { IPage } from "../interfaces/page";
 import { IPeople } from "../interfaces/people";
 
 // Icons
-import { getPeopleIcon } from "../icons/getPeopleIcon";
 import Image from "../components/shared/Image";
 import { formatImageName } from "../utilities/formatImageName";
 
@@ -36,6 +35,7 @@ export default function People() {
   if (isLoading) {
     return <IsLoading message={`People`} />;
   }
+
   if (isError) {
     return <IsError message="Unable to retrieve people" />;
   }

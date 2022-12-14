@@ -1,4 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+
+import {
+  Routes,
+  Route,
+  useLocation,
+  useNavigationType,
+} from "react-router-dom";
 
 // React Query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -30,6 +37,17 @@ import Entity from "./pages/Entity";
 
 function App() {
   const queryClient = new QueryClient();
+  const location = useLocation();
+  const navType = useNavigationType();
+
+  useEffect(() => {
+    if (navType !== "POP") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [location]);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
+// Data
 import { pages } from "../../../data/pages";
+
+// Components
 import Button from "../../shared/buttons/button/Button";
 import Image from "../../shared/Image";
 import List from "../../shared/lists/List";
@@ -9,6 +14,8 @@ import BodyText from "../../shared/text/BodyText";
 import H3 from "../../shared/text/H3";
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <footer className="footer">
       <div className="container">
@@ -35,13 +42,6 @@ export default function Footer() {
               </List>
             </div>
             <div>
-              <H3 text="extras" />
-              <List>
-                <ListLink to="/" name="Yoda Speak" />
-                <ListLink to="/" name="Wookiee Translator" />
-              </List>
-            </div>
-            <div>
               <H3 text="API" />
               <List>
                 <ListAnchor href="https://swapi.py4e.com" name="SWAPI" />
@@ -49,7 +49,13 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <Button name="Back to top" onClick={() => {}} />
+            <Button
+              name="Back to top"
+              variant="btn--primary"
+              onClick={() => {
+                navigate(location.pathname);
+              }}
+            />
           </div>
         </div>
 
