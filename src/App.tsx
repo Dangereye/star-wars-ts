@@ -47,7 +47,7 @@ function App() {
         behavior: "smooth",
       });
     }
-  }, [location]);
+  }, [location, navType]);
 
   return (
     <QueryClientProvider client={queryClient}>

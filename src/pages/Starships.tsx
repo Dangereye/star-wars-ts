@@ -12,9 +12,6 @@ import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
 import { IPage } from "../interfaces/page";
 import { IStarship } from "../interfaces/starship";
 
-// Icons
-import { VscRocket } from "react-icons/vsc";
-
 // Utilities
 import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
 import Image from "../components/shared/Image";

@@ -48,6 +48,6 @@ export default function useObserver(
     return () => {
       if (lastCard.current) observer.unobserve(lastCard.current);
     };
-  }, [data]);
+  }, [data, observer]);
   return lastCard;
 }
