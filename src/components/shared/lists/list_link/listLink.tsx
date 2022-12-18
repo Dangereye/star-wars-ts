@@ -7,8 +7,10 @@ type ListLinkProps = {
 
 export default function ListLink({ to, name }: ListLinkProps) {
   return (
-    <Link to={to} className="list-link">
-      {name}
-    </Link>
+    <div className="list__item">
+      <Link to={to} className="list__link">
+        {name}
+      </Link>
+    </div>
   );
 }
