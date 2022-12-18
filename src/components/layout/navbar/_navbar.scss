@@ -37,6 +37,19 @@
     }
   }
 
+  .list {
+    &__link {
+      font-weight: 300;
+      color: $body-text-color-dark;
+
+      @media (hover: hover) {
+        &:hover {
+          color: $accent-color;
+        }
+      }
+    }
+  }
+
   .mobile-icon {
     display: none;
     @media (max-width: $tablet) {

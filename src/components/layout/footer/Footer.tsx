@@ -10,6 +10,7 @@ import Image from "../../shared/Image";
 import List from "../../shared/lists/List";
 import ListAnchor from "../../shared/lists/list_anchor/ListAnchor";
 import ListLink from "../../shared/lists/list_link/listLink";
+import Navigation from "../../shared/navigation/Navigation";
 import BodyText from "../../shared/text/BodyText";
 import H3 from "../../shared/text/H3";
 
@@ -35,11 +36,7 @@ export default function Footer() {
           <div className="footer__links">
             <div>
               <H3 text="Pages" />
-              <List>
-                {pages.map((page) => (
-                  <ListLink key={page.name} to={page.link} name={page.name} />
-                ))}
-              </List>
+              <Navigation items={pages} />
             </div>
             <div>
               <H3 text="API" />
@@ -58,8 +55,9 @@ export default function Footer() {
             />
           </div>
         </div>
-
-        <BodyText text=" Copyright &copy; 2022, Craig Puxty. All rights reserved." />
+        <div className="copyright">
+          <BodyText text=" Copyright &copy; 2022, Craig Puxty. All rights reserved." />
+        </div>
       </div>
     </footer>
   );

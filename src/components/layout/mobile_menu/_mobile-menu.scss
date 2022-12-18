@@ -4,11 +4,20 @@
   left: -100%;
   width: 100%;
   max-width: 40rem;
-  height: 100%;
-  background-color: #eee;
-
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(rgba($accent-color, 0.2), #000);
+  padding: 13rem;
   @include app-horizontal-padding;
-  @include app-vertical-padding;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  .heading {
+    color: $text-color-light;
+  }
+
   transition: left $time;
   z-index: 999;
 
@@ -16,7 +25,7 @@
     left: 0;
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 821px) {
     display: none;
   }
 }
