@@ -9,6 +9,7 @@
       transform: translateY(-5px);
     }
   }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -51,7 +52,7 @@
     place-content: center;
 
     svg {
-      width: 20rem;
+      width: 6rem;
       height: auto;
       stroke: $text-color-dark;
     }
