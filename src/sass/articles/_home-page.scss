@@ -7,9 +7,10 @@
     background-image: url(../../../public/images/headers/home_header.webp);
     background-size: cover;
     background-position: right;
+    background-attachment: fixed;
 
     @media (max-width: 1300px) {
-      opacity: 0.4;
+      opacity: 0.2;
     }
 
     @media (max-width: $tablet) {
