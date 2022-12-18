@@ -13,8 +13,9 @@
   @media (max-width: 886px) {
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   }
+
   @media (max-width: 517px) {
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    gap: 1rem;
+    gap: 5px;
   }
 }
