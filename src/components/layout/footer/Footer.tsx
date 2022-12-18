@@ -21,16 +21,16 @@ export default function Footer() {
       <div className="container">
         <div className="footer__extras">
           <div className="footer__logo">
-            <Link to="/">
+            <Link to="/" className="footer__logo">
               <Image
                 src="/svg/star_wars_alt.svg"
                 fallback="/svg/star_wars_alt.svg"
                 alt="Star Wars logo"
-                width={150}
-                height={67}
+                width={100}
+                height={44.5}
               />
             </Link>
-            <BodyText text="Explore a small part of the galaxy." />
+            <BodyText text="Explore the galaxy." />
           </div>
           <div className="footer__links">
             <div>

@@ -21,11 +21,14 @@
     align-items: center;
   }
 
-  .logo {
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 600;
-    color: $text-color-dark;
+  &__logo {
+    display: grid;
+    place-content: center;
+
+    .image {
+      width: 75px;
+      height: auto;
+    }
   }
 
   .navigation {
