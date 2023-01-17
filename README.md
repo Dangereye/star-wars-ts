@@ -2,10 +2,6 @@
 
 Explore the galaxy! Discover films, people, species, planets, starships and vehicles from the first seven (at the time of writing) films. Features include infinite data loading on scroll, data caching via React Query and bespoke (not included with data) imagery. Utilising a simple and somewhat familiar API - this project was an opportunity to practice and develop my understanding of TypeScript after recently taking my first steps with it.
 
-## Design
-
-My goal was to combine modern, responsive design, elegant aesthetics, smooth transitions and ease of use to provide adequate information to technical and non-technical people quickly.
-
 ## Features
 
 - Responsive design
