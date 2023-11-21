@@ -182,6 +182,8 @@ Ready to embark on an exciting journey to a galaxy far, far away? There's so muc
 - React
 - React query
 
+## APIs
+
 - [SWAPI](https://swapi.py4e.com)
 - Fetch
 - Intersection observer
