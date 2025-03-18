@@ -1,18 +1,18 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 import {
   FetchNextPageOptions,
   InfiniteQueryObserverResult,
   InfiniteData,
-} from "@tanstack/react-query";
+} from '@tanstack/react-query';
 
 // Interfaces
-import { IFilm } from "../interfaces/film";
-import { IPage } from "../interfaces/page";
-import { IPeople } from "../interfaces/people";
-import { IPlanet } from "../interfaces/planet";
-import { ISpecies } from "../interfaces/species";
-import { IStarship } from "../interfaces/starship";
-import { IVehicle } from "../interfaces/vehicle";
+import { IFilm } from '../interfaces/film';
+import { IPage } from '../interfaces/page';
+import { IPeople } from '../interfaces/people';
+import { IPlanet } from '../interfaces/planet';
+import { ISpecies } from '../interfaces/species';
+import { IStarship } from '../interfaces/starship';
+import { IVehicle } from '../interfaces/vehicle';
 
 export default function useObserver(
   data:
@@ -30,24 +30,30 @@ export default function useObserver(
     >
   >
 ) {
-  const lastCard = useRef(null);
-
-  const callback = (entries: IntersectionObserverEntry[]) => {
-    const [entry] = entries;
-    if (entry.isIntersecting && hasNextPage) {
-      fetchNextPage();
-      observer.disconnect();
-    }
-  };
-  const options = { rootMargin: "400px", threshold: 0.1 };
-  const observer = new IntersectionObserver(callback, options);
+  const lastCard = useRef<HTMLAnchorElement | null>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    if (lastCard.current) observer.observe(lastCard.current);
+    if (!lastCard.current || !hasNextPage) return;
+
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          fetchNextPage();
+        }
+      },
+      { rootMargin: '400px', threshold: 0.1 }
+    );
+
+    observer.current.observe(lastCard.current);
 
     return () => {
-      if (lastCard.current) observer.unobserve(lastCard.current);
+      if (observer.current) {
+        observer.current.disconnect();
+      }
     };
-  }, [data, observer]);
+  }, [data, hasNextPage, fetchNextPage]);
+
   return lastCard;
 }
