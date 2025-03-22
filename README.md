@@ -7,8 +7,8 @@
 ![SCSS](https://img.shields.io/badge/SCSS-1.55.0-cc6699)
 ![SWAPI](https://img.shields.io/badge/API-SWAPI-green)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/19c812ea-271b-4d88-b3a3-c5e47c00a2f0/deploy-status)](https://app.netlify.com/sites/star-wars-ts/deploys)
-![Repo size](https://img.shields.io/github/repo-size/Dangereye/star-wars)
-![Last commit](https://img.shields.io/github/last-commit/Dangereye/star-wars)
+![Repo size](https://img.shields.io/github/repo-size/Dangereye/star-wars-ts)
+![Last commit](https://img.shields.io/github/last-commit/Dangereye/star-wars-ts)
 
 A galaxy far, far away — brought to life through the Star Wars API. This app explores characters, species, planets, starships and vehicles from the first seven films, wrapped in a clean, responsive UI that encourages discovery.
 
