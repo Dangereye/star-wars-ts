@@ -1,183 +1,57 @@
+![Screenshot of Star Wars app](assets/star-wars-project-500w.webp)
+
 # Star wars
 
-Ready to embark on an exciting journey to a galaxy far, far away? There's so much to discover and explore, from fascinating people and species to planets, starships, and vehicles from the first seven movies. And to make things even better, I've added some stylised imagery that complements the look and feel of the site, which you won't find anywhere else. So, what are you waiting for? Let's go on an adventure!
+![React](https://img.shields.io/badge/React-18.2-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.8.4-blue)
+![SCSS](https://img.shields.io/badge/SCSS-1.55.0-cc6699)
+![SWAPI](https://img.shields.io/badge/API-SWAPI-green)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/19c812ea-271b-4d88-b3a3-c5e47c00a2f0/deploy-status)](https://app.netlify.com/sites/star-wars-ts/deploys)
+![Repo size](https://img.shields.io/github/repo-size/Dangereye/star-wars)
+![Last commit](https://img.shields.io/github/last-commit/Dangereye/star-wars)
+
+A galaxy far, far away — brought to life through the Star Wars API. This app explores characters, species, planets, starships and vehicles from the first seven films, wrapped in a clean, responsive UI that encourages discovery.
+
+Unlike many typical “first API” projects, this one goes a step further. Since SWAPI doesn’t provide any imagery, I created a complete set of custom visuals — including stylised profile images and environment backdrops — and tied them into the API data using a consistent naming strategy. Combined with bespoke SVG icons and themed layouts, the result is a much more immersive, visually distinct experience. (Movie posters were sourced separately.)
 
 ## Features
 
-- Responsive design & images
-- Bespoke SVG icons
-- Bespoke images
-- Infinite scroll data fetching
+- Responsive layout and optimised images
+- Infinite scroll for smooth data loading
+- Custom SVG icons and stylised imagery
+- Dynamic routing for all content types
 
-### Films
+### Content Structure
 
-- List of all available films
+#### Films
 
-#### Films/id
+- Episode info, release details, director, producers
+- Opening crawl and linked stats (characters, planets, species, starships, vehicles)
 
-- Poster
-- Background image
-- Episode
-- Title
-- Release date
-- Opening crawl
-- Director & producer(s)
-- Stats count: characters, planets, species, starships & vehicles
-- People
-- Species
-- Planets
-- Starships
-- Vehicles
+#### People
 
-#### Films card
+- Full profile views with birth info, species, homeworld, and appearances
+- Linked filmography, vehicles, and starships
 
-- Poster
-- Title
-- Release date
+#### Species
 
-### People
+- Classification, average lifespan, physical traits, language and linked people/films
 
-- List of all available people
+#### Planets
 
-#### People/id
+- Climate, terrain, gravity, population, and resident profiles
 
-- Profile
-- Background image
-- Name
-- Gender
-- Species
-- Birth year
-- Homeworld
-- Height
-- Mass
-- Hair colour
-- Skin colour
-- Eye colour
-- Stats count: films, starships, vehicles
-- Films
-- Starships
-- Vehicles
+#### Starships & Vehicles
 
-#### People card
+- Specs: crew, capacity, speed, model, class, consumables
+- Linked appearances and pilots/drivers
 
-- Profile image
-- Name
-- Species
+Each section includes category cards, detail pages, and stylised visuals tied to the data via a dynamic naming system.
 
-### Species
-
-- List of all available species
-
-#### Species/id
-
-- Profile image
-- Background image
-- Classification
-- Designation
-- Average Height
-- Skin Colours
-- Hair Colours
-- Eye Colours
-- Average Lifespan
-- Homeworld
-- Language
-- Stats count: films, characters
-- Films
-- People
-
-#### Species card
-
-- Profile image
-- Name
-- Designation
-
-### Planets
-
-- List of all available planets
-
-#### Planets/id
-
-- Profile image
-- Background image
-- Climate
-- Terrain
-- Surface water
-- Diameter
-- Orbital period
-- Rotation period
-- Gravity
-- Population
-- Stats count: films, characters
-- Films
-- Residents
-
-#### Planets card
-
-- Profile image
-- Name
-- Climate
-
-### Starships
-
-- List of all available starships
-
-#### Starships/id
-
-- Profile image
-- Background image
-- Model
-- Class
-- Manufacturer
-- Cost
-- Length
-- Crew
-- Passengers
-- Hyperdrive rating
-- Max speed
-- Cargo capacity
-- Consumables supply
-- Stats count: films, characters
-- Films
-- Pilots
-
-#### Starships card
-
-- Profile image
-- Name
-- Class
-
-### Vehicles
-
-- List of all available vehicles
-
-#### Vehicles/id
-
-- Profile image
-- Background image
-- Model
-- Class
-- Manufacturer
-- Cost
-- Length
-- Crew
-- Passengers
-- Max speed
-- Cargo capacity
-- Consumables supply
-- Stats count: films, characters
-- Films
-- Drivers
-
-#### Vehicles card
-
-- Profile image
-- Name
-- Class
-
-## Technologies
+## Core Technologies
 
 - HTML5
-- Sass / Scss
+- Sass(Scss)
 - TypeScript
 - React
 - React query
@@ -185,8 +59,8 @@ Ready to embark on an exciting journey to a galaxy far, far away? There's so muc
 ## APIs
 
 - [SWAPI](https://swapi.py4e.com)
-- Fetch
-- Intersection observer
+- Native Fetch
+- Intersection Observer API
 
 ## Third party
 
@@ -198,3 +72,7 @@ Ready to embark on an exciting journey to a galaxy far, far away? There's so muc
 
 - Adobe Photoshop
 - Adobe Illustrator
+
+## Live site
+
+[Star Wars](https://star-wars-ts.netlify.app/)
