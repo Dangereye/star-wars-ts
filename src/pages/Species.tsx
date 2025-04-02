@@ -1,25 +1,25 @@
 // Hooks
-import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
-import useObserver from "../hooks/useObserver";
+import useInfiniteFetchData from '../hooks/useInfiniteFetchData';
+import useObserver from '../hooks/useObserver';
 
 // Components
-import IsLoading from "../components/shared/is_loading/IsLoading";
-import IsError from "../components/shared/is_error/IsError";
-import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
-import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
-import Image from "../components/shared/Image";
+import IsLoading from '../components/shared/is_loading/IsLoading';
+import IsError from '../components/shared/is_error/IsError';
+import InfiniteDataCards from '../components/shared/cards/InfiniteDataCards';
+import InfiniteDataCard from '../components/shared/cards/InfiniteDataCard';
+import Image from '../components/shared/Image';
 
 // Interfaces
-import { IPage } from "../interfaces/page";
-import { ISpecies } from "../interfaces/species";
+import { IPage } from '../interfaces/page';
+import { ISpecies } from '../interfaces/species';
 
 // Utilities
-import { formatImageName } from "../utilities/formatImageName";
+import { formatImageName } from '../utilities/formatImageName';
 
 export default function Species() {
   const getNextPageParam = (lastPage: IPage<ISpecies>) =>
     lastPage.next
-      ? lastPage.next.replace(`https://swapi.py4e.com/api/species/?page=`, "")
+      ? lastPage.next.replace(`https://swapi.py4e.com/api/species/?page=`, '')
       : null;
 
   const {
@@ -28,20 +28,20 @@ export default function Species() {
     data: species,
     hasNextPage,
     fetchNextPage,
-  } = useInfiniteFetchData<IPage<ISpecies>>("species", getNextPageParam);
+  } = useInfiniteFetchData<IPage<ISpecies>>('species', getNextPageParam);
 
-  const lastCard = useObserver(species, hasNextPage, fetchNextPage);
+  const lastCard = useObserver(hasNextPage, fetchNextPage);
 
   if (isLoading) {
-    return <IsLoading message="Species" />;
+    return <IsLoading message='Species' />;
   }
 
   if (isError) {
-    return <IsError message="Unable to retrieve Species" />;
+    return <IsError message='Unable to retrieve Species' />;
   }
 
   return (
-    <InfiniteDataCards title="species" data={species}>
+    <InfiniteDataCards title='species' data={species}>
       {species?.pages.map((page) =>
         page?.results.map((entity, i) => {
           if (i + 1 === page.results.length) {
@@ -49,12 +49,12 @@ export default function Species() {
               <InfiniteDataCard
                 ref={lastCard}
                 key={entity.name}
-                type="species"
-                color="species"
+                type='species'
+                color='species'
                 image={() => (
                   <Image
                     src={`/images/species/${formatImageName(entity.name)}.webp`}
-                    fallback="/images/error_500x500.webp"
+                    fallback='/images/error_500x500.webp'
                     alt={entity.name}
                   />
                 )}
@@ -67,12 +67,12 @@ export default function Species() {
           return (
             <InfiniteDataCard
               key={entity.name}
-              type="species"
-              color="species"
+              type='species'
+              color='species'
               image={() => (
                 <Image
                   src={`/images/species/${formatImageName(entity.name)}.webp`}
-                  fallback="/images/error_500x500.webp"
+                  fallback='/images/error_500x500.webp'
                   alt={entity.name}
                 />
               )}

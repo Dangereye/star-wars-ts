@@ -17,7 +17,6 @@ type ItemType = IFilm | IPeople | ISpecies | IPlanet | IStarship | IVehicle;
 type PageType = IPage<ItemType>;
 
 export default function useObserver(
-  data: InfiniteData<PageType> | undefined,
   hasNextPage: boolean | undefined,
   fetchNextPage: (
     options?: FetchNextPageOptions

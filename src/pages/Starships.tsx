@@ -1,26 +1,26 @@
 // Hooks
-import useInfiniteFetchData from "../hooks/useInfiniteFetchData";
-import useObserver from "../hooks/useObserver";
+import useInfiniteFetchData from '../hooks/useInfiniteFetchData';
+import useObserver from '../hooks/useObserver';
 
 // Components
-import IsLoading from "../components/shared/is_loading/IsLoading";
-import IsError from "../components/shared/is_error/IsError";
-import InfiniteDataCards from "../components/shared/cards/InfiniteDataCards";
-import InfiniteDataCard from "../components/shared/cards/InfiniteDataCard";
+import IsLoading from '../components/shared/is_loading/IsLoading';
+import IsError from '../components/shared/is_error/IsError';
+import InfiniteDataCards from '../components/shared/cards/InfiniteDataCards';
+import InfiniteDataCard from '../components/shared/cards/InfiniteDataCard';
 
 // Interfaces
-import { IPage } from "../interfaces/page";
-import { IStarship } from "../interfaces/starship";
+import { IPage } from '../interfaces/page';
+import { IStarship } from '../interfaces/starship';
 
 // Utilities
-import StringToStringArray from "../utilities/string_to_string_array/StringToStringArray";
-import Image from "../components/shared/Image";
-import { formatImageName } from "../utilities/formatImageName";
+import StringToStringArray from '../utilities/string_to_string_array/StringToStringArray';
+import Image from '../components/shared/Image';
+import { formatImageName } from '../utilities/formatImageName';
 
 export default function People() {
   const getNextPageParam = (lastPage: IPage<IStarship>) =>
     lastPage.next
-      ? lastPage.next.replace(`https://swapi.py4e.com/api/starships/?page=`, "")
+      ? lastPage.next.replace(`https://swapi.py4e.com/api/starships/?page=`, '')
       : null;
 
   const {
@@ -29,19 +29,19 @@ export default function People() {
     data: starships,
     hasNextPage,
     fetchNextPage,
-  } = useInfiniteFetchData<IPage<IStarship>>("starships", getNextPageParam);
+  } = useInfiniteFetchData<IPage<IStarship>>('starships', getNextPageParam);
 
-  const lastCard = useObserver(starships, hasNextPage, fetchNextPage);
+  const lastCard = useObserver(hasNextPage, fetchNextPage);
 
   if (isLoading) {
     return <IsLoading message={`starships`} />;
   }
   if (isError) {
-    return <IsError message="Unable to retrieve starships" />;
+    return <IsError message='Unable to retrieve starships' />;
   }
 
   return (
-    <InfiniteDataCards title="starships" data={starships}>
+    <InfiniteDataCards title='starships' data={starships}>
       {starships.pages.map((page) =>
         page.results?.map((starship, i) => {
           if (i + 1 === page.results.length) {
@@ -49,18 +49,18 @@ export default function People() {
               <InfiniteDataCard
                 ref={lastCard}
                 key={starship.name}
-                type="starships"
+                type='starships'
                 image={() => (
                   <Image
                     src={`/images/starships/${formatImageName(
                       starship.name
                     )}.webp`}
-                    fallback="/images/error_500x500.webp"
+                    fallback='/images/error_500x500.webp'
                     alt={starship.name}
                   />
                 )}
                 url={starship.url}
-                color="starships"
+                color='starships'
                 heading={starship.name}
                 body={<StringToStringArray string={starship.starship_class} />}
               />
@@ -69,18 +69,18 @@ export default function People() {
           return (
             <InfiniteDataCard
               key={starship.name}
-              type="starships"
+              type='starships'
               image={() => (
                 <Image
                   src={`/images/starships/${formatImageName(
                     starship.name
                   )}.webp`}
-                  fallback="/images/error_500x500.webp"
+                  fallback='/images/error_500x500.webp'
                   alt={starship.name}
                 />
               )}
               url={starship.url}
-              color="starships"
+              color='starships'
               heading={starship.name}
               body={<StringToStringArray string={starship.starship_class} />}
             />
