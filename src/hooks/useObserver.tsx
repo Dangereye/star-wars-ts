@@ -2,7 +2,6 @@ import { useCallback, useRef } from 'react';
 import {
   FetchNextPageOptions,
   InfiniteQueryObserverResult,
-  InfiniteData,
 } from '@tanstack/react-query';
 
 import { IFilm } from '../interfaces/film';
