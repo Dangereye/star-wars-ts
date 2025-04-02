@@ -1,11 +1,10 @@
-import { useRef, useEffect } from 'react';
+import { useCallback, useRef } from 'react';
 import {
   FetchNextPageOptions,
   InfiniteQueryObserverResult,
   InfiniteData,
 } from '@tanstack/react-query';
 
-// Interfaces
 import { IFilm } from '../interfaces/film';
 import { IPage } from '../interfaces/page';
 import { IPeople } from '../interfaces/people';
@@ -14,46 +13,41 @@ import { ISpecies } from '../interfaces/species';
 import { IStarship } from '../interfaces/starship';
 import { IVehicle } from '../interfaces/vehicle';
 
+type ItemType = IFilm | IPeople | ISpecies | IPlanet | IStarship | IVehicle;
+type PageType = IPage<ItemType>;
+
 export default function useObserver(
-  data:
-    | InfiniteData<
-        IPage<IFilm | IPeople | ISpecies | IPlanet | IStarship | IVehicle>
-      >
-    | undefined,
+  data: InfiniteData<PageType> | undefined,
   hasNextPage: boolean | undefined,
   fetchNextPage: (
-    options?: FetchNextPageOptions | undefined
-  ) => Promise<
-    InfiniteQueryObserverResult<
-      IPage<IFilm | IPeople | ISpecies | IPlanet | IStarship | IVehicle>,
-      unknown
-    >
-  >
+    options?: FetchNextPageOptions
+  ) => Promise<InfiniteQueryObserverResult<PageType, unknown>>
 ) {
-  const lastCard = useRef<HTMLAnchorElement | null>(null);
   const observer = useRef<IntersectionObserver | null>(null);
 
-  useEffect(() => {
-    if (!lastCard.current || !hasNextPage) return;
+  const lastCardRef = useCallback(
+    (node: HTMLAnchorElement | null) => {
+      if (!hasNextPage) return;
+      if (observer.current) observer.current.disconnect();
 
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          fetchNextPage();
+      observer.current = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            fetchNextPage().catch((err) =>
+              console.error('Error fetching next page:', err)
+            );
+          }
+        },
+        {
+          rootMargin: '400px',
+          threshold: 0.1,
         }
-      },
-      { rootMargin: '400px', threshold: 0.1 }
-    );
+      );
 
-    observer.current.observe(lastCard.current);
+      if (node) observer.current.observe(node);
+    },
+    [hasNextPage, fetchNextPage]
+  );
 
-    return () => {
-      if (observer.current) {
-        observer.current.disconnect();
-      }
-    };
-  }, [data, hasNextPage, fetchNextPage]);
-
-  return lastCard;
+  return lastCardRef;
 }
